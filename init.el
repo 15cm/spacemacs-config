@@ -104,12 +104,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
      linum-format "%4d |"
      linum-relative-format "%4s |"
      ))
-  ;; Display
-  (when (display-graphic-p)
-    (set-face-attribute 'default nil
-                        :font "Source Code Pro-11"
-                        :weight 'light
-                        ))
+  ;; Font
+  (set-face-attribute 'default nil
+                      :font "M+ 1m-12"
+                      )
 
   ;; add node exec to exec-path
   (setq exec-path (append exec-path '("~/.nodenv/shims")))

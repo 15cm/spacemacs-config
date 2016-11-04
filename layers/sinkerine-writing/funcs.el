@@ -1,3 +1,9 @@
+(defun trim-string (string)
+  "Remove white spaces in beginning and ending of STRING.
+White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
+  (replace-regexp-in-string "\\`[ \t\n]*" "" (replace-regexp-in-string "[ \t\n]*\\'" "" string))
+  )
+
 ;; impatient mode for org-mode
 (defun my-imp-org-to-html-filter (buffer)
   (let ((output-buffer (current-buffer))
@@ -54,7 +60,6 @@
       )
      ;; (org-display-inline-images t t))
      ;; C-drag-n-drop to open a file
-     file:///Applications/Quiver.app/Contents/Resources/html-build/quiver-image-url/2178047895B81099125F30DB78C65647.png
      ((and  (eq 'C-drag-n-drop (car event))
             (eq 'file type))
       (find-file fname))
@@ -79,18 +84,28 @@
          )
     (progn
       (kill-whole-line)
-      (insert (replace-regexp-in-string "\\[.*\\](http[s]?.*)" orglink line-text)
+      (insert (replace-regexp-in-string "\\[.*\\](http[s]?.*)" orglink line-text nil t)
       )
     )
   ))
 
+;; add spaces at the beginning and ending of $...$
+(defun my-add-spaces-around-inline-latex ()
+  (interactive)
+  (let* ((buf-content (buffer-string)))
+    (progn
+      (erase-buffer)
+      (goto-char (point-min))
+      (insert (replace-regexp-in-string "[:space:]*$[^$]*$[:space:]*"
+                                (lambda (x) (format " %s " (trim-string x)))
+                                buf-content nil t
+                                ))
+      )
+    )
+  )
+
 
 ;; blog post
-(defun trim-string (string)
-  "Remove white spaces in beginning and ending of STRING.
-White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
-  (replace-regexp-in-string "\\`[ \t\n]*" "" (replace-regexp-in-string "[ \t\n]*\\'" "" string))
-  )
 
 ;; const
 (setq blog-path "~/Geek/Github/15cm-site/blog")
@@ -105,16 +120,17 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
                                                 web-domain
                                                 folder
                                                 (file-name-nondirectory (substring x 2 -2))
+                                                nil t
                                                 ))
                             text)
   )
 
 (defun my-add-read-more (text)
   (let ((cnt 0))
-    (replace-regexp-in-string "\\*\\* .*" (lambda (x) (
-                                                       if (eq cnt 0) (progn (setq cnt (+ cnt 1)) (concat "{{{READMORE}}}\n" x))
-                                                        x))
-                              text))
+    (replace-regexp-in-string "\\*\\* .*"
+                              (lambda (x) (if (eq cnt 0) (progn (setq cnt (+ cnt 1)) (concat "{{{READMORE}}}\n" x))
+                                            x))
+                              text nil t))
   )
 
 (setq-default org-post-template-html (concat

@@ -9,6 +9,6 @@
 ;;
 ;;; License: GPLv3
 
-defconst sinkerine-better-defaults-packages
+(defconst sinkerine-better-defaults-packages
   '()
   )

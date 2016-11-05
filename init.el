@@ -92,8 +92,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("gnu-cn"   . "http://elpa.zilongshanren.com/gnu/")))
   ;; Themes
   (setq-default dotspacemacs-themes '(
-                                      sanityinc-tomorrow-eighties
                                       sanityinc-tomorrow-day
+                                      sanityinc-tomorrow-eighties
                                       sanityinc-tomorrow-bright
                                       sanityinc-tomorrow-night
                                       sanityinc-solarized-light
@@ -181,8 +181,8 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '(
-                               "Source Code Pro"
-                               :size 11
+                               "M+ 1m"
+                               :size 12
                                :weight normal
                                :width normal
                                )

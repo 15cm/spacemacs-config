@@ -45,12 +45,13 @@ values."
      javascript
      yaml
      html
-     markdown
      shell-scripts
      lua
 
      ;writing
      org
+     markdown
+     latex
 
      ;; services
      git

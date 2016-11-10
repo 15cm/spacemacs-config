@@ -11,11 +11,18 @@
 
 (defconst sinkerine-writing-packages
   '(
+    latex
     org
     impatient-mode
     org-preview-html
     prodigy
     )
+  )
+
+(defun sinkerine-writing/post-init-latex()
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))))
   )
 
 (defun sinkerine-writing/init-impatient-mode ()

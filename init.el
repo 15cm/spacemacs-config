@@ -85,6 +85,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Solve problem of hanging on startup
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+                             ("http" . "localhost:4411")
+                             ("https" . "localhost:4411")))
   (setq configuration-layer--elpa-archives
         '(("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")
           ("org-cn"   . "http://elpa.zilongshanren.com/org/")

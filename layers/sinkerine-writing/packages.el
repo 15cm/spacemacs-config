@@ -72,6 +72,14 @@
      :kill-process-buffer-on-stop t
      )
    (prodigy-define-service
+     :name "Hexo Clean"
+     :command hexo-exec
+     :args '("clean")
+     :cwd blog-path
+     :kill-signal 'sigkill
+     :kill-process-buffer-on-stop t
+     )
+   (prodigy-define-service
      :name "Hexo Server"
      :command hexo-exec
      :args '("server" "-o")

@@ -10,5 +10,14 @@
 ;;; License: GPLv3
 
 (defconst sinkerine-better-defaults-packages
-  '()
+  '(
+    emojify
+    ))
+
+(defun sinkerine-better-defaults/init-emojify()
+  (use-package emojify
+    :defer t
+    )
+  (setq-default emojify-display-style 'image)
+  (global-emojify-mode)
   )

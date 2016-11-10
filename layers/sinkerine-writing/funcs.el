@@ -40,7 +40,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
      ((and  (eq 'drag-n-drop (car event))
             (eq 'file type)
             (string-match img-regexp fname))
-      (insert "#+ATTR_ORG: :width 300 :align center")
+      (insert "#+ATTR_HTML: :width 480 :align center")
       (org-indent-line)
       (insert (concat  "\n#+CAPTION: " (read-input "Caption: ")))
       (org-indent-line)

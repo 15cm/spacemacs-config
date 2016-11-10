@@ -162,7 +162,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
                  "---\n"
                  "layout: post\n"
                  (format "title: %s\n" (trim-string (replace-regexp-in-string "\\*" "" (car first-line-list))))
-                 (format "date: <%s>\n" (format-time-string "%Y-%m-%d %a %H:%M"))
+                 (format "date: %s\n" (format-time-string "%Y-%m-%d %H:%M"))
                  (if (> (length first-line-list) 1) (format "tags: [%s]\n" (substring (mapconcat 'identity (cdr first-line-list) ",") 0 -1)) nil)
                  (format "categories: %s\n" (read-string "Categories(Notes):" nil nil "Notes"))
                  "---\n"

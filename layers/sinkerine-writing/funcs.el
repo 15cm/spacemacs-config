@@ -76,7 +76,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 (defun my-replace-current-mdlink-to-orglink ()
   (interactive)
   (let* ((line-text (thing-at-point 'line))
-         (tmp (string-match "\\(\\[.*\\]\\)\\((http[s]?.*)\\)" line-text))
+         (tmp (string-match "\\(\\[.*\\]\\)\\((http[s]?[^(]*)\\)" line-text))
          (orglink (format "[[%s][%s]]"
                           (substring (match-string 2 line-text) 1 -1)
                           (substring (match-string 1 line-text) 1 -1)
@@ -84,7 +84,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
          )
     (progn
       (kill-whole-line)
-      (insert (replace-regexp-in-string "\\[.*\\](http[s]?.*)" orglink line-text nil t)
+      (insert (replace-regexp-in-string "\\[.*\\](http[s]?[^(]*)" orglink line-text nil t)
       )
     )
   ))

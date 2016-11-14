@@ -51,7 +51,9 @@ values."
      ;writing
      org
      markdown
-     latex
+     (latex :variables
+            latex-build-command "XeLaTeX"
+            )
 
      ;; services
      git
@@ -67,7 +69,9 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      fzf
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -86,12 +90,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-                             ("http" . "localhost:4411")
                              ("https" . "localhost:4411")))
   (setq configuration-layer--elpa-archives
-        '(("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")
-          ("org-cn"   . "http://elpa.zilongshanren.com/org/")
-          ("gnu-cn"   . "http://elpa.zilongshanren.com/gnu/")))
+        '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   ;; Themes
   (setq-default dotspacemacs-themes '(
                                       sanityinc-tomorrow-day
@@ -128,6 +131,7 @@ you should place your code here."
   ;; (global-hl-line-mode -1) ; Disable current line highlight
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)
+  (global-pangu-spacing-mode -1)
 )
 
 (defun dotspacemacs/init ()

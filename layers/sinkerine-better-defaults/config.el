@@ -7,6 +7,11 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; encoding for repl env
+(setenv "LC_CTYPE" "UTF-8")
+(setenv "LC_ALL" "en_US.UTF-8")
+(setenv "LANG" "en_US.UTF-8")
+
 ;; Chinese font
 (spacemacs//set-monospaced-font "M+ 1m" "Hiragino Sans GB W3" 12 12)
 

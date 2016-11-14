@@ -58,6 +58,9 @@
       (setq org-agenda-use-tag-inheritance nil) ;; 3-4x speedup
       (load-library "find-lisp")
       (setq org-agenda-files (find-lisp-find-files "~/Geek/Wiki/notes" "\.org$"))
+
+      ;; line wrap
+      (setq org-startup-truncated nil)
       ))
   )
 

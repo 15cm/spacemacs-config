@@ -18,6 +18,3 @@
 ;;   )
 ;; (my-set-emoji-font)
 ;; (add-hook 'after-make-frame-functions 'my-set-emoji-font)
-
-;; line wrap
-(setq-default truncate-lines nil)

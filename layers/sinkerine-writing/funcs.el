@@ -17,11 +17,6 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
          (message "My org-imp-mode hook trigger")
          ))
 
-(defun my-find-notes ()
-  (interactive)
-  (helm-find-files-1 "/Users/sinkerine/Geek/Wiki/notes/")
-  )
-
 ;; drag and drop then copy image file to specified folder with default width
 (setq org-img-base-folder "/Users/sinkerine/Geek/Wiki/static/img")
 (defun my-dnd-func (event)

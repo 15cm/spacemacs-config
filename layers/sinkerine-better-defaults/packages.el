@@ -18,6 +18,7 @@
   (use-package emojify
     :defer t
     )
+  (emojify-set-emoji-styles '('unicode))
   (setq-default emojify-display-style 'image)
   (global-emojify-mode)
   )

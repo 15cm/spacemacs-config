@@ -5,3 +5,9 @@
 (setq TeX-view-program-selection '((output-pdf "Skim")))
 (setq TeX-view-program-list 
       '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o")))
+
+(with-eval-after-load 'latex
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))))
+  )

@@ -13,7 +13,9 @@
 (setenv "LANG" "en_US.UTF-8")
 
 ;; Chinese font
-(spacemacs//set-monospaced-font "M+ 1m" "Hiragino Sans GB W3" 12 12)
+(if (display-graphic-p)
+    (spacemacs//set-monospaced-font "M+ 1m" "Hiragino Sans GB W3" 12 12)
+    )
 
 ;; emoji (not work)
 ;; (defun my-set-emoji-font (&optional frame)

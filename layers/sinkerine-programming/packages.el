@@ -17,6 +17,7 @@
     editorconfig
     c++-mode
     sh-mode
+    python
     )
   )
 
@@ -36,4 +37,8 @@
 
 (defun sinkerine-programming/post-init-sh-mode ()
   (add-hook 'sh-mode-hook 'my-sh-mode-hook)
+  )
+
+(defun sinkerine-programming/post-init-python()
+  (add-hook 'python-mode-hook 'my-python-mode-hook)
   )

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ $1 ]; then
+    open -a "Marked 2" $1;
+else
+    open -a "Marked 2";
+fi

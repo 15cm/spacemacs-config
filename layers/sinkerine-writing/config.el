@@ -11,3 +11,6 @@
             (lambda ()
               (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))))
   )
+
+;; Markdown
+(setq markdown-open-command "~/.spacemacs.d/plugins/open-markdown-marked2.sh")

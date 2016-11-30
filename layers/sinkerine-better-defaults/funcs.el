@@ -31,5 +31,5 @@
 
 (defun my-find-notes ()
   (interactive)
-  (helm-find-files-1 "/Users/sinkerine/Geek/Wiki/notes/")
+  (fzf-directory "~/Geek/Wiki/notes/")
   )

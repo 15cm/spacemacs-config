@@ -93,8 +93,8 @@
    (prodigy-define-service
      :name "Blog Qiniu Upload"
      :command "/usr/local/bin/qshell"
-     :args '("qupload" "/Users/sinkerine/.qshell/blog_img.json")
-     :cwd "/Users/sinkerine/Geek/Wiki/static"
+     :args '("qupload" "~/.qshell/blog_img.json")
+     :cwd "~/Geek/Wiki/static"
      :kill-process-buffer-on-stop 'sigkill
      :kill-process-buffer-on-stop nil
      )

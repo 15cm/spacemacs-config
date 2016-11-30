@@ -18,6 +18,8 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     ;; my layer
+
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -29,7 +31,7 @@ values."
             shell-default-shell 'multi-term
             shell-default-height 30
             shell-default-position 'bottom)
-     ;; shell
+
      spell-checking
      chinese
 
@@ -60,7 +62,6 @@ values."
      github
      prodigy
 
-     ;; my layer
      sinkerine-better-defaults
      sinkerine-writing
      sinkerine-programming
@@ -131,7 +132,7 @@ you should place your code here."
   ;; (global-hl-line-mode -1) ; Disable current line highlight
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)
-  (global-pangu-spacing-mode -1)
+  (setq pangu-spacing-real-insert-separtor t)
 )
 
 (defun dotspacemacs/init ()

@@ -9,9 +9,8 @@
   (modify-syntax-entry ?_ "w")
   )
 
-(defun my-c++-mode-hook ()
-  (setq c-basic-offset 4
-        )
+(defun my-cc-mode-hook ()
+  (setq c-basic-offset 4)
   (modify-syntax-entry ?_ "w")
   )
 
@@ -24,4 +23,13 @@
 
 (defun my-python-mode-hook()
   (modify-syntax-entry ?_ "w")
+  )
+
+(defun my-elisp-mode-hook()
+  (modify-syntax-entry ?- "w")
+  )
+
+(defun my-moonscript-mode-hook ()
+  (setq moonscript-indent-offset 2)
+  (setq comment-start "-- ")
   )

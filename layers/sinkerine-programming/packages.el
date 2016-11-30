@@ -15,9 +15,11 @@
     nodejs-repl
     applescript-mode
     editorconfig
-    c++-mode
-    sh-mode
+    cc-mode
+    sh-script
     python
+    emacs-lisp
+    moonscript
     )
   )
 
@@ -31,14 +33,25 @@
     :defer t
     ))
 
-(defun sinkerine-programming/post-init-c++-mode ()
+(defun sinkerine-programming/post-init-cc-mode ()
   (add-hook 'c++-mode-hook 'my-c++-mode-hook)
+  (add-hook 'c-mode-hook 'my-c++-mode-hook)
   )
 
-(defun sinkerine-programming/post-init-sh-mode ()
+(defun sinkerine-programming/post-init-sh-script ()
   (add-hook 'sh-mode-hook 'my-sh-mode-hook)
   )
 
 (defun sinkerine-programming/post-init-python()
   (add-hook 'python-mode-hook 'my-python-mode-hook)
+  )
+
+(defun sinkerine-programming/post-init-emacs-lisp()
+  (add-hook 'emacs-lisp-mode-hook 'my-elisp-mode-hook))
+(defun sinkerine-programming/init-moonscript ()
+  (use-package moonscript
+    :init
+    :defer t
+    )
+  (add-hook 'moonscript-mode-hook 'my-moonscript-mode-hook)
   )

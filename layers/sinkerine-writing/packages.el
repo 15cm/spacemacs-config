@@ -40,7 +40,8 @@
       (define-key org-mode-map (kbd "<M-drag-n-drop>") 'my-dnd-func)
 
       (setq org-image-actual-width '(300))
-      (setq-default org-export-show-temporary-export-buffer nil)
+      (setq org-export-show-temporary-export-buffer nil)
+      (setq org-indent-mode 1)
       ;; blog post
       (spacemacs/set-leader-keys-for-major-mode 'org-mode ">" 'my-org-post-html)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode "C-p" 'org-preview-html-mode)
@@ -93,7 +94,7 @@
    (prodigy-define-service
      :name "Blog Qiniu Upload"
      :command "/usr/local/bin/qshell"
-     :args '("qupload" "~/.qshell/blog_img.json")
+     :args (list "qupload" (concat user-home-directory ".qshell/blog_img.json"))
      :cwd "~/Geek/Wiki/static"
      :kill-process-buffer-on-stop 'sigkill
      :kill-process-buffer-on-stop nil

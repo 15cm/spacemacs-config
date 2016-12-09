@@ -141,7 +141,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
          (first-line-list (split-string (car text-line-list) ":"))
          (body-text (mapconcat 'identity (cdr text-line-list) "\n"))
          (post-file (format "%s/%s.html" post-path (file-name-base buf-name)))
-         (post-created-date (shell-command-to-string (format "[ -f '%s' ] && head %s | grep 'date.*'" post-file post-file)))
+         (post-created-date (shell-command-to-string (format "[ -f '%s' ] && head %s | grep '^date.*'" post-file post-file)))
          (date-now (format "%s\n" (format-time-string "%Y-%m-%d %H:%M")))
          )
     ;; modify org file for html exporting

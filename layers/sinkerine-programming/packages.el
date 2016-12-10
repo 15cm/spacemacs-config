@@ -34,8 +34,8 @@
     ))
 
 (defun sinkerine-programming/post-init-cc-mode ()
-  (add-hook 'c++-mode-hook 'my-c++-mode-hook)
-  (add-hook 'c-mode-hook 'my-c++-mode-hook)
+  (add-hook 'c++-mode-hook 'my-cc-mode-hook)
+  (add-hook 'c-mode-hook 'my-cc-mode-hook)
   )
 
 (defun sinkerine-programming/post-init-sh-script ()

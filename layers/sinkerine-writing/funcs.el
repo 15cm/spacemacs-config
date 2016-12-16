@@ -162,7 +162,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
                  (if (equal "" post-created-date) (concat "date: " date-now) post-created-date)
                  (if (equal "" post-created-date) "" (concat "updated: " date-now))
                  (if (> (length first-line-list) 1) (format "tags: [%s]\n" (substring (mapconcat 'identity (cdr first-line-list) ",") 0 -1)) nil)
-                 (format "categories: %s\n" (read-string "Categories(Notes):" nil nil "Notes"))
+                 (format "categories: %s\n" (read-string "Categories(Note):" nil nil "Note"))
                  "---\n"
                  "{% raw %}\n"
                  ))

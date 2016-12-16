@@ -33,3 +33,8 @@
   (interactive)
   (fzf-directory "~/Geek/Wiki/notes/")
   )
+
+(defun my-find-codes ()
+  (interactive)
+  (fzf-directory "~/Geek/Wiki/static/code/")
+  )

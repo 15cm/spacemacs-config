@@ -37,8 +37,12 @@ values."
 
      ;; programming
      auto-completion
+     ycmd
      emacs-lisp
-     c-c++
+     (c-c++ :variables
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-clang-support t
+            )
      python
      (ruby :variables
            ruby-enable-enh-ruby-mode t
@@ -49,6 +53,7 @@ values."
      html
      shell-scripts
      lua
+     syntax-checking
 
      ;writing
      org
@@ -91,15 +96,20 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-                             ("https" . "localhost:4411")))
+                             ;; ("http" . "127.0.0.1:1090")
+                             ("https" . "127.0.0.1:1090")))
+  ;; (setq configuration-layer--elpa-archives
+  ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+  ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
+  ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
   (setq configuration-layer--elpa-archives
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   ;; Themes
   (setq-default dotspacemacs-themes '(
-                                      sanityinc-tomorrow-day
                                       sanityinc-tomorrow-eighties
+                                      sanityinc-tomorrow-day
                                       sanityinc-tomorrow-bright
                                       sanityinc-tomorrow-night
                                       sanityinc-solarized-light
@@ -133,6 +143,14 @@ you should place your code here."
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)
   (setq pangu-spacing-real-insert-separtor t)
+
+  ;; ycmd
+  (setq ycmd-server-command (list "/usr/local/bin/python" (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/third_party/ycmd/ycmd/")))
+  (setq ycmd-force-semantic-completion t)
+  (setq company-backends-c-mode-common '((
+                                         company-c-headers
+                                         company-ycmd
+                                         company-dabbrev :with company-yasnippet)))
 )
 
 (defun dotspacemacs/init ()

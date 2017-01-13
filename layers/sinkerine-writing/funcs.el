@@ -136,6 +136,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 (defun my-org-post-html ()
   (interactive)
   (let* ((buf-name (buffer-file-name))
+         (buf-dir-name (file-name-base (directory-file-name (file-name-directory buf-name))))
          (buf-content (my-add-read-more (my-text-imagelink-local-to-web qiniu-domain (file-name-base buf-name) (buffer-string))))
          (text-line-list (split-string buf-content "\n"))
          (first-line-list (split-string (car text-line-list) ":"))
@@ -162,7 +163,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
                  (if (equal "" post-created-date) (concat "date: " date-now) post-created-date)
                  (if (equal "" post-created-date) "" (concat "updated: " date-now))
                  (if (> (length first-line-list) 1) (format "tags: [%s]\n" (substring (mapconcat 'identity (cdr first-line-list) ",") 0 -1)) nil)
-                 (format "categories: %s\n" (read-string "Categories(Note):" nil nil "Note"))
+                 (format "categories: %s\n" (read-string (format "Categories(%s):" buf-dir-name) nil nil buf-dir-name))
                  "---\n"
                  "{% raw %}\n"
                  ))

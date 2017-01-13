@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     vimscript
      ;; my layer
 
      ;; ----------------------------------------------------------------
@@ -146,6 +147,7 @@ you should place your code here."
 
   ;; ycmd
   (setq ycmd-server-command (list "/usr/local/bin/python" (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/third_party/ycmd/ycmd/")))
+  (setq ycmd-global-config (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/global_conf.py"))
   (setq ycmd-force-semantic-completion t)
   (setq company-backends-c-mode-common '((
                                          company-c-headers

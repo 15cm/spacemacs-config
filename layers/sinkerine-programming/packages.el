@@ -20,8 +20,7 @@
     python
     emacs-lisp
     moonscript
-    )
-  )
+    ))
 
 (defun sinkerine-programming/post-init-js2-mode ()
   (add-hook 'js2-mode-hook 'my-js-mode-hook)
@@ -53,5 +52,5 @@
     :init
     :defer t
     )
-  (add-hook 'moonscript-mode-hook 'my-moonscript-mode-hook)
-  )
+  (add-hook 'moonscript-mode-hook 'my-moonscript-mode-hook))
+

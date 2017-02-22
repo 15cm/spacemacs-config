@@ -48,6 +48,7 @@ values."
      (ruby :variables
            ruby-enable-enh-ruby-mode t
            ruby-version-manager 'rbenv)
+     swift
      racket
      javascript
      yaml
@@ -78,6 +79,8 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       fzf
+                                      ;; company-sourcekit
+                                      editorconfig
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -144,6 +147,7 @@ you should place your code here."
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)
   (setq pangu-spacing-real-insert-separtor t)
+  (editorconfig-mode 1)
 
   ;; ycmd
   (setq ycmd-server-command (list "/usr/local/bin/python" (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/third_party/ycmd/ycmd/")))
@@ -153,6 +157,10 @@ you should place your code here."
                                          company-c-headers
                                          company-ycmd
                                          company-dabbrev :with company-yasnippet)))
+  ;; swift with sourcekittendaemon
+  ;; (add-to-list 'company-backends 'company-sourcekit)
+  ;; (setq sourcekit-curl-executable "/usr/bin/curl")
+  ;; (setq sourcekit-sourcekittendaemon-executable "/usr/local/bin/sourcekittendaemon")
 )
 
 (defun dotspacemacs/init ()

@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     sml
      vimscript
      ;; my layer
 
@@ -78,7 +79,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-                                      fzf
+                                      (fzf :location (recipe :fetcher github :repo "15cm/fzf.el"))
                                       ;; company-sourcekit
                                       editorconfig
                                       )

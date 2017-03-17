@@ -9,6 +9,8 @@
 (evil-leader/set-key "<SPC>d" 'fzf-directory)
 (evil-leader/set-key "<SPC>t" 'my-iterm-goto-filedir-or-home)
 (evil-leader/set-key "<SPC>w" 'my-find-wiki)
+(evil-leader/set-key "<SPC>a" 'helm-ag)
+(evil-leader/set-key "<SPC>A" 'helm-ag--project-root)
 
 (define-key company-active-map (kbd "C-f") 'right-char)
 (define-key company-filter-map (kbd "C-f") 'right-char)

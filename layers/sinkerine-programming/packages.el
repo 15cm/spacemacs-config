@@ -24,6 +24,8 @@
 
 (defun sinkerine-programming/post-init-js2-mode ()
   (add-hook 'js2-mode-hook 'my-js-mode-hook)
+  (add-hook 'js2-mode-hook 'ycmd-mode)
+  ;; (flycheck-select-checker 'javascript-eslint)
   )
 
 (defun sinkerine-programming/init-nodejs-repl ()
@@ -53,4 +55,6 @@
     :defer t
     )
   (add-hook 'moonscript-mode-hook 'my-moonscript-mode-hook))
+(defun sinkerine-programming/post-init-json-mode()
+  (add-hook 'json-mode-hook 'my-js-mode-hook))
 

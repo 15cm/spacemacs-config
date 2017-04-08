@@ -41,8 +41,12 @@
 
 (defun my-find-wiki ()
   (interactive)
-  (helm-find-files-1 (concat user-home-directory "Geek/Wiki/"))
-  )
+  (helm-find-files-1 (concat user-home-directory "Geek/Wiki/")))
+
+(defun my-helm-find ()
+  (interactive)
+  (setq current-prefix-arg '(4))
+  (call-interactively 'helm-find))
 
 (defun my-iterm-goto-filedir-or-home ()
   "Go to present working dir and focus iterm"

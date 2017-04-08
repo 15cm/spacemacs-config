@@ -2,6 +2,8 @@
 (evil-leader/set-key "C-r" 'dotspacemacs/sync-configuration-layers)
 (evil-leader/set-key "C-d" 'spacemacs/find-dotfile)
 
+(evil-leader/set-key "f /" 'my-helm-find)
+
 (spacemacs/declare-prefix "<SPC>" "better-defaults")
 (evil-leader/set-key "<SPC>n" 'my-fzf-notes)
 (evil-leader/set-key "<SPC>c" 'my-fzf-codes)

@@ -154,10 +154,8 @@ you should place your code here."
   (setq ycmd-server-command (list "/usr/local/bin/python" (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/third_party/ycmd/ycmd/")))
   (setq ycmd-global-config (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/global_conf.py"))
   (setq ycmd-force-semantic-completion t)
-  (setq company-backends-c-mode-common '((
-                                         company-c-headers
-                                         company-ycmd
-                                         company-dabbrev :with company-yasnippet)))
+  (add-to-list 'company-backends 'company-ycmd)
+  (add-to-list 'company-backends 'company-c-headers)
   ;; swift with sourcekittendaemon
   ;; (add-to-list 'company-backends 'company-sourcekit)
   ;; (setq sourcekit-curl-executable "/usr/bin/curl")
@@ -195,7 +193,6 @@ values."
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
-   ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
    dotspacemacs-startup-banner 'official
@@ -307,7 +304,7 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 90
+   dotspacemacs-inactive-transparency 70
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth

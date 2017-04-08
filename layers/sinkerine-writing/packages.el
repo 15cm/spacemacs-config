@@ -42,10 +42,6 @@
       (setq org-image-actual-width '(300))
       (setq org-export-show-temporary-export-buffer nil)
       (setq org-indent-mode 1)
-      ;; blog post
-      (spacemacs/set-leader-keys-for-major-mode 'org-mode ">" 'my-org-post-html)
-      (spacemacs/set-leader-keys-for-major-mode 'org-mode "C-p" 'org-preview-html-mode)
-      (spacemacs/set-leader-keys-for-major-mode 'org-mode "C-l" 'my-replace-current-mdlink-to-orglink)
       ;; agenda
       (setq org-agenda-inhibit-startup t)   ;; ~50x speedup
       (setq org-agenda-use-tag-inheritance nil) ;; 3-4x speedup

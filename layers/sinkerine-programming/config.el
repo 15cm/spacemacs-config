@@ -3,6 +3,8 @@
 (setq ycmd-global-config (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/global_conf.py"))
 (setq ycmd-force-semantic-completion t)
 
+;; company c headers
+(setq company-c-headers-path-system '("/usr/include/c++/4.2.1/"))
 
 ;; default indent style
 (setq-default indent-tabs-mode nil)

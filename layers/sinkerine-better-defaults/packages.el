@@ -11,14 +11,14 @@
 
 (defconst sinkerine-better-defaults-packages
   '(
-    emojify
+    ;; emojify
     ))
 
-(defun sinkerine-better-defaults/init-emojify()
-  (use-package emojify
-    :defer t
-    )
-  (emojify-set-emoji-styles '('unicode))
-  (setq-default emojify-display-style 'image)
-  (global-emojify-mode)
-  )
+;; (defun sinkerine-better-defaults/init-emojify()
+;;   (use-package emojify
+;;     :defer t
+;;     )
+;;   (emojify-set-emoji-styles '('unicode))
+;;   (setq-default emojify-display-style 'image)
+;;   (global-emojify-mode)
+;;   )

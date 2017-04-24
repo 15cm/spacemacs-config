@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     php
      sml
      vimscript
      ;; my layer
@@ -38,7 +39,11 @@ values."
      chinese
 
      ;; programming
-     auto-completion
+     (auto-completion :variables
+                      spacemacs-default-company-backends
+                      '((company-files company-capf)
+                       (company-abbrev company-dabbrev)
+                       ))
      ycmd
      emacs-lisp
      (c-c++ :variables
@@ -82,6 +87,7 @@ values."
                                       (fzf :location (recipe :fetcher github :repo "15cm/fzf.el"))
                                       ;; company-sourcekit
                                       editorconfig
+                                      vlf
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -101,7 +107,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-                             ;; ("http" . "127.0.0.1:1090")
+                             ("http" . "127.0.0.1:1090")
                              ("https" . "127.0.0.1:1090")))
   ;; (setq configuration-layer--elpa-archives
   ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
@@ -112,29 +118,25 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   ;; Themes
-  (setq-default dotspacemacs-themes '(
-                                      sanityinc-tomorrow-eighties
-                                      sanityinc-tomorrow-day
-                                      sanityinc-tomorrow-bright
-                                      sanityinc-tomorrow-night
-                                      sanityinc-solarized-light
-                                      ))
+  ;; (setq-default dotspacemacs-themes '(
+  ;;                                     ))
   ;; Fix problem of line number being too close in terminal
   (unless (display-graphic-p)
     (setq-default
      linum-format "%4d |"
      linum-relative-format "%4s |"
      ))
+
   ;; Font
   (set-face-attribute 'default nil
                       :font "M+ 1m-12"
                       )
-
   ;; add node exec to exec-path
   (setq exec-path (append exec-path '("~/.nodenv/shims")))
   ;; shell
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
   (setq-default exec-path-from-shell-check-startup-files nil)
+
 )
 
 (defun dotspacemacs/user-config ()
@@ -144,22 +146,13 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; (global-hl-line-mode -1) ; Disable current line highlight
+
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)
+  (company-statistics-mode)
   (setq pangu-spacing-real-insert-separtor t)
   (editorconfig-mode 1)
 
-  ;; ycmd
-  (setq ycmd-server-command (list "/usr/local/bin/python" (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/third_party/ycmd/ycmd/")))
-  (setq ycmd-global-config (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/global_conf.py"))
-  (setq ycmd-force-semantic-completion t)
-  (add-to-list 'company-backends 'company-ycmd)
-  (add-to-list 'company-backends 'company-c-headers)
-  ;; swift with sourcekittendaemon
-  ;; (add-to-list 'company-backends 'company-sourcekit)
-  ;; (setq sourcekit-curl-executable "/usr/bin/curl")
-  ;; (setq sourcekit-sourcekittendaemon-executable "/usr/local/bin/sourcekittendaemon")
 )
 
 (defun dotspacemacs/init ()
@@ -208,14 +201,20 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '()
+   dotspacemacs-themes '(
+                         sanityinc-tomorrow-eighties
+                         sanityinc-tomorrow-night
+                         ;; sanityinc-tomorrow-day
+                         ;; sanityinc-tomorrow-bright
+                         ;; sanityinc-solarized-light
+                         )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '(
-                               "M+ 1m"
-                               :size 12
+                               "Source Code Pro"
+                               :size 10
                                :weight normal
                                :width normal
                                )

@@ -18,9 +18,6 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     php
-     sml
-     vimscript
      ;; my layer
 
      ;; ----------------------------------------------------------------
@@ -44,6 +41,7 @@ values."
                       '((company-files company-capf)
                        (company-abbrev company-dabbrev)
                        ))
+     restclient
      ycmd
      emacs-lisp
      (c-c++ :variables
@@ -54,13 +52,13 @@ values."
      (ruby :variables
            ruby-enable-enh-ruby-mode t
            ruby-version-manager 'rbenv)
-     swift
-     racket
      javascript
      yaml
      html
-     shell-scripts
      lua
+     shell-scripts
+     vimscript
+
      syntax-checking
 
      ;writing
@@ -72,7 +70,7 @@ values."
 
      ;; services
      git
-     github
+     ;; github
      prodigy
 
      sinkerine-better-defaults
@@ -85,9 +83,9 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       (fzf :location (recipe :fetcher github :repo "15cm/fzf.el"))
-                                      ;; company-sourcekit
                                       editorconfig
                                       vlf
+                                      evil-smartparens
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -117,9 +115,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
-  ;; Themes
-  ;; (setq-default dotspacemacs-themes '(
-  ;;                                     ))
+
   ;; Fix problem of line number being too close in terminal
   (unless (display-graphic-p)
     (setq-default
@@ -127,16 +123,15 @@ before packages are loaded. If you are unsure, you should try in setting them in
      linum-relative-format "%4s |"
      ))
 
-  ;; Font
+  ;; Font for GUI
   (set-face-attribute 'default nil
                       :font "M+ 1m-12"
                       )
   ;; add node exec to exec-path
   (setq exec-path (append exec-path '("~/.nodenv/shims")))
-  ;; shell
+  ;; Shell bug fix
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
   (setq-default exec-path-from-shell-check-startup-files nil)
-
 )
 
 (defun dotspacemacs/user-config ()
@@ -153,6 +148,8 @@ you should place your code here."
   (setq pangu-spacing-real-insert-separtor t)
   (editorconfig-mode 1)
 
+  ;; smartparens
+  (add-hook 'smartparens-enabled-hook 'evil-smartparens-mode)
 )
 
 (defun dotspacemacs/init ()
@@ -170,7 +167,7 @@ values."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https nil
+   dotspacemacs-elpa-https t
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
@@ -276,7 +273,7 @@ values."
    dotspacemacs-enable-paste-micro-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.4
+   dotspacemacs-which-key-delay 0.2
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
    ;; right; if there is insufficient space it displays it at the bottom.
@@ -314,9 +311,9 @@ values."
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
    dotspacemacs-line-numbers 'relative
-   ;; If non-nil smartparens-
+   ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
@@ -341,4 +338,5 @@ values."
    ))
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
-(load custom-file 'no-error 'no-messagpep)
+(when (file-exists-p custom-file)
+  (load custom-file))

@@ -127,8 +127,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (set-face-attribute 'default nil
                       :font "M+ 1m-12"
                       )
-  ;; add node exec to exec-path
-  (setq exec-path (append exec-path '("~/.nodenv/shims")))
+  ;; add global binaries of node to exec-path
+  (setq-default node-version (shell-command-to-string "cat ~/.nvm/alias/default | tr -d '\n'"))
+  (setq-default node-bin-path (format "~/.nvm/versions/node/%s/bin" node-version))
+  (setq-default exec-path (append exec-path '(node-bin-path)))
   ;; Shell bug fix
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
   (setq-default exec-path-from-shell-check-startup-files nil)
@@ -335,7 +337,7 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
-   ))
+  ))
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (when (file-exists-p custom-file)

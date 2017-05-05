@@ -102,21 +102,11 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 
 ;; blog post
 
-;; const
-(setq blog-path (concat user-home-directory "Geek/Github/15cm-site/blog"))
-(setq hexo-exec  "~/.nodenv/shims/hexo")
-(setq post-path (concat blog-path "/source/_posts"))
-(setq qiniu-domain "http://7xrgcf.com1.z0.glb.clouddn.com")
-
-
 (defun my-text-imagelink-local-to-web (web-domain folder text)
   (replace-regexp-in-string "\\[\\[.*\\(png\\|jp[e]?g\\)\\]\\]"
-                            (lambda (x) (format "[[%s/%s/%s]]"
-                                                web-domain
-                                                folder
-                                                (file-name-nondirectory (substring x 2 -2))
-                                                nil t
-                                                ))
+                            (lambda (x) (format "[[%s/%s/%s]]" web-domain
+                                                folder (file-name-nondirectory (substring x 2 -2))
+                                                nil t))
                             text)
   )
 

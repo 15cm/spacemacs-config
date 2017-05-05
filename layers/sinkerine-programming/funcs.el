@@ -43,3 +43,15 @@
 (defun my-json-mode-hook ()
   (make-local-variable 'js-indent-level)
   (setq js-indent-level 2))
+
+(defun my-web-mode-hook ()
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-css-indent-offset 4)
+  (setq web-mode-markup-indent-offset 4)
+  (defun sp-web-mode-is-code-context (id action context)
+    (and (eq action 'insert)
+         (not (or (get-text-property (point) 'part-side)
+                  (get-text-property (point) 'block-side)))))
+
+  (sp-local-pair 'web-mode "<" nil :when '(sp-web-mode-is-code-context))
+  )

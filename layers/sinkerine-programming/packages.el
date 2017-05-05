@@ -24,8 +24,8 @@
 
 (defun sinkerine-programming/post-init-js2-mode ()
   (add-hook 'js2-mode-hook 'my-js-mode-hook)
-  (add-hook 'js2-mode-hook 'ycmd-mode)
   ;; (flycheck-select-checker 'javascript-eslint)
+  (spacemacs|add-company-backends :backends (company-files company-capf company-ycmd) :modes js2-mode)
   )
 
 (defun sinkerine-programming/init-nodejs-repl ()
@@ -37,10 +37,13 @@
 (defun sinkerine-programming/post-init-cc-mode ()
   (add-hook 'c++-mode-hook 'my-cc-mode-hook)
   (add-hook 'c-mode-hook 'my-cc-mode-hook)
+  (spacemacs|add-company-backends :backends (company-files company-capf company-c-headers company-ycmd) :modes c++-mode)
+  (spacemacs|add-company-backends :backends (company-files company-capf company-c-headers company-ycmd) :modes c-mode)
   )
 
 (defun sinkerine-programming/post-init-sh-script ()
   (add-hook 'sh-mode-hook 'my-sh-mode-hook)
+  (spacemacs|add-company-backends :backends (company-files company-capf company-shell) :modes sh-mode)
   )
 
 (defun sinkerine-programming/post-init-python()
@@ -56,5 +59,6 @@
     )
   (add-hook 'moonscript-mode-hook 'my-moonscript-mode-hook))
 (defun sinkerine-programming/post-init-json-mode()
-  (add-hook 'json-mode-hook 'my-js-mode-hook))
+  (add-hook 'json-mode-hook 'my-js-mode-hook)
+  )
 

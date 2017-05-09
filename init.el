@@ -11,6 +11,7 @@ values."
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
    dotspacemacs-distribution 'spacemacs
+
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
@@ -53,6 +54,7 @@ values."
            ruby-enable-enh-ruby-mode t
            ruby-version-manager 'rbenv)
      javascript
+     react
      yaml
      html
      lua
@@ -149,6 +151,18 @@ you should place your code here."
   (company-statistics-mode)
   (setq pangu-spacing-real-insert-separtor t)
   (editorconfig-mode 1)
+  (spacemacs/toggle-indent-guide-globally-on)
+
+  ;; Fix tab key in emmet-mode
+  (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
+  (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+  (evil-define-key 'emacs emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
+  (evil-define-key 'emacs emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+  (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
+  (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+
+  ;; Fix minimum prefix for company in web-mode
+  (setq company-minimum-prefix-length 2)
 
   ;; smartparens
   (add-hook 'smartparens-enabled-hook 'evil-smartparens-mode)

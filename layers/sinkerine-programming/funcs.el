@@ -1,5 +1,5 @@
 ;; hooks
-(defun my-js-mode-hook ()
+(defun my-js-mode-hook()
   (setq js2-basic-offset 2
         js-indent-level 2
         js2-include-node-externs t
@@ -15,7 +15,7 @@
     (pop-to-buffer (make-comint (format "node-repl-%s" cwd) "node" nil "--interactive"))))
 
 
-(defun my-cc-mode-hook ()
+(defun my-cc-mode-hook()
   (setq c-basic-offset 4)
   (modify-syntax-entry ?_ "w")
   )
@@ -45,9 +45,9 @@
   (setq js-indent-level 2))
 
 (defun my-web-mode-hook ()
-  (setq web-mode-code-indent-offset 4)
-  (setq web-mode-css-indent-offset 4)
-  (setq web-mode-markup-indent-offset 4)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2)
   (defun sp-web-mode-is-code-context (id action context)
     (and (eq action 'insert)
          (not (or (get-text-property (point) 'part-side)

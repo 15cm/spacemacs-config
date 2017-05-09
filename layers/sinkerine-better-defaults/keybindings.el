@@ -15,7 +15,6 @@
 
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-f") 'right-char)
-  (define-key company-filter-map (kbd "C-f") 'right-char)
   )
 
 (evil-define-key 'normal term-raw-map (kbd "C-n") 'term-send-down)

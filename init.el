@@ -153,16 +153,8 @@ you should place your code here."
   (editorconfig-mode 1)
   (spacemacs/toggle-indent-guide-globally-on)
 
-  ;; Fix tab key in emmet-mode
-  (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
-  (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
-  (evil-define-key 'emacs emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
-  (evil-define-key 'emacs emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
-  (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
-  (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
-
   ;; Fix minimum prefix for company in web-mode
-  (setq company-minimum-prefix-length 2)
+  (eval-after-load 'web-mode-hook (kill-local-variable 'company-minimum-prefix-length))
 
   ;; smartparens
   (add-hook 'smartparens-enabled-hook 'evil-smartparens-mode)

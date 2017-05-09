@@ -20,6 +20,7 @@
     emacs-lisp
     moonscript
     web-mode
+    emmet-mode
     ))
 
 (defun sinkerine-programming/post-init-js2-mode()
@@ -69,4 +70,20 @@
 (defun sinkerine-programming/post-init-web-mode()
   (add-hook 'web-mode-hook 'my-web-mode-hook)
   (add-hook 'web-mode-hook #'smartparens-mode)
+  )
+
+(defun sinkerine-programming/init-emmet-mode()
+  ;; (add-hook 'emmet-mode 'my-emmet-mode-hook)
+  (use-package emmet-mode
+    :defer t
+    :config
+    (progn
+      (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
+      (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+      (evil-define-key 'emacs emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
+      (evil-define-key 'emacs emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+      (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
+      (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+      )
+    )
   )

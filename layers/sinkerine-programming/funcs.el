@@ -35,16 +35,16 @@
   (modify-syntax-entry ?- "w")
   )
 
-(defun my-moonscript-mode-hook ()
+(defun my-moonscript-mode-hook()
   (setq moonscript-indent-offset 2)
   (setq comment-start "-- ")
   )
 
-(defun my-json-mode-hook ()
+(defun my-json-mode-hook()
   (make-local-variable 'js-indent-level)
   (setq js-indent-level 2))
 
-(defun my-web-mode-hook ()
+(defun my-web-mode-hook()
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)

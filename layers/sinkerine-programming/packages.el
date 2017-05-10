@@ -73,7 +73,6 @@
   )
 
 (defun sinkerine-programming/init-emmet-mode()
-  ;; (add-hook 'emmet-mode 'my-emmet-mode-hook)
   (use-package emmet-mode
     :defer t
     :config

@@ -153,9 +153,6 @@ you should place your code here."
   (editorconfig-mode 1)
   (spacemacs/toggle-indent-guide-globally-on)
 
-  ;; Fix minimum prefix for company in web-mode
-  (eval-after-load 'web-mode-hook (kill-local-variable 'company-minimum-prefix-length))
-
   ;; smartparens
   (add-hook 'smartparens-enabled-hook 'evil-smartparens-mode)
 )

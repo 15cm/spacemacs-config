@@ -48,6 +48,8 @@
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-enable-current-element-highlight t)
+  (set-face-background 'web-mode-current-element-highlight-face "color-99")
   (defun sp-web-mode-is-code-context (id action context)
     (and (eq action 'insert)
          (not (or (get-text-property (point) 'part-side)

@@ -152,9 +152,6 @@ you should place your code here."
   (setq pangu-spacing-real-insert-separtor t)
   (editorconfig-mode 1)
   (spacemacs/toggle-indent-guide-globally-on)
-
-  ;; smartparens
-  (add-hook 'smartparens-enabled-hook 'evil-smartparens-mode)
 )
 
 (defun dotspacemacs/init ()
@@ -318,7 +315,7 @@ values."
    dotspacemacs-line-numbers 'relative
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode t
+   dotspacemacs-smartparens-strict-mode nil
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)

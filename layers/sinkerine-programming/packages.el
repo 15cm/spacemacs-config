@@ -25,8 +25,7 @@
 
 (defun sinkerine-programming/post-init-js2-mode()
   (add-hook 'js2-mode-hook 'my-js-mode-hook)
-  (add-hook 'js2-mode-hook 'ycmd-mode)
-  (spacemacs|add-company-backends :backends (company-files company-capf company-ycmd) :modes js2-mode)
+  (spacemacs|add-company-backends :backends (company-files company-capf company-tern) :modes js2-mode)
   )
 
 (defun sinkerine-programming/init-nodejs-repl()
@@ -69,7 +68,9 @@
 
 (defun sinkerine-programming/post-init-web-mode()
   (add-hook 'web-mode-hook 'my-web-mode-hook)
+  (add-hook 'web-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook #'smartparens-mode)
+  (spacemacs|add-company-backends :backends (company-files company-capf company-css company-html) :modes web-mode)
   )
 
 (defun sinkerine-programming/init-emmet-mode()
@@ -83,6 +84,8 @@
       (evil-define-key 'emacs emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
       (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
       (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+      (evil-define-key 'insert emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand)
+      (evil-define-key 'hybrid emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand)
       )
     )
   )

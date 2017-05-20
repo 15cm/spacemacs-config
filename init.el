@@ -129,6 +129,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (set-face-attribute 'default nil
                       :font "M+ 1m-12"
                       )
+  (setenv "INSIDE_EMACS" "true")
   ;; add global binaries of node to exec-path
   (setq-default node-version (shell-command-to-string "cat ~/.nvm/alias/default | tr -d '\n'"))
   (setq-default node-bin-path (format "~/.nvm/versions/node/%s/bin" node-version))
@@ -152,6 +153,16 @@ you should place your code here."
   (setq pangu-spacing-real-insert-separtor t)
   (editorconfig-mode 1)
   (spacemacs/toggle-indent-guide-globally-on)
+
+  ;; helm-ag
+  (setq-default helm-ag-fuzzy-match t)
+  (setq-default helm-ag-use-agignore t)
+
+  ;; default indent style
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  (setq-default tab-always-indent t)
+
 )
 
 (defun dotspacemacs/init ()

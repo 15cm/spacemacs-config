@@ -25,7 +25,8 @@
 
 (defun sinkerine-programming/post-init-js2-mode()
   (add-hook 'js2-mode-hook 'my-js-mode-hook)
-  (spacemacs|add-company-backends :backends (company-files company-capf company-tern) :modes js2-mode)
+  (add-hook 'js2-mode-hook 'ycmd-mode)
+  (spacemacs|add-company-backends :backends (company-files company-capf company-ycmd) :modes js2-mode)
   )
 
 (defun sinkerine-programming/init-nodejs-repl()

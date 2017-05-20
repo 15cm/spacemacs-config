@@ -4,6 +4,7 @@
         js-indent-level 2
         js2-include-node-externs t
         js2-strict-missing-semi-warning nil
+        js2-bounce-indent-p t
         )
   ;; include '_' in word motion
   (modify-syntax-entry ?_ "w")

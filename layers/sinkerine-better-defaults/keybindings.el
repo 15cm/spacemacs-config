@@ -15,8 +15,7 @@
 
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-f") 'right-char)
-  (define-key company-active-map (kbd "<RET>") 'newline-and-indent)
-  (define-key company-active-map (kbd "TAB") 'company-complete-selection)
+  (define-key company-active-map (kbd "<C-return>") 'newline-and-indent)
   )
 
 (evil-define-key 'normal term-raw-map (kbd "C-n") 'term-send-down)

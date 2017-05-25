@@ -48,6 +48,9 @@
       (load-library "find-lisp")
       (setq org-agenda-files (find-lisp-find-files "~/Geek/Wiki/notes" "\.org$"))
 
+      ;; Disable underscore to subscript
+      (setq org-export-with-sub-superscripts nil)
+
       ;; line wrap
       (setq org-startup-truncated nil)
       ))

@@ -87,7 +87,6 @@ values."
                                       (fzf :location (recipe :fetcher github :repo "15cm/fzf.el"))
                                       editorconfig
                                       vlf
-                                      evil-smartparens
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -108,15 +107,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\)")
                              ("http" . "127.0.0.1:1090")
-                             ("https" . "127.0.0.1:1090")))
-  ;; (setq configuration-layer--elpa-archives
-  ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-  ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
-  ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+                             ("https" . "127.0.0.1:1090")
+                             ))
   (setq configuration-layer--elpa-archives
-        '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+          ("org-cn"   . "http://elpa.emacs-china.org/org/")
+          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
 
   ;; Fix problem of line number being too close in terminal
   (unless (display-graphic-p)
@@ -162,7 +158,6 @@ you should place your code here."
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4)
   (setq-default tab-always-indent t)
-
 )
 
 (defun dotspacemacs/init ()
@@ -350,6 +345,3 @@ values."
    dotspacemacs-whitespace-cleanup nil
   ))
 
-(setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))

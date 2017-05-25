@@ -70,7 +70,7 @@
 (defun sinkerine-programming/post-init-web-mode()
   (add-hook 'web-mode-hook 'my-web-mode-hook)
   (add-hook 'web-mode-hook 'emmet-mode)
-  (add-hook 'web-mode-hook #'smartparens-mode)
+  (add-hook 'web-mode-hook #'turn-on-smartparens-mode t)
   (spacemacs|add-company-backends :backends (company-files company-capf company-css company-html) :modes web-mode)
   )
 

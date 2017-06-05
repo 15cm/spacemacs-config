@@ -17,3 +17,6 @@
 ;; react-mode
 (add-hook 'react-mode-hook 'ycmd-mode)
 (spacemacs|add-company-backends :backends (company-files company-capf company-ycmd) :modes react-mode)
+
+;; dockerfile-mode
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))

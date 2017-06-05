@@ -84,7 +84,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-                                      (fzf :location (recipe :fetcher github :repo "15cm/fzf.el"))
+                                      fzf
                                       editorconfig
                                       vlf
                                       )
@@ -105,14 +105,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Solve problem of hanging on startup
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-  (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-                             ("http" . "127.0.0.1:1090")
-                             ("https" . "127.0.0.1:1090")
-                             ))
-  (setq configuration-layer--elpa-archives
-        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-          ("org-cn"   . "http://elpa.emacs-china.org/org/")
-          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+  ;; (setq configuration-layer--elpa-archives
+  ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+  ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
+  ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
 
   ;; Fix problem of line number being too close in terminal
   (unless (display-graphic-p)
@@ -149,6 +145,9 @@ you should place your code here."
   (setq pangu-spacing-real-insert-separtor t)
   (editorconfig-mode 1)
   (spacemacs/toggle-indent-guide-globally-on)
+
+  (spacemacs/disable-transparency)
+  (spacemacs/toggle-transparency)
 
   ;; helm-ag
   (setq-default helm-ag-fuzzy-match t)

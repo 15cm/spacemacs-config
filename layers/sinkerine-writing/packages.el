@@ -18,20 +18,20 @@
     )
   )
 
-(defun sinkerine-writing/init-impatient-mode ()
+(defun sinkerine-writing/init-impatient-mode()
   (use-package impatient-mode
     :defer t
     )
   (add-hook 'impatient-mode-hook 'my-impatient-mode-hook)
   )
 
-(defun sinkerine-writing/init-org-preview-html ()
+(defun sinkerine-writing/init-org-preview-html()
   (use-package org-preview-html
     :defer t
     )
   )
 
-(defun sinkerine-writing/post-init-org ()
+(defun sinkerine-writing/post-init-org()
   (with-eval-after-load 'org
     (progn
       (define-key org-mode-map (kbd "<drag-n-drop>") 'my-dnd-func)
@@ -56,7 +56,7 @@
       ))
   )
 
-(defun sinkerine-writing/post-init-prodigy ()
+(defun sinkerine-writing/post-init-prodigy()
    (setq hexo-exec "hexo")
    (prodigy-define-service
      :name "Hexo Generate"

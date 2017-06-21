@@ -64,7 +64,8 @@ values."
      syntax-checking
 
      ;writing
-     org
+     (org :variables
+          org-enable-github-support t)
      markdown
      (latex :variables
             latex-build-command "XeLaTeX"
@@ -87,6 +88,8 @@ values."
                                       fzf
                                       editorconfig
                                       vlf
+                                      applescript-mode
+                                      dockerfile-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -307,7 +310,7 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 70
+   dotspacemacs-inactive-transparency 80
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth

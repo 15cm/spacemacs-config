@@ -12,7 +12,5 @@
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LANG" "en_US.UTF-8")
 
-;; Chinese font
-;; (if (display-graphic-p)
-;;     (spacemacs//set-monospaced-font "M+ 1m" "Hiragino Sans GB W3" 12 12)
-;;     )
+;; pangu-spacing
+(setq pangu-spacing-real-insert-separtor t)

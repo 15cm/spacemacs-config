@@ -120,10 +120,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
      linum-relative-format "%4s |"
      ))
 
-  ;; Font for GUI
-  (set-face-attribute 'default nil
-                      :font "M+ 1m-12"
-                      )
   (setenv "INSIDE_EMACS" "true")
   ;; add global binaries of node to exec-path
   (setq-default node-version (shell-command-to-string "cat ~/.nvm/alias/default | tr -d '\n'"))
@@ -145,7 +141,6 @@ you should place your code here."
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)
   (company-statistics-mode)
-  (setq pangu-spacing-real-insert-separtor t)
   (editorconfig-mode 1)
   (spacemacs/toggle-indent-guide-globally-on)
 

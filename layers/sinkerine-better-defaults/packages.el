@@ -11,4 +11,15 @@
 
 (defconst sinkerine-better-defaults-packages
   '(
-    ))
+    chinese-fonts-setup
+    )
+  )
+
+(defun sinkerine-better-defaults/init-chinese-fonts-setup()
+  (use-package chinese-fonts-setup
+    :config
+    (require 'chinese-fonts-setup)
+    (chinese-fonts-setup-enable)
+    (setq cfs-profiles '("programming" "reading" "spare"))
+    )
+  )

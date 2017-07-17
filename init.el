@@ -144,8 +144,8 @@ you should place your code here."
   (editorconfig-mode 1)
   (spacemacs/toggle-indent-guide-globally-on)
 
-  (spacemacs/disable-transparency)
-  (spacemacs/toggle-transparency)
+  ;; (spacemacs/disable-transparency)
+  ;; (spacemacs/toggle-transparency)
 
   ;; helm-ag
   (setq-default helm-ag-fuzzy-match t)
@@ -204,11 +204,8 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+                         solarized-light
                          sanityinc-tomorrow-eighties
-                         sanityinc-tomorrow-night
-                         ;; sanityinc-tomorrow-day
-                         ;; sanityinc-tomorrow-bright
-                         ;; sanityinc-solarized-light
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t

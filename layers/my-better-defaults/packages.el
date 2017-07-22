@@ -1,4 +1,4 @@
-;;; packages.el --- sinkerine-better-defaults layer packages file for Spacemacs.
+;;; packages.el --- my-better-defaults layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2012-2016 Sylvain Benner & Contributors
 ;;
@@ -9,17 +9,15 @@
 ;;
 ;;; License: GPLv3
 
-(defconst sinkerine-better-defaults-packages
+(defconst my-better-defaults-packages
   '(
     chinese-fonts-setup
-    )
-  )
+    ))
 
-(defun sinkerine-better-defaults/init-chinese-fonts-setup()
+(defun my-better-defaults/init-chinese-fonts-setup()
   (use-package chinese-fonts-setup
     :config
     (require 'chinese-fonts-setup)
     (chinese-fonts-setup-enable)
     (setq cfs-profiles '("programming" "reading" "spare"))
-    )
-  )
+    ))

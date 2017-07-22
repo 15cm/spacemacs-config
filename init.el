@@ -47,8 +47,7 @@ values."
      emacs-lisp
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
-            c-c++-enable-clang-support t
-            )
+            c-c++-enable-clang-support t)
      python
      (ruby :variables
            ruby-enable-enh-ruby-mode t
@@ -68,17 +67,16 @@ values."
           org-enable-github-support t)
      markdown
      (latex :variables
-            latex-build-command "XeLaTeX"
-            )
+            latex-build-command "XeLaTeX")
 
      ;; services
      git
      ;; github
      prodigy
 
-     sinkerine-better-defaults
-     sinkerine-writing
-     sinkerine-programming
+     my-better-defaults
+     my-writing
+     my-programming
     )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -90,6 +88,7 @@ values."
                                       vlf
                                       applescript-mode
                                       dockerfile-mode
+                                      rainbow-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -117,8 +116,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (unless (display-graphic-p)
     (setq-default
      linum-format "%4d |"
-     linum-relative-format "%4s |"
-     ))
+     linum-relative-format "%4s |"))
 
   (setenv "INSIDE_EMACS" "true")
   ;; add global binaries of node to exec-path
@@ -339,3 +337,53 @@ values."
    dotspacemacs-whitespace-cleanup nil
   ))
 
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(evil-want-Y-yank-to-eol t)
+ '(fci-rule-color "#515151")
+ '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
+ '(package-selected-packages
+   (quote
+    (rainbow-mode solarized-theme molokai-theme chinese-fonts-setup hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme firebelly-theme farmhouse-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme nord-theme evil-org ox-gfm applescript-mode dockerfile-mode fzf yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vlf vimrc-mode vi-tilde-fringe uuidgen use-package toc-org tagedit symon string-inflection spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restclient-helm restart-emacs realgud rbenv rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode prodigy popwin pip-requirements persp-mode pbcopy paradox pangu-spacing osx-trash osx-dictionary orgit org-projectile org-preview-html org-present org-pomodoro org-download org-bullets open-junk-file ob-restclient ob-http nodejs-repl neotree multi-term move-text moonscript mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc insert-shebang info+ indent-guide impatient-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flycheck-ycmd flycheck-pos-tip flx-ido fish-mode find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help enh-ruby-mode emmet-mode elisp-slime-nav editorconfig dumb-jump disaster dactyl-mode cython-mode company-ycmd company-web company-tern company-statistics company-shell company-restclient company-lua company-c-headers company-auctex company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow coffee-mode cmake-mode clean-aindent-mode clang-format chruby chinese-pyim bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ace-jump-helm-line ac-ispell)))
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#f2777a")
+     (40 . "#f99157")
+     (60 . "#ffcc66")
+     (80 . "#99cc99")
+     (100 . "#66cccc")
+     (120 . "#6699cc")
+     (140 . "#cc99cc")
+     (160 . "#f2777a")
+     (180 . "#f99157")
+     (200 . "#ffcc66")
+     (220 . "#99cc99")
+     (240 . "#66cccc")
+     (260 . "#6699cc")
+     (280 . "#cc99cc")
+     (300 . "#f2777a")
+     (320 . "#f99157")
+     (340 . "#ffcc66")
+     (360 . "#99cc99"))))
+ '(vc-annotate-very-old-color nil)
+ '(yas-snippet-dirs
+   (quote
+    ("/Users/sinkerine/.spacemacs.d/snippets" "/Users/sinkerine/.spacemacs.d/snippets" yas-installed-snippets-dir "/Users/sinkerine/.emacs.d/layers/+completion/auto-completion/local/snippets"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)

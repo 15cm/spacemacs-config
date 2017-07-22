@@ -1,4 +1,4 @@
-;; packages.el --- sinkerine-writting layer packages file for Spacemacs.
+;; packages.el --- my-writting layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2012-2016 Sylvain Benner & Contributors
 ;;
@@ -9,29 +9,24 @@
 ;;
 ;;; License: GPLv3
 
-(defconst sinkerine-writing-packages
+(defconst my-writing-packages
   '(
     org
     impatient-mode
     org-preview-html
     prodigy
-    )
-  )
+    ))
 
-(defun sinkerine-writing/init-impatient-mode()
+(defun my-writing/init-impatient-mode()
   (use-package impatient-mode
-    :defer t
-    )
-  (add-hook 'impatient-mode-hook 'my-impatient-mode-hook)
-  )
+    :defer t)
+  (add-hook 'impatient-mode-hook 'my-impatient-mode-hook))
 
-(defun sinkerine-writing/init-org-preview-html()
+(defun my-writing/init-org-preview-html()
   (use-package org-preview-html
-    :defer t
-    )
-  )
+    :defer t))
 
-(defun sinkerine-writing/post-init-org()
+(defun my-writing/post-init-org()
   (with-eval-after-load 'org
     (progn
       (define-key org-mode-map (kbd "<drag-n-drop>") 'my-dnd-func)
@@ -52,11 +47,9 @@
       (setq org-export-with-sub-superscripts nil)
 
       ;; line wrap
-      (setq org-startup-truncated nil)
-      ))
-  )
+      (setq org-startup-truncated nil))))
 
-(defun sinkerine-writing/post-init-prodigy()
+(defun my-writing/post-init-prodigy()
    (setq hexo-exec "hexo")
    (prodigy-define-service
      :name "Hexo Generate"
@@ -97,5 +90,4 @@
      :cwd "~/Geek/Wiki/static"
      :kill-process-buffer-on-stop 'sigkill
      :kill-process-buffer-on-stop nil
-     )
-  )
+     ))

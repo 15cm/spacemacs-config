@@ -1,12 +1,10 @@
 (defun my-fzf-notes ()
   (interactive)
-  (fzf-directory "~/Geek/Wiki/notes/")
-  )
+  (fzf-directory "~/Geek/Wiki/notes/"))
 
 (defun my-fzf-codes ()
   (interactive)
-  (fzf-directory "~/Geek/Wiki/static/code/")
-  )
+  (fzf-directory "~/Geek/Wiki/static/code/"))
 
 (defun my-find-wiki ()
   (interactive)
@@ -25,6 +23,4 @@
                                       (shell-quote-argument (or default-directory "~"))))
     "   end tell\n"
     " end tell\n"
-    " do shell script \"open -a iTerm\"\n"
-    ))
-  )
+    " do shell script \"open -a iTerm\"\n")))

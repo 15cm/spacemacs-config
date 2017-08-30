@@ -1,10 +1,10 @@
 (defun my-fzf-notes ()
   (interactive)
-  (fzf-directory "~/Geek/Wiki/notes/"))
+  (fzf/start "~/Geek/Wiki/notes/"))
 
 (defun my-fzf-codes ()
   (interactive)
-  (fzf-directory "~/Geek/Wiki/static/code/"))
+  (fzf/start "~/Geek/Wiki/static/code/"))
 
 (defun my-find-wiki ()
   (interactive)

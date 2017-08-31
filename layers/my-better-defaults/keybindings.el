@@ -11,7 +11,7 @@
 (evil-leader/set-key "<SPC>t" 'my-iterm-goto-filedir-or-home)
 (evil-leader/set-key "<SPC>w" 'my-find-wiki)
 (evil-leader/set-key "<SPC>a" 'helm-ag)
-(evil-leader/set-key "<SPC>A" 'helm-ag--project-root)
+(evil-leader/set-key "<SPC>A" 'helm-ag-project-root)
 (evil-leader/set-key "<SPC>'" 'switch-clipboard-mode)
 
 (with-eval-after-load 'company

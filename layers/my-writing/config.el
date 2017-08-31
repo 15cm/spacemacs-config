@@ -16,6 +16,7 @@
 (setq markdown-open-command "~/.spacemacs.d/plugins/open-markdown-marked2.sh")
 
 ;; Blog
+(setq-default node-bin-path (getenv "NVM_BIN"))
 (setq blog-path (concat user-home-directory "Geek/repos/15cm-site/blog"))
 (setq hexo-exec (concat node-bin-path "/hexo"))
 (setq post-path (concat blog-path "/source/_posts"))

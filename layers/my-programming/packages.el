@@ -21,6 +21,7 @@
     moonscript
     web-mode
     emmet-mode
+    ensime
     ))
 
 (defun my-programming/post-init-js2-mode()
@@ -79,3 +80,13 @@
       (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
       (evil-define-key 'insert emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand)
       (evil-define-key 'hybrid emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand))))
+
+(defun my-programming/init-ensime()
+  (use-package ensime
+    :ensure t
+    :pin melpa-stable
+    :defer t
+    :config
+    (progn
+      (setq ensime-startup-notification nil))
+   ))

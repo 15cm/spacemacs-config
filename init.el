@@ -126,6 +126,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Shell bug fix
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
   (setq-default exec-path-from-shell-check-startup-files nil)
+
+  ;; ensime
+  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
+  (push '("ensime" . "melpa-stable") package-pinned-packages)
 )
 
 (defun dotspacemacs/user-config ()
@@ -349,6 +353,8 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
+ '(ensime-startup-notification nil)
+ '(ensime-startup-snapshot-notification nil)
  '(evil-want-Y-yank-to-eol t)
  '(fci-rule-color "#515151")
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))

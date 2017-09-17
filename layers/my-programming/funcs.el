@@ -50,3 +50,6 @@
                   (get-text-property (point) 'block-side)))))
 
   (sp-local-pair 'web-mode "<" nil :when '(sp-web-mode-is-code-context)))
+
+(defun my-sql-mode-hook()
+  (setq tab-width 2))

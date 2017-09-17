@@ -59,6 +59,7 @@ values."
      lua
      shell-scripts
      vimscript
+     sql
 
      syntax-checking
 

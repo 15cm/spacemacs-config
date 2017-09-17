@@ -22,6 +22,7 @@
     web-mode
     emmet-mode
     ensime
+    sql
     ))
 
 (defun my-programming/post-init-js2-mode()

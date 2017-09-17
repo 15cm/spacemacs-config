@@ -41,6 +41,7 @@ values."
                       spacemacs-default-company-backends
                       '((company-files company-capf)
                        (company-abbrev company-dabbrev)
+                       company-yasnippet
                        ))
      restclient
      ycmd
@@ -125,10 +126,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; Speed up launch
   (setq-default exec-path-from-shell-check-startup-files nil)
-
-  ;; ensime
-  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
-  (push '("ensime" . "melpa-stable") package-pinned-packages)
 )
 
 (defun dotspacemacs/user-config ()
@@ -151,11 +148,6 @@ you should place your code here."
   ;; helm-ag
   (setq-default helm-ag-fuzzy-match t)
   (setq-default helm-ag-use-agignore t)
-
-  ;; default indent style
-  (setq-default indent-tabs-mode nil)
-  (setq-default tab-width 4)
-  (setq-default tab-always-indent t)
 )
 
 (defun dotspacemacs/init ()
@@ -352,10 +344,8 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
- '(ensime-startup-notification nil)
- '(ensime-startup-snapshot-notification nil)
  '(evil-want-Y-yank-to-eol t)
- '(fci-rule-color "#515151")
+ '(fci-rule-color "#515151" t)
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(package-selected-packages
    (quote
@@ -384,7 +374,7 @@ This function is called at the very end of Spacemacs initialization."
  '(vc-annotate-very-old-color nil)
  '(yas-snippet-dirs
    (quote
-    ("/Users/sinkerine/.spacemacs.d/snippets" "/Users/sinkerine/.spacemacs.d/snippets" yas-installed-snippets-dir "/Users/sinkerine/.emacs.d/layers/+completion/auto-completion/local/snippets"))))
+    ("/Users/sinkerine/.spacemacs.d/snippets" "/Users/sinkerine/.spacemacs.d/snippets" yas-installed-snippets-dir "/Users/sinkerine/.emacs.d/layers/+completion/auto-completion/local/snippets")) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

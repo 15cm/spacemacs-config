@@ -21,7 +21,6 @@
     moonscript
     web-mode
     emmet-mode
-    ensime
     sql
     ))
 
@@ -82,12 +81,5 @@
       (evil-define-key 'insert emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand)
       (evil-define-key 'hybrid emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand))))
 
-(defun my-programming/init-ensime()
-  (use-package ensime
-    :ensure t
-    :pin melpa-stable
-    :defer t
-    :config
-    (progn
-      (setq ensime-startup-notification nil))
-   ))
+(defun my-programming/post-init-sql()
+  (add-hook 'sql-mode-hook 'my-sql-mode-hook))

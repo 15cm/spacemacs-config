@@ -9,7 +9,9 @@
 (with-eval-after-load 'latex
   (add-hook 'LaTeX-mode-hook
             (lambda ()
-              (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))))
+              (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
+              (add-to-list 'TeX-command-list '("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t))
+              ))
   )
 
 ;; Markdown

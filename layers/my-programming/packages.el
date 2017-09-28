@@ -22,6 +22,7 @@
     web-mode
     emmet-mode
     sql
+    ensime
     ))
 
 (defun my-programming/post-init-js2-mode()
@@ -83,3 +84,14 @@
 
 (defun my-programming/post-init-sql()
   (add-hook 'sql-mode-hook 'my-sql-mode-hook))
+
+(defun my-programming/init-ensime()
+   (use-package ensime
+        :ensure t
+        :pin melpa-stable
+        :defer t
+        :config
+        (progn
+          (setq ensime-startup-notification nil))
+          (setq ensime-startup-snapshot-notification nil)
+        ))

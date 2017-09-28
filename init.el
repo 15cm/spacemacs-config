@@ -61,6 +61,8 @@ values."
      shell-scripts
      vimscript
      sql
+     (scala :variables
+            scala-auto-start-ensime t)
 
      syntax-checking
 
@@ -123,6 +125,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setenv "INSIDE_EMACS" "true")
   ;; Shell bug fix
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
+
+  ;; ensime
+  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
+  (push '("ensime" . "melpa-stable") package-pinned-packages)
 
   ;; Speed up launch
   (setq-default exec-path-from-shell-check-startup-files nil)

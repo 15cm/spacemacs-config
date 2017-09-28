@@ -14,6 +14,10 @@
 (evil-leader/set-key "<SPC>A" 'helm-ag-project-root)
 (evil-leader/set-key "<SPC>'" 'switch-clipboard-mode)
 
+;; vim surround key bindings
+(evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
+(evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
+
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-f") 'right-char)
   (define-key company-active-map (kbd "<C-return>") 'newline-and-indent))

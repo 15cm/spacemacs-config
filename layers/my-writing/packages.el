@@ -36,7 +36,6 @@
 
       (setq org-image-actual-width '(300))
       (setq org-export-show-temporary-export-buffer nil)
-      (setq org-indent-mode 1)
       ;; agenda
       (setq org-agenda-inhibit-startup t)   ;; ~50x speedup
       (setq org-agenda-use-tag-inheritance nil) ;; 3-4x speedup

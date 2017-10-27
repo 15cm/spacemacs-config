@@ -2,9 +2,11 @@
 (setq TeX-source-correlate-mode t)
 (setq TeX-source-correlate-method-active 'synctex)
 (setq TeX-source-correlate-start-server t)
-(setq TeX-view-program-selection '((output-pdf "Skim")))
-(setq TeX-view-program-list 
-      '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o")))
+(setq TeX-view-program-selection '((output-pdf "PDF Expert")))
+(setq TeX-view-program-list '(
+        ("PDF Expert" "open -a \"PDF Expert\" %o")
+        ("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o")
+      ))
 
 (with-eval-after-load 'latex
   (add-hook 'LaTeX-mode-hook

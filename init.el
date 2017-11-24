@@ -65,7 +65,8 @@ values."
      vimscript
      sql
      (scala :variables
-            scala-auto-start-ensime t)
+            ;; scala-auto-start-ensime t
+            )
 
      syntax-checking
 

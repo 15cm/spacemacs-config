@@ -27,6 +27,9 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; -----t----------------------------------------------------------
      ;; better defaults
+     (spacemacs-layouts :variables
+                       layouts-enable-autosave t
+                       layouts-autosave-delay 180)
      osx
      (shell :variables
             shell-default-shell 'multi-term
@@ -68,7 +71,8 @@ values."
 
      ;writing
      (org :variables
-          org-enable-github-support t)
+          org-enable-github-support t
+          org-startup-indented t)
      markdown
      (latex :variables
             latex-build-command "XeLaTeX")
@@ -111,10 +115,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Solve problem of hanging on startup
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-  ;; (setq configuration-layer--elpa-archives
+  ;; (setq configuration-layer-elpa-archives
   ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
   ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
   ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+  (setq configuration-layer-elpa-archives '(("melpa" . "melpa.org/packages/")
+("org" . "orgmode.org/elpa/") ("gnu" . "elpa.gnu.org/packages/")))
 
   ;; Fix problem of line number being too close in terminal
   (unless (display-graphic-p)
@@ -127,7 +133,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
 
   ;; ensime
-  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
+  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer-elpa-archives)
   (push '("ensime" . "melpa-stable") package-pinned-packages)
 
   ;; Speed up launch
@@ -249,7 +255,7 @@ values."
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
    ;; Location where to auto-save files. Possible values are `original' to
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
@@ -348,94 +354,10 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(compilation-message-face (quote default))
- '(cua-global-mark-cursor-color "#2aa198")
- '(cua-normal-cursor-color "#657b83")
- '(cua-overwrite-cursor-color "#b58900")
- '(cua-read-only-cursor-color "#859900")
- '(evil-want-Y-yank-to-eol t)
- '(fci-rule-color "#515151" t)
- '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
- '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
- '(highlight-symbol-colors
-   (--map
-    (solarized-color-blend it "#fdf6e3" 0.25)
-    (quote
-     ("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2"))))
- '(highlight-symbol-foreground-color "#586e75")
- '(highlight-tail-colors
-   (quote
-    (("#eee8d5" . 0)
-     ("#B4C342" . 20)
-     ("#69CABF" . 30)
-     ("#69B7F0" . 50)
-     ("#DEB542" . 60)
-     ("#F2804F" . 70)
-     ("#F771AC" . 85)
-     ("#eee8d5" . 100))))
- '(hl-bg-colors
-   (quote
-    ("#DEB542" "#F2804F" "#FF6E64" "#F771AC" "#9EA0E5" "#69B7F0" "#69CABF" "#B4C342")))
- '(hl-fg-colors
-   (quote
-    ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
- '(magit-diff-use-overlays nil)
- '(markdown-open-command "~/.spacemacs.d/plugins/open-markdown-marked2.sh" t)
- '(nrepl-message-colors
-   (quote
-    ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
- '(org-format-latex-options
-   (quote
-    (:foreground default :background default :scale 1.3 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
-                 ("begin" "$1" "$" "$$" "\\(" "\\["))))
- '(org-preview-latex-default-process (quote dvisvgm))
- '(org-startup-indented t)
- '(org-startup-with-latex-preview t)
+ '(cnfonts-profiles (quote ("programming" "reading")))
  '(package-selected-packages
    (quote
-    (noflet meghanada gradle-mode company-emacs-eclim eclim cmake-ide levenshtein iedit pinyinlib s sql-indent ensime sbt-mode scala-mode powerline test-simple load-relative org-category-capture markdown-mode multiple-cursors evil-lion ycmd let-alist deferred packed inf-ruby auctex company highlight smartparens evil undo-tree flycheck yasnippet projectile window-purpose imenu-list avy skewer-mode js2-mode magit magit-popup git-commit with-editor alert org-plus-contrib hydra helm helm-core async restclient haml-mode dash pyim pyim-basedict org-brain rainbow-mode solarized-theme molokai-theme chinese-fonts-setup hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme firebelly-theme farmhouse-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme nord-theme evil-org ox-gfm applescript-mode dockerfile-mode fzf yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vlf vimrc-mode vi-tilde-fringe uuidgen use-package toc-org tagedit symon string-inflection spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restclient-helm restart-emacs realgud rbenv rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode prodigy popwin pip-requirements persp-mode pbcopy paradox pangu-spacing osx-trash osx-dictionary orgit org-projectile org-preview-html org-present org-pomodoro org-download org-bullets open-junk-file ob-restclient ob-http nodejs-repl neotree multi-term move-text moonscript mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc insert-shebang info+ indent-guide impatient-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flycheck-ycmd flycheck-pos-tip flx-ido fish-mode find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help enh-ruby-mode emmet-mode elisp-slime-nav editorconfig dumb-jump disaster dactyl-mode cython-mode company-ycmd company-web company-statistics company-shell company-restclient company-lua company-c-headers company-auctex company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow coffee-mode cmake-mode clean-aindent-mode clang-format chruby chinese-pyim bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ace-jump-helm-line ac-ispell)))
- '(pos-tip-background-color "#eee8d5")
- '(pos-tip-foreground-color "#586e75")
- '(preview-scale-function 2.0)
- '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
- '(tab-always-indent nil)
- '(term-default-bg-color "#fdf6e3")
- '(term-default-fg-color "#657b83")
- '(vc-annotate-background nil)
- '(vc-annotate-background-mode nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#f2777a")
-     (40 . "#f99157")
-     (60 . "#ffcc66")
-     (80 . "#99cc99")
-     (100 . "#66cccc")
-     (120 . "#6699cc")
-     (140 . "#cc99cc")
-     (160 . "#f2777a")
-     (180 . "#f99157")
-     (200 . "#ffcc66")
-     (220 . "#99cc99")
-     (240 . "#66cccc")
-     (260 . "#6699cc")
-     (280 . "#cc99cc")
-     (300 . "#f2777a")
-     (320 . "#f99157")
-     (340 . "#ffcc66")
-     (360 . "#99cc99"))))
- '(vc-annotate-very-old-color nil)
- '(weechat-color-list
-   (quote
-    (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496")))
- '(xterm-color-names
-   ["#eee8d5" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#073642"])
- '(xterm-color-names-bright
-   ["#fdf6e3" "#cb4b16" "#93a1a1" "#839496" "#657b83" "#6c71c4" "#586e75" "#002b36"])
- '(yas-snippet-dirs
-   (quote
-    ("/Users/sinkerine/.spacemacs.d/snippets" "/Users/sinkerine/.spacemacs.d/snippets" yas-installed-snippets-dir "/Users/sinkerine/.emacs.d/layers/+completion/auto-completion/local/snippets"))))
+    (use-package prodigy dumb-jump evil markdown-mode magit magit-popup hydra helm helm-core imenu-list solarized-theme dash))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -443,3 +365,15 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  )
 )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (solarized-theme dash))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

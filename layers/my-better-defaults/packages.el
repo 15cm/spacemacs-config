@@ -11,13 +11,13 @@
 
 (defconst my-better-defaults-packages
   '(
-    chinese-fonts-setup
+    cnfonts
     ))
 
-(defun my-better-defaults/init-chinese-fonts-setup()
-  (use-package chinese-fonts-setup
+(defun my-better-defaults/init-cnfonts()
+  (use-package cnfonts
     :config
-    (require 'chinese-fonts-setup)
-    (chinese-fonts-setup-enable)
+    (require 'cnfonts)
+    (cnfonts-enable)
     (setq cfs-profiles '("programming" "reading" "spare"))
     ))

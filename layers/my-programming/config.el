@@ -1,5 +1,5 @@
 ;; ycmd
-(setq ycmd-server-command (list "/usr/local/bin/python" (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/third_party/ycmd/ycmd/")))
+(setq ycmd-server-command (list "/usr/bin/python" (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/third_party/ycmd/ycmd/")))
 (setq ycmd-global-config (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/global_conf.py"))
 (setq ycmd-force-semantic-completion t)
 

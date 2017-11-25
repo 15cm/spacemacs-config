@@ -28,7 +28,7 @@ values."
      ;; -----t----------------------------------------------------------
      ;; better defaults
      (spacemacs-layouts :variables
-                       layouts-autosave-delay 180)
+                       layouts-autosave-delay 300)
      osx
      (shell :variables
             shell-default-shell 'multi-term
@@ -231,7 +231,7 @@ values."
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '(
                                "M+ 1m"
-                               :size 12
+                               :size 9
                                :weight normal
                                :width normal
                                )

@@ -19,5 +19,5 @@
     :config
     (require 'cnfonts)
     (cnfonts-enable)
-    (setq cfs-profiles '("programming" "reading" "spare"))
+    (setq cfs-profiles '("programming" "reading"))
     ))

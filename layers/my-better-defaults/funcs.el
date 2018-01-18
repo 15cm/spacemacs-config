@@ -24,3 +24,23 @@
     "   end tell\n"
     " end tell\n"
     " do shell script \"open -a iTerm\"\n")))
+
+;; clipboard
+(defun copy-to-clipboard ()
+  "Copies selection to x-clipboard."
+  (interactive)
+  (if (region-active-p)
+      (progn
+        (shell-command-on-region (region-beginning) (region-end) "nc localhost 8377")
+        (message "Yanked region to clipboard!")
+        (deactivate-mark))
+    (message "No region active; can't yank to clipboard!"))
+  )
+
+(defun paste-from-clipboard ()
+  "Pastes from x-clipboard."
+  (interactive)
+  (if (display-graphic-p)
+      (insert (shell-command-to-string "pbpaste"))
+    )
+  )

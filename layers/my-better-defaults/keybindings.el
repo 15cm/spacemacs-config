@@ -27,3 +27,8 @@
 
 (define-key smartparens-mode-map (kbd "C-M-n") 'sp-up-sexp)
 (define-key smartparens-mode-map (kbd "C-M-p") 'sp-down-sexp)
+
+;; clipboard
+(define-key evil-visual-state-map (kbd "C-y") 'copy-to-clipboard)
+(if (display-graphic-p)
+    (global-set-key (kbd "s-v") 'paste-from-clipboard))

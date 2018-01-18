@@ -14,3 +14,6 @@
 
 ;; pangu-spacing
 (setq pangu-spacing-real-insert-separtor t)
+
+;; disable copying to system clipboard by default
+(setq select-enable-clipboard nil)

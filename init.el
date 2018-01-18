@@ -29,7 +29,6 @@ values."
      ;; better defaults
      (spacemacs-layouts :variables
                        layouts-autosave-delay 300)
-     osx
      (shell :variables
             shell-default-shell 'multi-term
             shell-default-height 30
@@ -52,6 +51,8 @@ values."
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
      python
+     (java :variables
+           java-backend nil)
      (ruby :variables
            ruby-enable-enh-ruby-mode t
            ruby-version-manager 'rbenv)
@@ -66,6 +67,7 @@ values."
      (scala :variables
             ;; scala-auto-start-ensime t
             )
+     sml
 
      syntax-checking
 
@@ -158,13 +160,14 @@ you should place your code here."
       (setq-default layouts-enable-autosave t)
     (setq-default layouts-enable-autosave nil))
 
-
+  ;; enable transparency by default 
   ;; (spacemacs/disable-transparency)
   ;; (spacemacs/toggle-transparency)
 
   ;; helm-ag
   (setq-default helm-ag-fuzzy-match t)
   (setq-default helm-ag-use-agignore t)
+
 )
 
 (defun dotspacemacs/init ()
@@ -362,10 +365,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cnfonts-profiles (quote ("programming" "reading")))
- '(package-selected-packages
-   (quote
-    (use-package prodigy dumb-jump evil markdown-mode magit magit-popup hydra helm helm-core imenu-list solarized-theme dash))))
+ '(package-selected-packages (quote (define-word solarized-theme dash))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

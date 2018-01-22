@@ -164,6 +164,9 @@ you should place your code here."
   ;; (spacemacs/disable-transparency)
   ;; (spacemacs/toggle-transparency)
 
+  ;; avoid multiple instance conflict
+  (setq recentf-save-file (format "~/.emacs.d/.cache/recentf.%s" server-name))
+
   ;; helm-ag
   (setq-default helm-ag-fuzzy-match t)
   (setq-default helm-ag-use-agignore t)
@@ -365,7 +368,13 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (define-word solarized-theme dash))))
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(beacon-color "#f2777a")
+ '(evil-want-Y-yank-to-eol t)
+ '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
+ '(org-export-with-latex nil)
+ '(package-selected-packages (quote (ox-pandoc ht solarized-theme dash))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

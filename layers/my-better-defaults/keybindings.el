@@ -32,3 +32,4 @@
 (define-key evil-visual-state-map (kbd "C-y") 'copy-to-clipboard)
 (if (display-graphic-p)
     (global-set-key (kbd "s-v") 'paste-from-clipboard))
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)

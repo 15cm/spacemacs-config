@@ -43,7 +43,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
       (copy-file fname new-fname t)
       (insert (format "\n[[%s]]" new-fname))
       (org-indent-line)
-      (message (format "insert %s" new-fname))
+      (message (format "%s inserted" new-fname))
       )
      ;; (org-display-inline-images t t))
      ;; insert image link
@@ -99,67 +99,6 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
     )
   )
 
-
-;; blog post
-
-(defun my-text-imagelink-local-to-web (web-domain folder text)
-  (replace-regexp-in-string "\\[\\[.*\\(png\\|jp[e]?g\\)\\]\\]"
-                            (lambda (x) (format "[[%s/%s/%s]]" web-domain
-                                                folder (file-name-nondirectory (substring x 2 -2))
-                                                nil t))
-                            text)
-  )
-
-(defun my-add-read-more (text)
-  (let ((cnt 0))
-    (replace-regexp-in-string "\\*\\* .*"
-                              (lambda (x) (if (eq cnt 0) (progn (setq cnt (+ cnt 1)) (concat "{{{READMORE}}}\n" x))
-                                            x))
-                              text nil t))
-  )
-
-(setq-default org-post-template-html (concat
-                                      "#+OPTIONS: num:nil toc:nil\n"
-                                      "#+OPTIONS: html-postamble:nil html-preamble:t\n"
-                                      "#+MACRO: READMORE @@html:<!-- more -->@@\n"
-                                      ))
-(defun my-org-post-html ()
+(defun my-org-post ()
   (interactive)
-  (let* ((buf-name (buffer-file-name))
-         (buf-dir-name (file-name-base (directory-file-name (file-name-directory buf-name))))
-         (buf-content (my-add-read-more (my-text-imagelink-local-to-web qiniu-domain (file-name-base buf-name) (buffer-string))))
-         (text-line-list (split-string buf-content "\n"))
-         (first-line-list (split-string (car text-line-list) ":"))
-         (body-text (mapconcat 'identity (cdr text-line-list) "\n"))
-         (post-file (format "%s/%s.html" post-path (file-name-base buf-name)))
-         (post-created-date (shell-command-to-string (format "[ -f '%s' ] && head %s | grep '^date.*'" post-file post-file)))
-         (date-now (format "%s\n" (format-time-string "%Y-%m-%d %H:%M")))
-         )
-    ;; modify org file for html exporting
-    (with-temp-buffer (progn
-                        (goto-char (point-min))
-                        (insert org-post-template-html)
-                        (insert body-text)
-                        (org-html-export-as-html)
-                        ))
-    ;; add meta data to html for posting
-    (with-current-buffer "*Org HTML Export*"
-      (progn
-        (goto-char (point-min))
-        (insert (concat
-                 "---\n"
-                 "layout: post\n"
-                 (format "title: %s\n" (trim-string (replace-regexp-in-string "\\*" "" (car first-line-list))))
-                 (if (equal "" post-created-date) (concat "date: " date-now) post-created-date)
-                 (if (equal "" post-created-date) "" (concat "updated: " date-now))
-                 (if (> (length first-line-list) 1) (format "tags: [%s]\n" (substring (mapconcat 'identity (cdr first-line-list) ",") 0 -1)) nil)
-                 (format "categories: %s\n" (read-string (format "Categories(%s):" buf-dir-name) nil nil buf-dir-name))
-                 "---\n"
-                 "{% raw %}\n"
-                 ))
-        (goto-char (point-max))
-        (insert "\n{% endraw %}\n")
-        (write-file post-file)
-        ))
-    )
-  )
+  (message (shell-command-to-string (format "org-post-md.py convert %s" (buffer-file-name)))))

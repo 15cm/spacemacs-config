@@ -20,9 +20,7 @@
 (setq markdown-open-command "~/.spacemacs.d/plugins/open-markdown-marked2.sh")
 
 ;; Blog
-(setq-default node-bin-path (getenv "NVM_BIN"))
 (setq blog-path (concat user-home-directory "Geek/repos/15cm-site/blog"))
-(setq hexo-exec (concat node-bin-path "/hexo"))
+(setq hexo-exec "hexo")
+(setq hexo-config-path "source/_data/next.yml")
 (setq post-path (concat blog-path "/source/_posts"))
-(setq qiniu-domain "http://7xrgcf.com1.z0.glb.clouddn.com")
-

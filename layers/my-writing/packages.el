@@ -49,11 +49,11 @@
       (setq org-startup-truncated nil))))
 
 (defun my-writing/post-init-prodigy()
-   (setq hexo-exec "hexo")
+  (setq hexo-config-path "source/_data/next.yml")
    (prodigy-define-service
      :name "Hexo Generate"
      :command hexo-exec
-     :args '("generate")
+     :args '("generate" "--config"  "source/_data/next.yml")
      :cwd blog-path
      :kill-signal 'sigkill
      :kill-process-buffer-on-stop t
@@ -69,7 +69,7 @@
    (prodigy-define-service
      :name "Hexo Server"
      :command hexo-exec
-     :args '("server" "-o")
+     :args '("server" "-o" "--config"  "source/_data/next.yml")
      :cwd blog-path
      :kill-signal 'sigkill
      :kill-process-buffer-on-stop t
@@ -77,16 +77,9 @@
    (prodigy-define-service
      :name "Hexo Deploy"
      :command hexo-exec
-     :args '("deploy" "--generate")
+     :args (list "deploy" "--generate" "--config"  "source/_data/next.yml")
      :cwd blog-path
      :kill-signal 'sigkill
      :kill-process-buffer-on-stop t
      )
-   (prodigy-define-service
-     :name "Blog Qiniu Upload"
-     :command "/usr/local/bin/qshell"
-     :args (list "qupload" (concat user-home-directory ".qshell/blog_img.json"))
-     :cwd "~/Geek/Wiki/static"
-     :kill-process-buffer-on-stop 'sigkill
-     :kill-process-buffer-on-stop nil
-     ))
+   )

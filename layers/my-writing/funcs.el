@@ -101,4 +101,4 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 
 (defun my-org-post ()
   (interactive)
-  (message (shell-command-to-string (format "org-post-md.py convert %s" (buffer-file-name)))))
+  (message (shell-command-to-string (format "org-post-md.py post %s -u" (buffer-file-name)))))

@@ -33,3 +33,7 @@
 (if (display-graphic-p)
     (global-set-key (kbd "s-v") 'paste-from-clipboard))
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
+;; avy
+(evil-leader/set-key "jj" 'evil-avy-goto-char-in-line)
+(evil-leader/set-key "jJ" 'evil-avy-goto-char)

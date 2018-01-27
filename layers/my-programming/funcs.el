@@ -53,3 +53,7 @@
 
 (defun my-sql-mode-hook()
   (setq tab-width 2))
+
+(defun my-sml-cm-mode-hook()
+  (setq comment-start "(* ")
+  (setq comment-end " *)"))

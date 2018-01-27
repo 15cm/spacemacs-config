@@ -23,6 +23,7 @@
     emmet-mode
     sql
     ensime
+    sml-mode
     ))
 
 (defun my-programming/post-init-js2-mode()
@@ -95,3 +96,6 @@
           (setq ensime-startup-notification nil))
           (setq ensime-startup-snapshot-notification nil)
         ))
+
+(defun my-programming/post-init-sml-mode()
+  (add-hook 'sml-cm-mode-hook 'my-sml-cm-mode-hook))

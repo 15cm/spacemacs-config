@@ -19,4 +19,5 @@
 (spacemacs|add-company-backends :backends (company-files company-capf company-ycmd) :modes react-mode)
 
 ;; dockerfile-mode
-(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode ))
+(add-to-list 'auto-mode-alist '("\\.lex\\'" . sml-lex-mode))

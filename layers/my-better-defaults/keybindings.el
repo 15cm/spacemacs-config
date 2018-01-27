@@ -35,5 +35,5 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 ;; avy
-(evil-leader/set-key "jj" 'evil-avy-goto-char-in-line)
-(evil-leader/set-key "jJ" 'evil-avy-goto-char)
+(evil-define-key 'normal 'global "s" 'evil-avy-goto-char-in-line)
+(evil-define-key 'normal 'global "S" 'evil-avy-goto-char-timer)

@@ -35,5 +35,5 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 ;; avy
-(evil-define-key 'normal 'global "s" 'evil-avy-goto-char-in-line)
-(evil-define-key 'normal 'global "S" 'evil-avy-goto-char-timer)
+(evil-define-key '(normal visual operator motion) 'global-map (kbd "t") 'evil-avy-goto-char-in-line)
+(evil-define-key '(normal visual operator motion) 'global-map (kbd "T") 'evil-avy-goto-char-timer)

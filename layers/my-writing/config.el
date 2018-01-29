@@ -17,7 +17,8 @@
   )
 
 ;; Markdown
-(setq markdown-open-command "~/.spacemacs.d/plugins/open-markdown-marked2.sh")
+(setq markdown-open-command (lambda ()
+                              (shell-command (format "open -a %s %s" (shell-quote-argument "/Applications/Marked 2.app") (shell-quote-argument (buffer-file-name))))))
 
 ;; Blog
 (setq blog-path (concat user-home-directory "Geek/repos/15cm-site/blog"))

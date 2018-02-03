@@ -55,5 +55,5 @@
   (setq tab-width 2))
 
 (defun my-sml-cm-mode-hook()
-  (setq comment-start "(* ")
-  (setq comment-end " *)"))
+  (setq-local comment-start "(* ")
+  (setq-local comment-end " *)"))

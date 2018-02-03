@@ -1,5 +1,5 @@
 ;; ycmd
-(setq ycmd-server-command (list "/usr/bin/python" (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/third_party/ycmd/ycmd/")))
+(setq ycmd-server-command (list (concat user-home-directory ".pyenv/shims/python3") (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/third_party/ycmd/ycmd")))
 (setq ycmd-global-config (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/global_conf.py"))
 (setq ycmd-force-semantic-completion t)
 
@@ -21,3 +21,6 @@
 ;; dockerfile-mode
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode ))
 (add-to-list 'auto-mode-alist '("\\.lex\\'" . sml-lex-mode))
+
+(load-file "~/.spacemacs.d/plugins/tiger.el")
+(add-to-list 'auto-mode-alist '("\\.ti[gh]$" . tiger-mode))

@@ -500,7 +500,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (ox-pandoc ht solarized-theme dash))))
+ '(package-selected-packages
+   (quote
+    (realgud test-simple loc-changes load-relative helm-rtags google-c-style flycheck-ycmd flycheck-rtags disaster company-ycmd ycmd request-deferred company-rtags rtags company-c-headers clang-format solarized-theme dash))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

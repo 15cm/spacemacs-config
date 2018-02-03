@@ -10,8 +10,8 @@
 (evil-leader/set-key "<SPC>C-f" 'fzf-git)
 (evil-leader/set-key "<SPC>t" 'my-iterm-goto-filedir-or-home)
 (evil-leader/set-key "<SPC>w" 'my-find-wiki)
-(evil-leader/set-key "<SPC>a" 'helm-ag)
-(evil-leader/set-key "<SPC>A" 'helm-ag-project-root)
+(evil-leader/set-key "<SPC>a" 'helm-ag-project-root)
+(evil-leader/set-key "<SPC>A" 'helm-ag)
 
 ;; common
 (define-key evil-normal-state-map (kbd "<C-return>") 'spacemacs/evil-insert-line-below)

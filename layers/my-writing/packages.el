@@ -39,8 +39,10 @@
       ;; agenda
       (setq org-agenda-inhibit-startup t)   ;; ~50x speedup
       (setq org-agenda-use-tag-inheritance nil) ;; 3-4x speedup
-      (load-library "find-lisp")
-      (setq org-agenda-files (find-lisp-find-files "~/Geek/Wiki/notes" "\.org$"))
+
+      ;; agenda files for tag search
+      ;; (load-library "find-lisp")
+      ;; (setq org-agenda-files (find-lisp-find-files "~/Geek/Wiki/notes" "\.org$"))
 
       ;; Disable underscore to subscript
       (setq org-export-with-sub-superscripts nil)

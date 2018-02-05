@@ -21,6 +21,7 @@
 ;; dockerfile-mode
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode ))
 (add-to-list 'auto-mode-alist '("\\.lex\\'" . sml-lex-mode))
+(add-to-list 'auto-mode-alist '("\\..*rc\\(.[a-z]+\\)+$" . shell-script-mode))
 
 (load-file "~/.spacemacs.d/plugins/tiger.el")
 (add-to-list 'auto-mode-alist '("\\.ti[gh]$" . tiger-mode))

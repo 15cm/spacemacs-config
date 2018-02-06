@@ -1,6 +1,7 @@
 ;; ycmd
-(setq ycmd-server-command (list (concat user-home-directory ".pyenv/shims/python3") (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/third_party/ycmd/ycmd")))
-(setq ycmd-global-config (concat user-home-directory ".spacemacs.d/plugins/YouCompleteMe/global_conf.py"))
+(setq ycmd-project-path (concat user-home-directory "Geek/opensource-application/YouCompleteMe/"))
+(setq ycmd-server-command '((concat user-home-directory ".pyenv/shims/python3") (concat ycmd-project-path "third_party/ycmd/ycmd")))
+(setq ycmd-global-config (concat ycmd-project-path "global_conf.py"))
 (setq ycmd-force-semantic-completion t)
 
 ;; company c headers
@@ -23,5 +24,4 @@
 (add-to-list 'auto-mode-alist '("\\.lex\\'" . sml-lex-mode))
 (add-to-list 'auto-mode-alist '("\\..*rc\\(.[a-z]+\\)+$" . shell-script-mode))
 
-(load-file "~/.spacemacs.d/plugins/tiger.el")
 (add-to-list 'auto-mode-alist '("\\.ti[gh]$" . tiger-mode))

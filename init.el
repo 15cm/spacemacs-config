@@ -187,7 +187,6 @@ you should place your code here."
   ;; helm-ag
   (setq-default helm-ag-fuzzy-match t)
   (setq-default helm-ag-use-agignore t)
-
 )
 
 (defun dotspacemacs/init ()

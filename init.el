@@ -36,7 +36,6 @@ values."
 
      spell-checking
      chinese
-     nlinum
 
      ;; programming
      (auto-completion :variables
@@ -103,6 +102,7 @@ values."
                                       rainbow-mode
                                       beacon
                                       ox-pandoc
+                                      anzu
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -127,6 +127,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
   ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
   ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+    (setq-default package-archives configuration-layer-elpa-archives)
 
   ;; separate custom-file
   (setq custom-file "~/.spacemacs.d/custom.el")
@@ -187,6 +188,8 @@ you should place your code here."
   ;; helm-ag
   (setq-default helm-ag-fuzzy-match t)
   (setq-default helm-ag-use-agignore t)
+
+  (global-anzu-mode +1)
 )
 
 (defun dotspacemacs/init ()

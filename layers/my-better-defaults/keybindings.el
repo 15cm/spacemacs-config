@@ -42,3 +42,7 @@
 ;; avy
 (evil-define-key '(normal visual operator motion) global-map (kbd "t") 'evil-avy-goto-char-in-line)
 (evil-define-key '(normal visual operator motion) global-map (kbd "T") 'evil-avy-goto-char-timer)
+
+;; anzu
+(evil-leader/set-key "<SPC>r" 'anzu-query-replace-regexp)
+(evil-leader/set-key "<SPC>R" 'anzu-query-replace-at-cursor)

@@ -1,14 +1,14 @@
 (defun my-fzf-notes ()
   (interactive)
-  (fzf/start "~/Geek/Wiki/notes/"))
+  (fzf/start "~/tech/wiki/notes/"))
 
 (defun my-fzf-codes ()
   (interactive)
-  (fzf/start "~/Geek/Wiki/static/code/"))
+  (fzf/start "~/tech/wiki/static/code/"))
 
 (defun my-find-wiki ()
   (interactive)
-  (helm-find-files-1 (concat user-home-directory "Geek/Wiki/")))
+  (helm-find-files-1 (concat user-home-directory "tech/wiki/")))
 
 (defun my-iterm-goto-filedir-or-home ()
   "Go to present working dir and focus iterm"

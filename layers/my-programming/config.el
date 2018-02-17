@@ -1,5 +1,5 @@
 ;; ycmd
-(setq ycmd-project-path (concat user-home-directory "Geek/opensource-application/YouCompleteMe/"))
+(setq ycmd-project-path (concat user-home-directory "tech/opensource-software/YouCompleteMe/"))
 (setq ycmd-server-command (list (concat user-home-directory ".pyenv/shims/python3") (concat ycmd-project-path "third_party/ycmd/ycmd")))
 (setq ycmd-global-config (concat ycmd-project-path "global_conf.py"))
 (setq ycmd-force-semantic-completion t)

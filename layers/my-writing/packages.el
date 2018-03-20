@@ -12,15 +12,10 @@
 (defconst my-writing-packages
   '(
     org
-    impatient-mode
     org-preview-html
     prodigy
+    ox-pandoc
     ))
-
-(defun my-writing/init-impatient-mode()
-  (use-package impatient-mode
-    :defer t)
-  (add-hook 'impatient-mode-hook 'my-impatient-mode-hook))
 
 (defun my-writing/init-org-preview-html()
   (use-package org-preview-html
@@ -85,3 +80,7 @@
      :kill-process-buffer-on-stop t
      )
    )
+
+(defun my-writing/init-ox-pandoc()
+  (use-package ox-pandoc
+    :defer t))

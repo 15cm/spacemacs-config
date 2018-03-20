@@ -4,19 +4,6 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
   (replace-regexp-in-string "\\`[ \t\n]*" "" (replace-regexp-in-string "[ \t\n]*\\'" "" string))
   )
 
-;; impatient mode for org-mode
-(defun my-imp-org-to-html-filter (buffer)
-  (let ((output-buffer (current-buffer))
-        (log-message-max nil))
-    (with-current-buffer buffer
-      (let ((output (org-export-as 'html)))
-        (with-current-buffer output-buffer (insert output))))))
-
-(defun my-impatient-mode-hook()
-  (progn (imp-set-user-filter 'my-imp-org-to-html-filter)
-         (message "My org-imp-mode hook trigger")
-         ))
-
 ;; drag and drop then copy image file to specified folder with default width
 (setq org-img-base-folder "~/Geek/Wiki/static/img")
 (defun my-dnd-func (event)

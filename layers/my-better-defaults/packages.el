@@ -12,6 +12,11 @@
 (defconst my-better-defaults-packages
   '(
     cnfonts
+    anzu
+    vlf
+    rainbow-mode
+    beacon
+    (fzf :location (recipe :fetcher github :repo "15cm/fzf.el"))
     ))
 
 (defun my-better-defaults/init-cnfonts()
@@ -21,3 +26,18 @@
     (cnfonts-enable)
     (setq cfs-profiles '("programming" "reading"))
     ))
+
+(defun my-better-defaults/init-anzu()
+  (use-package anzu))
+
+(defun my-better-defaults/init-vlf()
+  (use-package vlf))
+
+(defun my-better-defaults/init-rainbow-mode()
+  (use-package rainbow-mode))
+
+(defun my-better-defaults/init-beacon()
+  (use-package beacon))
+
+(defun my-better-defaults/init-fzf()
+  (use-package fzf))

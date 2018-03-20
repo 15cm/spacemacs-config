@@ -102,15 +102,6 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-                                      (fzf :location (recipe :fetcher github :repo "15cm/fzf.el"))
-                                      editorconfig
-                                      vlf
-                                      applescript-mode
-                                      dockerfile-mode
-                                      rainbow-mode
-                                      beacon
-                                      ox-pandoc
-                                      anzu
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(

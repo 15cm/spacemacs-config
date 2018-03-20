@@ -10,3 +10,13 @@
 (evil-leader/set-key "jgb" 'dumb-jump-back)
 (evil-leader/set-key "jgp" 'dumb-jump-go-prompt)
 (evil-leader/set-key "jgq" 'dumb-jump-quick-look)
+
+;; emmet mode
+(evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
+(evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+(evil-define-key 'emacs emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
+(evil-define-key 'emacs emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+(evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
+(evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+(evil-define-key 'insert emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand)
+(evil-define-key 'hybrid emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand)

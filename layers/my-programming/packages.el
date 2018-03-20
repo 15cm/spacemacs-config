@@ -20,10 +20,10 @@
     emacs-lisp
     moonscript
     web-mode
-    emmet-mode
     sql
-    ensime
     sml-mode
+    applescript-mode
+    dockerfile-mode
     ))
 
 (defun my-programming/post-init-js2-mode()
@@ -57,45 +57,27 @@
 (defun my-programming/init-moonscript()
   (use-package moonscript
     :init
-    :defer t)
-  (add-hook 'moonscript-mode-hook 'my-moonscript-mode-hook))
+    :defer t
+    :config
+    (add-hook 'moonscript-mode-hook 'my-moonscript-mode-hook)
+    ))
 
 (defun my-programming/post-init-json-mode()
   (add-hook 'json-mode-hook 'my-js-mode-hook))
 
 (defun my-programming/post-init-web-mode()
   (add-hook 'web-mode-hook 'my-web-mode-hook)
-  (add-hook 'web-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook #'turn-on-smartparens-mode t)
   (spacemacs|add-company-backends :backends (company-files company-capf company-css company-html) :modes web-mode))
-
-(defun my-programming/init-emmet-mode()
-  (use-package emmet-mode
-    :defer t
-    :config
-    (progn
-      (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
-      (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
-      (evil-define-key 'emacs emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
-      (evil-define-key 'emacs emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
-      (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
-      (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
-      (evil-define-key 'insert emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand)
-      (evil-define-key 'hybrid emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand))))
 
 (defun my-programming/post-init-sql()
   (add-hook 'sql-mode-hook 'my-sql-mode-hook))
 
-(defun my-programming/init-ensime()
-   (use-package ensime
-        :ensure t
-        :pin melpa-stable
-        :defer t
-        :config
-        (progn
-          (setq ensime-startup-notification nil))
-          (setq ensime-startup-snapshot-notification nil)
-        ))
-
 (defun my-programming/post-init-sml-mode()
   (add-hook 'sml-cm-mode-hook 'my-sml-cm-mode-hook))
+
+(defun my-programming/init-applescript-mode()
+  (use-package applescript-mode))
+
+(defun my-programming/init-dockerfile-mode()
+  (use-package dockerfile-mode))

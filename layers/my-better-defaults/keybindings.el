@@ -12,6 +12,7 @@
 (evil-leader/set-key "<SPC>w" 'my-find-wiki)
 (evil-leader/set-key "<SPC>a" 'helm-ag-project-root)
 (evil-leader/set-key "<SPC>A" 'helm-ag)
+(evil-leader/set-key "<SPC>l" 'browse-url-default-macosx-browser)
 
 ;; common
 (define-key evil-normal-state-map (kbd "<C-return>") 'spacemacs/evil-insert-line-below)

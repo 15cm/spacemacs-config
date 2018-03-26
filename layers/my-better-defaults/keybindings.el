@@ -15,8 +15,9 @@
 (evil-leader/set-key "<SPC>l" 'browse-url-default-macosx-browser)
 
 ;; common
-(define-key evil-normal-state-map (kbd "<C-return>") 'spacemacs/evil-insert-line-below)
-(define-key evil-normal-state-map (kbd "<S-return>") 'spacemacs/evil-insert-line-above)
+(global-set-key (kbd "<C-return>") 'spacemacs/evil-insert-line-below)
+(global-set-key (kbd "<S-return>") 'spacemacs/evil-insert-line-above)
+(global-set-key (kbd "C-s") 'save-buffer)
 
 ;; vim surround
 (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
@@ -31,18 +32,26 @@
 (evil-define-key 'normal term-raw-map (kbd "C-n") 'term-send-down)
 (evil-define-key 'normal term-raw-map (kbd "C-p") 'term-send-up)
 
-(define-key smartparens-mode-map (kbd "C-M-n") 'sp-up-sexp)
-(define-key smartparens-mode-map (kbd "C-M-p") 'sp-down-sexp)
+;; smartparens
+(define-key smartparens-mode-map (kbd "M-f") 'sp-forward-sexp)
+(define-key smartparens-mode-map (kbd "M-b") 'sp-backward-sexp)
+(define-key smartparens-mode-map (kbd "M-n") 'sp-down-sexp)
+(define-key smartparens-mode-map (kbd "M-p") 'sp-up-sexp)
+(define-key smartparens-mode-map (kbd "M-a") 'sp-beginning-of-sexp)
+(define-key smartparens-mode-map (kbd "M-e") 'sp-end-of-sexp)
 
 ;; clipboard
 (define-key evil-visual-state-map (kbd "C-y") 'copy-to-clipboard)
+
 (if (display-graphic-p)
     (global-set-key (kbd "s-v") 'paste-from-clipboard))
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 ;; avy
-(evil-define-key '(normal visual operator motion) global-map (kbd "t") 'evil-avy-goto-char-in-line)
-(evil-define-key '(normal visual operator motion) global-map (kbd "T") 'evil-avy-goto-char-timer)
+(define-key evil-normal-state-map (kbd "t") 'evil-avy-goto-char-in-line)
+(define-key evil-visual-state-map (kbd "t") 'evil-avy-goto-char-in-line)
+(define-key evil-normal-state-map (kbd "T") 'evil-avy-goto-char-timer)
+(define-key evil-visual-state-map (kbd "T") 'evil-avy-goto-char-timer)
 
 ;; anzu
 (evil-leader/set-key "<SPC>r" 'anzu-query-replace-regexp)

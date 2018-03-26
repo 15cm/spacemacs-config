@@ -33,12 +33,12 @@
 (evil-define-key 'normal term-raw-map (kbd "C-p") 'term-send-up)
 
 ;; smartparens
-(define-key smartparens-mode-map (kbd "M-f") 'sp-forward-sexp)
-(define-key smartparens-mode-map (kbd "M-b") 'sp-backward-sexp)
-(define-key smartparens-mode-map (kbd "M-n") 'sp-down-sexp)
-(define-key smartparens-mode-map (kbd "M-p") 'sp-up-sexp)
-(define-key smartparens-mode-map (kbd "M-a") 'sp-beginning-of-sexp)
-(define-key smartparens-mode-map (kbd "M-e") 'sp-end-of-sexp)
+(global-set-key (kbd "M-f") 'sp-forward-sexp)
+(global-set-key (kbd "M-b") 'sp-backward-sexp)
+(global-set-key (kbd "M-n") 'sp-down-sexp)
+(global-set-key (kbd "M-p") 'sp-up-sexp)
+(global-set-key (kbd "M-a") 'sp-beginning-of-sexp)
+(global-set-key (kbd "M-e") 'sp-end-of-sexp)
 
 ;; clipboard
 (define-key evil-visual-state-map (kbd "C-y") 'copy-to-clipboard)

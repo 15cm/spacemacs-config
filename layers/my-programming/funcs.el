@@ -17,6 +17,7 @@
 
 (defun my-cc-mode-hook()
   (setq c-basic-offset 4)
+  (setq c-auto-newline nil)
   (modify-syntax-entry ?_ "w"))
 
 (defun my-sh-mode-hook()

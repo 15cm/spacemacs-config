@@ -56,6 +56,8 @@ values."
      ycmd
      emacs-lisp
      (c-c++ :variables
+            c-c++-enable-rtags-support t
+            c-c++-enable-c++11 t
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
      python

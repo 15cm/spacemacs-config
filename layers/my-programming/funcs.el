@@ -1,3 +1,10 @@
+;; setup
+(defun my-flycheck-rtags-setup ()
+  "Configure flycheck-rtags for better experience."
+  (flycheck-select-checker 'rtags)
+  (setq-local flycheck-check-syntax-automatically nil)
+  (setq-local flycheck-highlighting-mode nil))
+
 ;; hooks
 (defun my-js-mode-hook()
   (setq js2-basic-offset 2

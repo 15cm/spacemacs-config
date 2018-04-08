@@ -293,8 +293,8 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '(
-                               "iosevka"
-                               :size 10
+                               "Inconsolata"
+                               :size 12
                                :weight normal
                                :width normal
                                )

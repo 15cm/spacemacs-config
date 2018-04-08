@@ -16,7 +16,7 @@
     vlf
     rainbow-mode
     beacon
-    (fzf :location (recipe :fetcher github :repo "15cm/fzf.el"))
+    fzf
     ))
 
 (defun my-better-defaults/init-cnfonts()

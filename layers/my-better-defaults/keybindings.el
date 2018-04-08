@@ -3,13 +3,8 @@
 
 ;; misc
 (spacemacs/declare-prefix "<SPC>" "better-defaults")
-(evil-leader/set-key "<SPC>n" 'my-fzf-notes)
-(evil-leader/set-key "<SPC>c" 'my-fzf-codes)
 (evil-leader/set-key "<SPC>f" 'fzf)
 (evil-leader/set-key "<SPC>F" 'fzf-directory)
-(evil-leader/set-key "<SPC>C-f" 'fzf-git)
-(evil-leader/set-key "<SPC>t" 'my-iterm-goto-filedir-or-home)
-(evil-leader/set-key "<SPC>w" 'my-find-wiki)
 (evil-leader/set-key "<SPC>l" 'browse-url-default-macosx-browser)
 
 ;; common

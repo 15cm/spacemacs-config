@@ -30,7 +30,7 @@ This function has a choice of three things to do:
 You can redefine this function to choose among those three alternatives
 in any way you like."
   (discard-input)
-  (if (string-match-p "~/\.emacs.d/\.cache/.*" file) t
+  (if (string-match-p "/\.cache/recentf\.[a-z]*" file) t
     (save-window-excursion
       (let (answer short-opponent short-file)
         (setq short-file

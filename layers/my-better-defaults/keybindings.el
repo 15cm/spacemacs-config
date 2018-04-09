@@ -50,7 +50,8 @@
 (evil-leader/set-key "<SPC>r" 'anzu-query-replace-regexp)
 (evil-leader/set-key "<SPC>R" 'anzu-query-replace-at-cursor)
 
-
 ;; view mode
-(define-key view-mode-map (kbd "j") 'View-scroll-line-forward)
-(define-key view-mode-map (kbd "k") 'View-scroll-line-backward)
+(with-eval-after-load 'view-mode
+  (define-key view-mode-map (kbd "j") 'View-scroll-line-forward)
+  (define-key view-mode-map (kbd "k") 'View-scroll-line-backward)
+  )

@@ -30,7 +30,8 @@ This function has a choice of three things to do:
 You can redefine this function to choose among those three alternatives
 in any way you like."
   (discard-input)
-  (if (string-match-p "/\.cache/recentf\.[a-z]*" file) t
+  (if (or (string-match-p "/\.cache/recentf\.[a-z]*" file)
+          (string-match-p ".cache/layouts/persp-auto-save" file)) t
     (save-window-excursion
       (let (answer short-opponent short-file)
         (setq short-file

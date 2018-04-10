@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: misc reference
+# key: misc
+# --
+
+@misc{${1:id},
+author = {${2:author}},
+title = {{${3:title}}},
+howpublished = "${4:url}",
+year = {${5:year}}
+}
+
+$0

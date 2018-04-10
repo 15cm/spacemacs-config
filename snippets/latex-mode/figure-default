@@ -3,9 +3,11 @@
 # key: fig
 # --
 
-\begin{figure}[H]
+\begin{figure}[ht]
 \centering
-\includegraphics[witdth=0.8\linewidth]{$2}
-\caption{$0}
-\label{fig:$1}
+\includegraphics[width=0.8\linewidth]{${3:img_path_noext}}
+\caption{${1:caption}}
+\label{fig:${2:label}}
 \end{figure}
+
+$0

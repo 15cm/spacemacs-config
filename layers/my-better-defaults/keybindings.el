@@ -55,3 +55,7 @@
   (define-key view-mode-map (kbd "j") 'View-scroll-line-forward)
   (define-key view-mode-map (kbd "k") 'View-scroll-line-backward)
   )
+
+;; yas
+(global-unset-key (kbd "C-\\"))
+(global-set-key (kbd "C-\\") 'yas-expand)

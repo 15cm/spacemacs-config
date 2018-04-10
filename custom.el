@@ -6,6 +6,54 @@
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(beacon-color "#f2777a")
+ '(company-auctex-arg-lookup-table
+   (quote
+    ((TeX-arg-define-macro "\\MacroName")
+     (TeX-arg-counter "Counter")
+     (TeX-arg-define-counter "\\CounterName")
+     (TeX-arg-file "Filename")
+     (TeX-arg-bibliography "Filename")
+     (TeX-arg-bibstyle "Style")
+     (TeX-arg-environment "Environment")
+     (TeX-arg-define-environment "EnvironmentName")
+     (TeX-arg-size "(w, h)")
+     (TeX-arg-ref "Name")
+     (TeX-arg-index "Index")
+     (TeX-arg-define-label "Label")
+     (LaTeX-arg-section "Title")
+     (LaTeX-arg-usepackage "Package")
+     (LaTeX-env-label)
+     (LaTeX-amsmath-env-aligned
+      ["htbp!"])
+     (LaTeX-amsmath-env-alignat
+      ["# Columns"])
+     (LaTeX-env-array
+      ["bct"]
+      "lcrpmb|")
+     (LaTeX-env-item)
+     (LaTeX-env-document)
+     (LaTeX-env-figure
+      ["htbp!"])
+     (LaTeX-env-contents "Filename")
+     (LaTeX-env-minipage
+      ["htbp!"]
+      "Width")
+     (LaTeX-env-list "Label" "\\itemsep,\\labelsep,...")
+     (LaTeX-env-picture "(w, h)" "(x, y)")
+     (LaTeX-env-tabular* "Width"
+                         ["htbp!"]
+                         "lcrpmb|><")
+     (LaTeX-env-bib "WidestLabel")
+     (TeX-arg-conditional
+      [""])
+     (2 "" "")
+     (3 "" "" "")
+     (4 "" "" "" "")
+     (5 "" "" "" "" "")
+     (6 "" "" "" "" "" "")
+     (7 "" "" "" "" "" "" "")
+     (8 "" "" "" "" "" "" "" "")
+     (9 "" "" "" "" "" "" "" "" ""))))
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
@@ -39,6 +87,7 @@
  '(hl-fg-colors
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
+ '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")))
  '(linum-relative-format "%3s")
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
@@ -51,6 +100,7 @@
  '(pos-tip-foreground-color "#586e75")
  '(safe-local-variable-values (quote ((eval progn (pp-buffer) (indent-buffer)))))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
+ '(split-height-threshold nil)
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")
  '(vc-annotate-background-mode nil)
@@ -60,7 +110,8 @@
  '(xterm-color-names
    ["#eee8d5" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#073642"])
  '(xterm-color-names-bright
-   ["#fdf6e3" "#cb4b16" "#93a1a1" "#839496" "#657b83" "#6c71c4" "#586e75" "#002b36"]))
+   ["#fdf6e3" "#cb4b16" "#93a1a1" "#839496" "#657b83" "#6c71c4" "#586e75" "#002b36"])
+ '(yas-snippet-dirs (quote ("/Users/sinkerine/.spacemacs.d/snippets"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

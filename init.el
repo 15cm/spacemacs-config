@@ -47,11 +47,11 @@ values."
 
      ;; programming
      (auto-completion :variables
-                      spacemacs-default-company-backends
-                      '((company-files company-capf)
-                       (company-abbrev company-dabbrev)
-                       company-yasnippet
-                       ))
+                      spacemacs-default-company-backends '((company-files company-capf)
+                                                           (company-abbrev company-dabbrev)
+                                                           company-yasnippet)
+                      auto-completion-enable-snippets-in-popup t
+                      )
      restclient
      ycmd
      emacs-lisp

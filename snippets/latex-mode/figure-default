@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: figure default(0.8w centering with cap, label)
+# key: fig
+# --
+
+\begin{figure}[H]
+\centering
+\includegraphics[witdth=0.8\linewidth]{$2}
+\caption{$0}
+\label{fig:$1}
+\end{figure}

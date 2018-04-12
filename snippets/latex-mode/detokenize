@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: detokenize
+# key: detokenize
+# --
+detokenize{$1}$0

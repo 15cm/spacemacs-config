@@ -1,3 +1,8 @@
+;; show function name in header line
+(defun set-header-line ()
+  (which-func-mode)
+  (setq header-line-format
+        '((which-func-mode ("" which-func-format " ")))))
 ;; setup
 (defun my-flycheck-rtags-setup ()
   "Configure flycheck-rtags for better experience."
@@ -14,7 +19,9 @@
         js2-bounce-indent-p t
         )
   ;; include '_' in word motion
-  (modify-syntax-entry ?_ "w"))
+  (modify-syntax-entry ?_ "w")
+  (set-header-line)
+  )
 
 (defun run-node (cwd)
   (interactive "Directory: ")
@@ -26,7 +33,8 @@
   (setq c-basic-offset 4)
   (setq c-auto-newline nil)
   (modify-syntax-entry ?_ "w")
-  ;; (setq ycmd-mode nil)
+  (setq ycmd-mode nil)
+  (set-header-line)
   )
 
 (defun my-sh-mode-hook()
@@ -35,10 +43,14 @@
         tab-width 2))
 
 (defun my-python-mode-hook()
-  (modify-syntax-entry ?_ "w"))
+  (modify-syntax-entry ?_ "w")
+  (set-header-line)
+  )
 
 (defun my-elisp-mode-hook()
-  (modify-syntax-entry ?- "w"))
+  (modify-syntax-entry ?- "w")
+  (set-header-line)
+  )
 
 (defun my-moonscript-mode-hook()
   (setq moonscript-indent-offset 2)

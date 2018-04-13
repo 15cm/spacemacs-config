@@ -162,10 +162,10 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   ;; linum mode
-  (global-linum-mode)
-  (with-eval-after-load 'linum
-    (setq linum-relative-format (if (display-graphic-p) "%4s" "%4s "))
-    )
+  (defun my-linum-mode-hook (&rest r)
+    (setq linum-relative-format (if (display-graphic-p) "%4s" "%4s ")))
+  (my-linum-mode-hook)
+  (advice-add 'spacemacs/cycle-spacemacs-theme :after #'my-linum-mode-hook)
 
   (let ((f (concat dotspacemacs-directory "scripts-local/tiger.el")))
        (if (file-exists-p f) (load-file f)))

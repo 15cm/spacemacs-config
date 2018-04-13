@@ -89,7 +89,7 @@
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")))
- '(linum-relative-format "%3s")
+ '(linum-relative-format "%4s")
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
    (quote

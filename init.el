@@ -66,6 +66,7 @@ values."
      (ruby :variables
            ruby-enable-enh-ruby-mode t
            ruby-version-manager 'rbenv)
+     swift
      javascript
      react
      yaml
@@ -136,12 +137,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; separate custom-file
   (setq custom-file "~/.spacemacs.d/custom.el")
 
-  ;; Fix problem of line number being too close in terminal
-  (unless (display-graphic-p)
-    (setq-default
-     linum-format "%4d |"
-     linum-relative-format "%4s |"))
-
   (setenv "INSIDE_EMACS" "true")
   ;; Shell bug fix
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
@@ -165,6 +160,12 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; linum mode
+  (global-linum-mode)
+  (with-eval-after-load 'linum
+    (setq linum-relative-format (if (display-graphic-p) "%4s" "%4s "))
+    )
 
   (let ((f (concat dotspacemacs-directory "scripts-local/tiger.el")))
        (if (file-exists-p f) (load-file f)))

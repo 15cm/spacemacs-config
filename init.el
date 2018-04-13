@@ -93,7 +93,7 @@ values."
 
      ;; services
      git
-     ;; github
+     github
      prodigy
 
      my-better-defaults
@@ -165,6 +165,7 @@ you should place your code here."
   (defun my-linum-mode-hook (&rest r)
     (setq linum-relative-format (if (display-graphic-p) "%4s" "%4s ")))
   (my-linum-mode-hook)
+  ;; fix reset problem of linum-relative-format
   (advice-add 'spacemacs/cycle-spacemacs-theme :after #'my-linum-mode-hook)
 
   (let ((f (concat dotspacemacs-directory "scripts-local/tiger.el")))

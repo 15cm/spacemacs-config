@@ -53,7 +53,6 @@ values."
                       auto-completion-enable-snippets-in-popup t
                       )
      restclient
-     ycmd
      emacs-lisp
      (c-c++ :variables
             c-c++-enable-rtags-support t
@@ -163,6 +162,7 @@ you should place your code here."
 
   ;; linum mode
   (defun my-linum-mode-hook (&rest r)
+    ;; linum-relative-format should be first set as a custom variable
     (setq linum-relative-format (if (display-graphic-p) "%4s" "%4s ")))
   (my-linum-mode-hook)
   ;; fix reset problem of linum-relative-format

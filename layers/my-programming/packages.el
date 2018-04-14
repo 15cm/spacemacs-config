@@ -28,8 +28,6 @@
 
 (defun my-programming/post-init-js2-mode()
   (add-hook 'js2-mode-hook 'my-js-mode-hook)
-  (add-hook 'js2-mode-hook 'ycmd-mode)
-  (spacemacs|add-company-backends :backends (company-files company-capf company-ycmd) :modes js2-mode))
 
 (defun my-programming/init-nodejs-repl()
   (use-package nodejs-repl
@@ -41,10 +39,8 @@
   (add-hook 'c-mode-hook 'my-cc-mode-hook)
   ;; (add-hook 'c-mode-hook #'my-flycheck-rtags-setup)
   ;; (add-hook 'c++-mode-hook #'my-flycheck-rtags-setup)
-  (add-hook 'c++-mode-hook 'ycmd-mode)
-  (add-hook 'c-mode-hook 'ycmd-mode)
-  (spacemacs|add-company-backends :backends (company-files company-capf company-c-headers company-rtags company-ycmd) :modes c++-mode)
-  (spacemacs|add-company-backends :backends (company-files company-capf company-c-headers company-rtags company-ycmd) :modes c-mode))
+  (spacemacs|add-company-backends :backends (company-files company-capf company-c-headers company-rtags) :modes c++-mode)
+  (spacemacs|add-company-backends :backends (company-files company-capf company-c-headers company-rtags) :modes c-mode))
 
 (defun my-programming/post-init-sh-script()
   (add-hook 'sh-mode-hook 'my-sh-mode-hook)

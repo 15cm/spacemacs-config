@@ -33,7 +33,6 @@
   (setq c-basic-offset 4)
   (setq c-auto-newline nil)
   (modify-syntax-entry ?_ "w")
-  (setq ycmd-mode nil)
   (set-header-line)
   )
 

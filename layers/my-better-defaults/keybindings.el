@@ -28,8 +28,10 @@
 ;; smartparens
 (global-set-key (kbd "M-f") 'sp-forward-sexp)
 (global-set-key (kbd "M-b") 'sp-backward-sexp)
-(global-set-key (kbd "M-n") 'sp-down-sexp)
-(global-set-key (kbd "M-p") 'sp-up-sexp)
+(global-set-key (kbd "M-d") 'sp-down-sexp)
+(global-set-key (kbd "M-D") 'sp-backward-down-sexp)
+(global-set-key (kbd "M-u") 'sp-up-sexp)
+(global-set-key (kbd "M-U") 'sp-backward-up-sexp)
 (global-set-key (kbd "M-a") 'sp-beginning-of-sexp)
 (global-set-key (kbd "M-e") 'sp-end-of-sexp)
 

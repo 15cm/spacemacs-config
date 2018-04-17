@@ -1,11 +1,11 @@
 # -*- mode: snippet -*-
 # name: figure default(0.8w centering with cap, label)
-# key: fig
+# key: \fig
 # --
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.8\linewidth]{${3:img_path_noext}}
+\includegraphics[width=0.8\linewidth]{img/$2}
 \caption{${1:caption}}
 \label{fig:${2:label}}
 \end{figure}

@@ -61,3 +61,7 @@
 ;; yas
 (global-unset-key (kbd "C-\\"))
 (global-set-key (kbd "C-\\") 'yas-expand)
+
+;; search
+(evil-leader/set-key "ss" 'spacemacs/helm-file-smart-do-search)
+(evil-leader/set-key "sS" 'spacemacs/helm-file-smart-do-search-region-or-symbol)

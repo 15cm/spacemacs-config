@@ -11,12 +11,13 @@
 
 (defconst my-programming-packages
   '(
+    company
     js2-mode
     json-mode
     nodejs-repl
     cc-mode
     sh-script
-    python
+    python-mode
     emacs-lisp
     moonscript
     web-mode
@@ -25,6 +26,15 @@
     applescript-mode
     dockerfile-mode
     ))
+
+(defun my-programming/post-init-company()
+  (spacemacs|add-company-backends :backends (company-c-headers company-rtags) :modes c++-mode)
+  (spacemacs|add-company-backends :backends (company-c-headers company-rtags) :modes c-mode)
+  (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode)
+  (spacemacs|add-company-backends :backends (company-anaconda) :modes python-mode)
+  (spacemacs|add-company-backends :backends (company-dabbrev-code)
+                                  :modes ruby-mode enh-ruby-mode)
+  )
 
 (defun my-programming/post-init-js2-mode()
   (add-hook 'js2-mode-hook 'my-js-mode-hook)
@@ -40,14 +50,13 @@
   (add-hook 'c-mode-hook 'my-cc-mode-hook)
   (add-hook 'c-mode-hook #'my-flycheck-rtags-setup)
   (add-hook 'c++-mode-hook #'my-flycheck-rtags-setup)
-  (spacemacs|add-company-backends :backends (company-files company-capf company-c-headers company-rtags) :modes c++-mode)
-  (spacemacs|add-company-backends :backends (company-files company-capf company-c-headers company-rtags) :modes c-mode))
+  )
 
 (defun my-programming/post-init-sh-script()
   (add-hook 'sh-mode-hook 'my-sh-mode-hook)
-  (spacemacs|add-company-backends :backends (company-files company-capf company-shell) :modes sh-mode))
+  )
 
-(defun my-programming/post-init-python()
+(defun my-programming/post-init-python-mode()
   (add-hook 'python-mode-hook 'my-python-mode-hook))
 
 (defun my-programming/post-init-emacs-lisp()
@@ -67,7 +76,7 @@
 (defun my-programming/post-init-web-mode()
   (add-hook 'web-mode-hook 'my-web-mode-hook)
   (add-hook 'web-mode-hook #'turn-on-smartparens-mode t)
-  (spacemacs|add-company-backends :backends (company-files company-capf company-css company-html) :modes web-mode))
+  )
 
 (defun my-programming/post-init-sql()
   (add-hook 'sql-mode-hook 'my-sql-mode-hook))

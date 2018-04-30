@@ -18,6 +18,7 @@
     cc-mode
     sh-script
     python-mode
+    enh-ruby-mode
     emacs-lisp
     moonscript
     web-mode
@@ -32,8 +33,6 @@
   (spacemacs|add-company-backends :backends (company-c-headers company-rtags) :modes c-mode)
   (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode)
   (spacemacs|add-company-backends :backends (company-anaconda) :modes python-mode)
-  (spacemacs|add-company-backends :backends (company-dabbrev-code)
-                                  :modes ruby-mode enh-ruby-mode)
   )
 
 (defun my-programming/post-init-js2-mode()
@@ -58,6 +57,11 @@
 
 (defun my-programming/post-init-python-mode()
   (add-hook 'python-mode-hook 'my-python-mode-hook))
+
+(defun my-programming/post-init-enh-ruby-mode()
+    (spacemacs|add-company-backends :backends (company-robe company-dabbrev-code)
+                                  :modes ruby-mode enh-ruby-mode)
+  )
 
 (defun my-programming/post-init-emacs-lisp()
   (add-hook 'emacs-lisp-mode-hook 'my-elisp-mode-hook))

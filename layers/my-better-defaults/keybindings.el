@@ -11,6 +11,7 @@
 (global-set-key (kbd "<C-return>") 'spacemacs/evil-insert-line-below)
 (global-set-key (kbd "<S-return>") 'spacemacs/evil-insert-line-above)
 (global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "C-h") 'delete-backward-char)
 
 ;; vim surround
 (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)

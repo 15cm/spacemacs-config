@@ -2,10 +2,10 @@
 (defun copy-to-clipboard ()
   "Copies selection to x-clipboard."
   (interactive)
-  (let ((nc-cmd (if (string-equal system-type "darwin") "nc localhost 8377" "nc -q0 localhost 8377")))
+  (let ((cmd (if (string-equal system-type "darwin") "nc localhost 8377" "nc -q0 localhost 8377")))
     (if (region-active-p)
         (progn
-          (shell-command-on-region (region-beginning) (region-end) nc-cmd)
+          (shell-command-on-region (region-beginning) (region-end) cmd)
           (message "Yanked region to clipboard!")
           (deactivate-mark))
       (message "No region active; can't yank to clipboard!"))
@@ -15,8 +15,9 @@
 (defun paste-from-clipboard ()
   "Pastes from x-clipboard."
   (interactive)
-  (if (display-graphic-p)
-      (insert (shell-command-to-string "pbpaste"))
+  (if (string-equal system-type "darwin")
+    (insert (shell-command-to-string "pbpaste"))
+    (x-clipboard-yank)
     )
   )
 

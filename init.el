@@ -151,6 +151,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; load separated custom-file
   (when (file-exists-p custom-file)
     (load-file custom-file))
+
 )
 
 (defun dotspacemacs/user-config ()
@@ -160,6 +161,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; magit: fix ssh-agent on Linux
+  (exec-path-from-shell-copy-env "SSH_AGENT_PID")
+  (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 
   ;; linum mode
   (defun my-linum-mode-hook (&rest r)

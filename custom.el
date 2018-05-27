@@ -65,7 +65,7 @@
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(frame-background-mode (quote dark))
  '(fzf/args "-x --color bw --print-query")
- '(helm-ag-base-command "rg-wrapper --no-heading --smart-case")
+ '(helm-ag-base-command "rg --no-heading --smart-case")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map

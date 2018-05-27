@@ -1,4 +1,9 @@
 ;; clipboard
+(defun x-paste-function()
+  (let ((x-output (shell-command-to-string "xclip -o -selection clipboard")))
+    (unless (string= (car kill-ring) x-output)
+      x-output )))
+
 (defun copy-to-clipboard ()
   "Copies selection to x-clipboard."
   (interactive)
@@ -17,7 +22,7 @@
   (interactive)
   (if (string-equal system-type "darwin")
     (insert (shell-command-to-string "pbpaste"))
-    (x-clipboard-yank)
+    (clipboard-yank)
     )
   )
 

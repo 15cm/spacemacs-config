@@ -162,8 +162,16 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (setq linum-relative-format (if (display-graphic-p) "%4s" "%4s "))
     )
 
+  (defun frame-did-setup (&rest r)
+    (let ((frame (if r (car r) ())))
+      (spacemacs/enable-transparency frame)
+      )
+    )
+
   (add-hook 'window-setup-hook 'window-did-setup)
   (add-hook 'spacemacs-post-theme-change-hook 'window-did-setup)
+  (add-hook 'window-setup-hook 'frame-did-setup)
+  (add-to-list 'after-make-frame-functions 'frame-did-setup)
 )
 
 (defun dotspacemacs/user-config ()
@@ -190,9 +198,6 @@ you should place your code here."
   (if (display-graphic-p)
       (setq-default layouts-enable-autosave t)
     (setq-default layouts-enable-autosave nil))
-
-  ;; enable transparency by default 
-  (spacemacs/enable-transparency)
 
   ;; beacon
   (beacon-mode 1)

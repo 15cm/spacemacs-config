@@ -18,7 +18,6 @@
     python
     moonscript
     web-mode
-    company-restclient
     ))
 
 (defun sinkerine-programming/post-init-js2-mode()
@@ -63,12 +62,7 @@
   (add-hook 'json-mode-hook 'my-js-mode-hook)
   )
 
-(defun sinkerine-programming/init-company-restclient()
-  (use-package company-restclient
-    :init
-    :defer t
-    ))
-
-(defun sinkerine-programming/post-init-restclient()
-  (spacemacs|add-company-backends :backends (company-restclient company-files company-capf) :modes restclient-mode)
+(defun sinkerine-programming/post-init-web-mode()
+  (add-hook 'web-mode-hook 'my-web-mode-hook)
+  (add-hook 'web-mode-hook #'smartparens-mode)
   )

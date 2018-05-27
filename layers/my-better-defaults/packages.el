@@ -11,7 +11,7 @@
 
 (defconst my-better-defaults-packages
   '(
-    cnfonts
+    ;; cnfonts
     anzu
     vlf
     rainbow-mode
@@ -19,13 +19,13 @@
     fzf
     ))
 
-(defun my-better-defaults/init-cnfonts()
-  (use-package cnfonts
-    :config
-    (require 'cnfonts)
-    (cnfonts-enable)
-    (setq cfs-profiles '("programming" "reading"))
-    ))
+;; (defun my-better-defaults/init-cnfonts()
+;;   (use-package cnfonts
+;;     :config
+;;     (require 'cnfonts)
+;;     (cnfonts-enable)
+;;     (setq cfs-profiles '("programming" "reading"))
+;;     ))
 
 (defun my-better-defaults/init-anzu()
   (use-package anzu))

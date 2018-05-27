@@ -153,6 +153,18 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (when (file-exists-p custom-file)
     (load-file custom-file))
 
+  (defun window-did-setup ()
+    ;; get transparent background in terminal
+    (unless (display-graphic-p (selected-frame))
+      (set-face-background 'default "unspecified-bg" (selected-frame)))
+
+    ;; linum-relative-format should be first set as a custom variable
+    (setq linum-relative-format (if (display-graphic-p) "%4s" "%4s "))
+    )
+
+  (add-hook 'window-setup-hook 'window-did-setup)
+  (add-hook 'spacemacs-post-theme-change-hook 'window-did-setup)
+
 )
 
 (defun dotspacemacs/user-config ()
@@ -166,14 +178,6 @@ you should place your code here."
   ;; magit: fix ssh-agent on Linux
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
   (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
-
-  ;; linum mode
-  (defun my-linum-mode-hook (&rest r)
-    ;; linum-relative-format should be first set as a custom variable
-    (setq linum-relative-format (if (display-graphic-p) "%4s" "%4s ")))
-  (my-linum-mode-hook)
-  ;; fix reset problem of linum-relative-format
-  (advice-add 'spacemacs/cycle-spacemacs-theme :after #'my-linum-mode-hook)
 
   (let ((f (concat dotspacemacs-directory "scripts-local/tiger.el")))
        (if (file-exists-p f) (load-file f)))

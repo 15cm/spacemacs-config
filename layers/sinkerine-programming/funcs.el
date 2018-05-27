@@ -18,6 +18,7 @@
 (defun my-cc-mode-hook ()
   (setq c-basic-offset 4)
   (modify-syntax-entry ?_ "w")
+  (setq company-c-headers-path-system '("/usr/include/c++/4.2.1/"))
   )
 
 (defun my-sh-mode-hook()

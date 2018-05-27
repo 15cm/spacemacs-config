@@ -63,11 +63,6 @@
   (add-hook 'json-mode-hook 'my-js-mode-hook)
   )
 
-(defun sinkerine-programming/post-init-web-mode()
-  (add-hook 'web-mode-hook 'my-web-mode-hook)
-  (add-hook 'web-mode-hook #'smartparens-mode)
-  )
-
 (defun sinkerine-programming/init-company-restclient()
   (use-package company-restclient
     :init

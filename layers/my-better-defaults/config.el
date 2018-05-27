@@ -15,13 +15,9 @@
 ;; pangu-spacing
 (setq pangu-spacing-real-insert-separtor t)
 
-;; disable copying to system clipboard on macOS
-;; (case system-type
-;;   ('darwin (setq select-enable-clipboard nil))
-;;   ('gnu/linux (setq select-enable-clipboard t)))
+;; clipboard
 (setq select-enable-clipboard nil)
 (case system-type
   ('gnu/linux (progn
                 (setq interprogram-cut-function nil)
                 (setq interprogram-paste-function 'x-paste-function))))
-

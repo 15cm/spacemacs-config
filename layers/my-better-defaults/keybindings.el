@@ -13,6 +13,10 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 
+;; evil clipbpard
+(define-key evil-normal-state-map "p" 'evil-paste-after-from-0)
+(define-key evil-normal-state-map "P" 'evil-paste-before-from-0)
+
 ;; vim surround
 (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
 (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)

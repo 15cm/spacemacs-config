@@ -89,7 +89,7 @@
  '(hl-fg-colors
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
- '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")) t)
+ '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")))
  '(linum-relative-format "%4s")
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
@@ -101,6 +101,7 @@
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(safe-local-variable-values (quote ((eval progn (pp-buffer) (indent-buffer)))))
+ '(save-interprogram-paste-before-kill nil)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(split-height-threshold nil)
  '(term-default-bg-color "#fdf6e3")

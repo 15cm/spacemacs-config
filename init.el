@@ -188,8 +188,7 @@ you should place your code here."
     (setq-default layouts-enable-autosave nil))
 
   ;; enable transparency by default 
-  ;; (spacemacs/disable-transparency)
-  ;; (spacemacs/toggle-transparency)
+  (spacemacs/enable-transparency)
 
   ;; beacon
   (beacon-mode 1)

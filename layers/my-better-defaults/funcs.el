@@ -4,16 +4,6 @@
     (unless (string= (car kill-ring) x-output)
       x-output )))
 
-(defun evil-paste-after-from-0 ()
-  (interactive)
-  (let ((evil-this-register ?0))
-    (call-interactively 'evil-paste-after)))
-
-(defun evil-paste-before-from-0 ()
-  (interactive)
-  (let ((evil-this-register ?0))
-    (call-interactively 'evil-paste-before)))
-
 (defun copy-to-clipboard ()
   "Copies selection to x-clipboard."
   (interactive)
@@ -32,7 +22,7 @@
   (interactive)
   (if (string-equal system-type "darwin")
     (insert (shell-command-to-string "pbpaste"))
-    (clipboard-yank)
+    (simpleclip-paste)
     )
   )
 

@@ -13,10 +13,6 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 
-;; evil clipbpard
-;; (define-key evil-normal-state-map "p" 'evil-paste-after-from-0)
-;; (define-key evil-normal-state-map "P" 'evil-paste-before-from-0)
-
 ;; vim surround
 (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
 (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
@@ -46,6 +42,7 @@
 (if (string-equal system-type "darwin")
     (global-set-key (kbd "s-v") 'paste-from-clipboard))
 (global-set-key (kbd "C-v") 'paste-from-clipboard)
+(define-key helm-map (kbd "C-v") 'paste-from-clipboard)
 
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 

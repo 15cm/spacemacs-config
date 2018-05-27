@@ -17,7 +17,3 @@
 
 ;; clipboard
 (setq select-enable-clipboard nil)
-(case system-type
-  ('gnu/linux (progn
-                (setq interprogram-cut-function nil)
-                (setq interprogram-paste-function 'x-paste-function))))

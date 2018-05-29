@@ -22,14 +22,10 @@
     :defer t))
 
 (defun my-writing/post-init-org()
+  (add-hook 'org-mode-hook 'after-org-mode-loaded)
   (with-eval-after-load 'org
     (progn
-      (define-key org-mode-map (kbd "<drag-n-drop>") 'my-dnd-func)
-      (define-key org-mode-map (kbd "<S-drag-n-drop>") 'my-dnd-func)
-      (define-key org-mode-map (kbd "<C-drag-n-drop>") 'my-dnd-func)
-      (define-key org-mode-map (kbd "<M-drag-n-drop>") 'my-dnd-func)
-
-      (setq org-image-actual-width '(300))
+      (setq org-image-actual-width '(512))
       (setq org-export-show-temporary-export-buffer nil)
       ;; agenda
       (setq org-agenda-inhibit-startup t)   ;; ~50x speedup

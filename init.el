@@ -157,9 +157,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
     ;; get transparent background in terminal
     (unless (display-graphic-p)
       (set-face-background 'default "unspecified-bg"))
-
-    ;; linum-relative-format should be first set as a custom variable
-    (setq linum-relative-format (if (display-graphic-p) "%4s" "%4s "))
     )
 
   (defun frame-did-setup (&rest r)
@@ -188,6 +185,7 @@ you should place your code here."
 
   (let ((f (concat dotspacemacs-directory "scripts-local/tiger.el")))
        (if (file-exists-p f) (load-file f)))
+  (global-display-line-numbers-mode 1)
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)
   (company-statistics-mode)
@@ -432,7 +430,7 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 97
+   dotspacemacs-active-transparency 95
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -457,7 +455,12 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers '(:relative t)
+   dotspacemacs-line-numbers '(:relative t
+                                         :enabled-for-modes
+                                         fundamental-mode
+                                         prog-mode
+                                         text-mode
+                              )
 
       ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)

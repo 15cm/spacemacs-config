@@ -8,7 +8,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 (defun after-org-mode-loaded()
   (setq org-download-heading-lvl nil)
   (if buffer-file-name
-      (let ((org-img-base-folder "~/tech/wiki/static/img")
+      (let* ((org-img-base-folder "~/tech/wiki/static/img")
             (img-folder (format "%s/%s" org-img-base-folder (file-name-base buffer-file-name))))
         (setq-local org-download-image-dir img-folder))
       )

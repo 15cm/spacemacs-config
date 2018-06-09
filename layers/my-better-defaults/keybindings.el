@@ -39,7 +39,7 @@
 ;; clipboard
 (define-key evil-visual-state-map (kbd "C-y") 'copy-to-clipboard)
 
-(if (string-equal system-type "darwin")
+(if (my-system-typep-darwin)
     (global-set-key (kbd "s-v") 'paste-from-clipboard))
 (global-set-key (kbd "C-v") 'paste-from-clipboard)
 (define-key helm-map (kbd "C-v") 'paste-from-clipboard)

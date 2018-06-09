@@ -7,7 +7,7 @@
 (defun copy-to-clipboard ()
   "Copies selection to x-clipboard."
   (interactive)
-  (let ((cmd (if (string-equal system-type "darwin") "nc localhost 8377" "nc -q0 localhost 8377")))
+  (let ((cmd (if (my-system-typep-darwin) "nc localhost 8377" "nc -q0 localhost 8377")))
     (if (region-active-p)
         (progn
           (shell-command-on-region (region-beginning) (region-end) cmd)
@@ -20,7 +20,7 @@
 (defun paste-from-clipboard ()
   "Pastes from x-clipboard."
   (interactive)
-  (if (string-equal system-type "darwin")
+  (if (my-system-typep-darwin)
     (insert (shell-command-to-string "pbpaste"))
     (simpleclip-paste)
     )

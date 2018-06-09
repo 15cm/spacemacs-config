@@ -169,6 +169,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-hook 'spacemacs-post-theme-change-hook 'window-did-setup)
   (add-hook 'window-setup-hook 'frame-did-setup)
   (add-to-list 'after-make-frame-functions 'frame-did-setup)
+
+  ;; helper functions
+  (defun my-system-typep-darwin ()
+    (string-equal system-type "darwin"))
 )
 
 (defun dotspacemacs/user-config ()

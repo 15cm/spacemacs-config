@@ -46,7 +46,6 @@
       (setq org-startup-truncated nil))))
 
 (defun my-writing/post-init-prodigy()
-  (setq hexo-config-path "source/_data/next.yml")
    (prodigy-define-service
      :name "Hexo Generate"
      :command hexo-exec

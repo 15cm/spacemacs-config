@@ -28,7 +28,8 @@
   )
 
 ;; Blog
-(setq blog-path (concat user-home-directory "tech/15cm-site/blog"))
-(setq hexo-exec "hexo")
-(setq hexo-config-path "source/_data/next.yml")
-(setq post-path (concat blog-path "/source/_posts"))
+(setq blog-path (concat user-home-directory "tech/15cm-site/blog")
+      hexo-exec "hexo"
+      hexo-config-path "source/_data/next.yml"
+      post-path (concat blog-path "/source/_posts")
+      )

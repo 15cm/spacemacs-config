@@ -41,8 +41,8 @@
 
 (if (my-system-typep-darwin)
     (global-set-key (kbd "s-v") 'paste-from-clipboard))
-(global-set-key (kbd "C-v") 'paste-from-clipboard)
-(define-key helm-map (kbd "C-v") 'paste-from-clipboard)
+(global-set-key (kbd "C-S-y") 'paste-from-clipboard)
+(define-key helm-map (kbd "C-S-y") 'paste-from-clipboard)
 
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 

@@ -89,6 +89,7 @@ values."
      markdown
      (latex :variables
             latex-build-command "XeLaTeX")
+     nginx
 
      ;; services
      git

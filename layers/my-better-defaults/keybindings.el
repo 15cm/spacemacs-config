@@ -20,6 +20,7 @@
 ;; company
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-f") 'right-char)
+  (define-key company-active-map (kbd "C-h") 'delete-backward-char)
   (define-key company-active-map (kbd "<C-return>") 'newline-and-indent))
 
 ;; term

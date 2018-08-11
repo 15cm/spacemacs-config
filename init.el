@@ -105,6 +105,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      exec-path-from-shell
                                       (company-auctex :location
                                                       (recipe :fetcher github
                                                               :repo "15cm/company-auctex"))
@@ -187,6 +188,9 @@ you should place your code here."
   ;; magit: fix ssh-agent on Linux
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
   (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
+
+  ;; magithub
+  (setq auth-sources '("~/.authinfo.gpg" "~/.authinfo" "~/.netrc"))
 
   ;; (let ((f (concat dotspacemacs-directory "scripts-local/tiger.el")))
   ;;      (if (file-exists-p f) (load-file f)))

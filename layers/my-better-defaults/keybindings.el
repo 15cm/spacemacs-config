@@ -14,8 +14,9 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 
 ;; vim surround
-(evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
-(evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
+(with-eval-after-load 'evil-surround
+  (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
+  (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region))
 
 ;; company
 (with-eval-after-load 'company

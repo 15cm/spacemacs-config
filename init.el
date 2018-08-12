@@ -128,6 +128,10 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  ;; helper functions
+  (defun my-system-typep-darwin ()
+    (string-equal system-type "darwin"))
+
   ;; Solve problem of hanging on startup
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
@@ -148,8 +152,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer-elpa-archives)
   (push '("ensime" . "melpa-stable") package-pinned-packages)
 
+  ;; Init exec-path-from-shell
   ;; Speed up launch
-  (setq-default exec-path-from-shell-check-startup-files nil)
+  (with-eval-after-load 'exec-path-from-shell
+    (setq-default exec-path-from-shell-check-startup-files nil)
+    (when (memq window-system '(mac ns x))
+      (exec-path-from-shell-initialize))
+    )
 
   ;; load separated custom-file
   (when (file-exists-p custom-file)
@@ -171,10 +180,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-hook 'spacemacs-post-theme-change-hook 'window-did-setup)
   (add-hook 'window-setup-hook 'frame-did-setup)
   (add-to-list 'after-make-frame-functions 'frame-did-setup)
-
-  ;; helper functions
-  (defun my-system-typep-darwin ()
-    (string-equal system-type "darwin"))
 )
 
 (defun dotspacemacs/user-config ()

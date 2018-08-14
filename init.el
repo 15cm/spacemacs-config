@@ -194,11 +194,6 @@ you should place your code here."
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
   (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 
-  ;; magithub
-  (setq auth-sources '("~/.authinfo.gpg" "~/.authinfo" "~/.netrc"))
-
-  ;; (let ((f (concat dotspacemacs-directory "scripts-local/tiger.el")))
-  ;;      (if (file-exists-p f) (load-file f)))
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)
   (company-statistics-mode)

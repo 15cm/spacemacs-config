@@ -5,6 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   ["#eee8d5" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
  '(beacon-color "#f2777a")
  '(c-default-style
    (quote
@@ -61,11 +63,15 @@
      (7 "" "" "" "" "" "" "")
      (8 "" "" "" "" "" "" "" "")
      (9 "" "" "" "" "" "" "" "" ""))))
+ '(company-statistics-file "~/.emacs.d/private/cache/company-statistics-cache.el")
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
+ '(custom-safe-themes
+   (quote
+    ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "fa3328c4b23fdba77a360fff513b4a6b2ad44e39b70b650bd5f3407bed60b784" "66d837d5bad27c5ea9480d07048d1a469678823c42daea672e3a7dd4fac6a1bf" "07b0650a8c00ccdc946e8452f931384b536e761106fc7c81e62ba2fb6afef8b6" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(evil-toggle-key "C-M-z")
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
@@ -95,7 +101,7 @@
  '(hl-fg-colors
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
- '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")) t)
+ '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")))
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
    (quote

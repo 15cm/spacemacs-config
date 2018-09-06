@@ -299,7 +299,8 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          sanityinc-tomorrow-night
-                         solarized-light
+                         (solarized-light :location (recipe :fetcher github
+                                                            :repo "15cm/solarized-emacs"))
                          )
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',

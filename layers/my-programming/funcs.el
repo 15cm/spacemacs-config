@@ -3,12 +3,6 @@
   (which-func-mode)
   (setq header-line-format
         '((which-func-mode ("" which-func-format " ")))))
-;; setup
-;; (defun my-flycheck-rtags-setup ()
-;;   "Configure flycheck-rtags for better experience."
-;;   (flycheck-select-checker 'rtags)
-;;   (setq-local flycheck-check-syntax-automatically nil)
-;;   (setq-local flycheck-highlighting-mode nil))
 
 ;; hooks
 (defun my-js-mode-hook()
@@ -44,7 +38,6 @@
           (locate-dominating-file default-directory ".cquery")))
     (setq eldoc-idle-delay 0.2)
     (lsp-cquery-enable)
-    (lsp-enable-imenu)
     (when (>= emacs-major-version 26)
       (lsp-ui-doc-mode 1)))
   )

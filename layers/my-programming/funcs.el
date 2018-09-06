@@ -4,11 +4,11 @@
   (setq header-line-format
         '((which-func-mode ("" which-func-format " ")))))
 ;; setup
-(defun my-flycheck-rtags-setup ()
-  "Configure flycheck-rtags for better experience."
-  (flycheck-select-checker 'rtags)
-  (setq-local flycheck-check-syntax-automatically nil)
-  (setq-local flycheck-highlighting-mode nil))
+;; (defun my-flycheck-rtags-setup ()
+;;   "Configure flycheck-rtags for better experience."
+;;   (flycheck-select-checker 'rtags)
+;;   (setq-local flycheck-check-syntax-automatically nil)
+;;   (setq-local flycheck-highlighting-mode nil))
 
 ;; hooks
 (defun my-js-mode-hook()
@@ -34,6 +34,19 @@
   (setq c-auto-newline nil)
   (modify-syntax-entry ?_ "w")
   (set-header-line)
+  ;; auto enable cquery
+  (when
+      (and (not (and (boundp 'lsp-mode) lsp-mode))
+           ;; (or
+           ;;  (cl-some (lambda (x) (string-match-p x buffer-file-name)) my-cquery-whitelist)
+           ;;  (cl-notany (lambda (x) (string-match-p x buffer-file-name)) my-cquery-blacklist))
+      (or (locate-dominating-file default-directory "compile_commands.json")
+          (locate-dominating-file default-directory ".cquery")))
+    (setq eldoc-idle-delay 0.2)
+    (lsp-cquery-enable)
+    (lsp-enable-imenu)
+    (when (>= emacs-major-version 26)
+      (lsp-ui-doc-mode 1)))
   )
 
 (defun my-sh-mode-hook()

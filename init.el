@@ -49,16 +49,14 @@ values."
      (auto-completion :variables
                       spacemacs-default-company-backends '((company-files company-capf)
                                                            (company-abbrev company-dabbrev)
-                                                           company-yasnippet)
+                                                           )
                       auto-completion-enable-snippets-in-popup t
                       )
      restclient
      emacs-lisp
      (c-c++ :variables
-            c-c++-enable-rtags-support t
-            c-c++-enable-c++11 t
-            c-c++-default-mode-for-headers 'c++-mode
-            c-c++-enable-clang-support t)
+            ;; c-c++-enable-c++11 t
+            c-c++-default-mode-for-headers 'c++-mode)
      python
      (java :variables
            java-backend nil)
@@ -67,7 +65,7 @@ values."
            ruby-version-manager 'rbenv)
      swift
      javascript
-     react
+     ;; react
      yaml
      html
      lua

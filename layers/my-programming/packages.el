@@ -26,11 +26,13 @@
     sml-mode
     applescript-mode
     dockerfile-mode
+    lsp-mode
+    company-lsp
+    cquery
     ))
 
 (defun my-programming/post-init-company()
-  (spacemacs|add-company-backends :backends (company-c-headers company-rtags) :modes c++-mode)
-  (spacemacs|add-company-backends :backends (company-c-headers company-rtags) :modes c-mode)
+  (push 'company-lsp company-backends)
   (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode)
   (spacemacs|add-company-backends :backends (company-anaconda) :modes python-mode)
   )
@@ -47,8 +49,6 @@
 (defun my-programming/post-init-cc-mode()
   (add-hook 'c++-mode-hook 'my-cc-mode-hook)
   (add-hook 'c-mode-hook 'my-cc-mode-hook)
-  (add-hook 'c-mode-hook #'my-flycheck-rtags-setup)
-  (add-hook 'c++-mode-hook #'my-flycheck-rtags-setup)
   )
 
 (defun my-programming/post-init-sh-script()
@@ -68,7 +68,6 @@
 
 (defun my-programming/init-moonscript()
   (use-package moonscript
-    :init
     :defer t
     :config
     (add-hook 'moonscript-mode-hook 'my-moonscript-mode-hook)
@@ -93,3 +92,18 @@
 
 (defun my-programming/init-dockerfile-mode()
   (use-package dockerfile-mode))
+
+(defun my-programming/init-lsp-mode()
+  (use-package lsp-mode))
+
+(defun my-programming/init-company-lsp()
+  (use-package company-lsp
+    :config
+    ;; todo: fix cquery lsp snippet expand
+    (setq company-lsp-enable-snippet nil)))
+
+(defun my-programming/init-cquery()
+  (use-package cquery
+    :config
+    (setq cquery-executable "/bin/cquery")
+    ))

@@ -41,10 +41,10 @@
 ;; clipboard
 (define-key evil-visual-state-map (kbd "C-y") 'copy-to-clipboard)
 
-(let ((paste-key (if (my-system-typep-darwin) "s-v" "C-S-v")))
-  (global-set-key (kbd paste-key) 'paste-from-clipboard)
-  (define-key helm-map (kbd paste-key) 'paste-from-clipboard)
-  )
+(with-eval-after-load 'helm
+  (let ((paste-key (if (my-system-typep-darwin) "s-v" "C-S-v")))
+    (global-set-key (kbd paste-key) 'paste-from-clipboard)
+    (define-key helm-map (kbd paste-key) 'paste-from-clipboard)))
 
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 

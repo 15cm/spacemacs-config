@@ -46,9 +46,6 @@
     :defer t))
 
 (defun my-programming/post-init-cc-mode()
-  (dolist (mode c-c++-modes)
-    (spacemacs/declare-prefix-for-mode mode "ml" "list")
-    )
   (add-hook 'c++-mode-hook 'my-cc-mode-hook)
   (add-hook 'c-mode-hook 'my-cc-mode-hook)
   )
@@ -102,6 +99,17 @@
     :config
     ))
 
+(defun my-programming/post-init-lsp-mode()
+  (dolist (mode c-c++-modes)
+    (spacemacs/declare-prefix-for-mode mode "mr" "refactor")
+    (spacemacs/set-leader-keys-for-major-mode mode
+      "gd" #'xref-find-definitions
+      "gD" #'xref-find-definitions-other-window
+      "gr" #'xref-find-references
+      "rr" #'lsp-rename
+      ))
+  )
+
 (defun my-programming/init-lsp-ui()
   (use-package lsp-ui
     :hook (lsp-mode . lsp-ui-mode)))
@@ -122,6 +130,7 @@
 
 (defun my-programming/post-init-cquery()
   (dolist (mode c-c++-modes)
+    (spacemacs/declare-prefix-for-mode mode "ml" "list")
     (spacemacs/set-leader-keys-for-major-mode mode
       "lc" 'cquery-call-hierarchy
       "lm" 'cquery-member-hierarchy
@@ -130,7 +139,5 @@
 (defun my-programming/post-init-lsp-ui()
   (dolist (mode c-c++-modes)
     (spacemacs/set-leader-keys-for-major-mode mode
-      "gd" #'lsp-ui-peek-find-definitions
-      "gr" #'lsp-ui-peek-find-references
       "gi" #'lsp-ui-imenu
       )))

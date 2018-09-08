@@ -3,6 +3,54 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-command-list
+   (quote
+    (("Latexmk" "latexmk -pdf %s" TeX-run-TeX nil t)
+     ("XeLaTeX" "%`xelatex -shell-escape --synctex=1%(mode)%' %t" TeX-run-TeX nil t)
+     ("TeX" "%(PDF)%(tex) %(file-line-error) %(extraopts) %`%S%(PDFout)%(mode)%' %t" TeX-run-TeX nil
+      (plain-tex-mode texinfo-mode ams-tex-mode)
+      :help "Run plain TeX")
+     ("LaTeX" "%`%l%(mode)%' %t" TeX-run-TeX nil
+      (latex-mode doctex-mode)
+      :help "Run LaTeX")
+     ("Makeinfo" "makeinfo %(extraopts) %t" TeX-run-compile nil
+      (texinfo-mode)
+      :help "Run Makeinfo with Info output")
+     ("Makeinfo HTML" "makeinfo %(extraopts) --html %t" TeX-run-compile nil
+      (texinfo-mode)
+      :help "Run Makeinfo with HTML output")
+     ("AmSTeX" "amstex %(PDFout) %(extraopts) %`%S%(mode)%' %t" TeX-run-TeX nil
+      (ams-tex-mode)
+      :help "Run AMSTeX")
+     ("ConTeXt" "%(cntxcom) --once --texutil %(extraopts) %(execopts)%t" TeX-run-TeX nil
+      (context-mode)
+      :help "Run ConTeXt once")
+     ("ConTeXt Full" "%(cntxcom) %(extraopts) %(execopts)%t" TeX-run-TeX nil
+      (context-mode)
+      :help "Run ConTeXt until completion")
+     ("BibTeX" "bibtex %s" TeX-run-BibTeX nil t :help "Run BibTeX")
+     ("Biber" "biber %s" TeX-run-Biber nil t :help "Run Biber")
+     ("View" "%V" TeX-run-discard-or-function t t :help "Run Viewer")
+     ("Print" "%p" TeX-run-command t t :help "Print the file")
+     ("Queue" "%q" TeX-run-background nil t :help "View the printer queue" :visible TeX-queue-command)
+     ("File" "%(o?)dvips %d -o %f " TeX-run-dvips t t :help "Generate PostScript file")
+     ("Dvips" "%(o?)dvips %d -o %f " TeX-run-dvips nil t :help "Convert DVI file to PostScript")
+     ("Dvipdfmx" "dvipdfmx %d" TeX-run-dvipdfmx nil t :help "Convert DVI file to PDF with dvipdfmx")
+     ("Ps2pdf" "ps2pdf %f" TeX-run-ps2pdf nil t :help "Convert PostScript file to PDF")
+     ("Glossaries" "makeglossaries %s" TeX-run-command nil t :help "Run makeglossaries to create glossary file")
+     ("Index" "makeindex %s" TeX-run-index nil t :help "Run makeindex to create index file")
+     ("upMendex" "upmendex %s" TeX-run-index t t :help "Run upmendex to create index file")
+     ("Xindy" "texindy %s" TeX-run-command nil t :help "Run xindy to create index file")
+     ("Check" "lacheck %s" TeX-run-compile nil
+      (latex-mode)
+      :help "Check LaTeX file for correctness")
+     ("ChkTeX" "chktex -v6 %s" TeX-run-compile nil
+      (latex-mode)
+      :help "Check LaTeX file for common mistakes")
+     ("Spell" "(TeX-ispell-document \"\")" TeX-run-function nil t :help "Spell-check the document")
+     ("Clean" "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files")
+     ("Clean All" "(TeX-clean t)" TeX-run-function nil t :help "Delete generated intermediate and output files")
+     ("Other" "" TeX-run-command t t :help "Run an arbitrary command"))))
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
@@ -63,7 +111,7 @@
      (7 "" "" "" "" "" "" "")
      (8 "" "" "" "" "" "" "" "")
      (9 "" "" "" "" "" "" "" "" ""))))
- '(company-statistics-file "~/.emacs.d/private/cache/company-statistics-cache.el")
+ '(company-statistics-file "~/.emacs.d/.cache/company-statistics-cache.el")
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
@@ -108,7 +156,7 @@
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (phpunit phpcbf php-extras php-auto-yasnippets drupal-mode company-php ac-php-core xcscope php-mode lsp-ui company-lsp lsp-python lsp-javascript-typescript lsp-java cquery lsp-mode evil-lisp-state typescript-mode prettier-js helm-git-grep seeing-is-believing chinese-conv gitignore-templates dotenv-mode nginx-mode rjsx-mode magit-svn json-navigator hierarchy evil-goggles simpleclip magithub ghub+ apiwrap magit-gh-pulls github-search github-clone git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito diff-hl browse-at-remote stickyfunc-enhance srefactor swift-mode ranger pipenv helm-xref all-the-icons memoize spaceline powerline pyim-basedict pcre2el spinner ht org-category-capture alert log4e gntp markdown-mode skewer-mode json-snatcher json-reformat multiple-cursors epc ctable concurrent simple-httpd htmlize parent-mode window-purpose imenu-list haml-mode pcache gitignore-mode flyspell-correct pos-tip flycheck flx magit magit-popup git-commit ghub with-editor iedit smartparens paredit anzu highlight sbt-mode scala-mode projectile counsel swiper ivy ycmd pkg-info request-deferred let-alist request deferred epl web-completion-data dash-functional tern rtags restclient know-your-http-well lua-mode eclim inf-ruby packed anaconda-mode pythonic dash pinyinlib helm helm-core auto-complete popup org-plus-contrib evil goto-chg diminish bind-map bind-key yasnippet undo-tree sml-mode test-simple loc-changes load-relative js2-mode f s company seq auctex avy hydra async nlinum-relative nlinum csv-mode yasnippet-snippets yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vlf vimrc-mode vi-tilde-fringe uuidgen use-package toc-org tagedit symon string-inflection sql-indent spaceline-all-the-icons solarized-theme smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restclient-helm restart-emacs realgud rbenv rake rainbow-mode rainbow-delimiters pyvenv pytest pyim pyenv-mode py-isort pug-mode prodigy popwin pippel pip-requirements persp-mode password-generator paradox pangu-spacing ox-pandoc ox-gfm overseer orgit org-projectile org-preview-html org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file ob-sml ob-restclient ob-http noflet nodejs-repl neotree nameless mvn multi-term move-text moonscript mmm-mode minitest meghanada maven-test-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc insert-shebang indent-guide importmagic impatient-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode groovy-imports gradle-mode google-translate google-c-style golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fzf fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-bashate flx-ido fish-mode find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ensime enh-ruby-mode emmet-mode elisp-slime-nav editorconfig dumb-jump dockerfile-mode disaster define-word dactyl-mode cython-mode counsel-projectile company-ycmd company-web company-tern company-statistics company-shell company-rtags company-restclient company-lua company-emacs-eclim company-c-headers company-auctex company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow coffee-mode cnfonts clean-aindent-mode clang-format chruby centered-cursor-mode bundler beacon auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile applescript-mode aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ace-jump-helm-line ac-ispell)))
+    (twilight-bright-theme phpunit phpcbf php-extras php-auto-yasnippets drupal-mode company-php ac-php-core xcscope php-mode lsp-ui company-lsp lsp-python lsp-javascript-typescript lsp-java cquery lsp-mode evil-lisp-state typescript-mode prettier-js helm-git-grep seeing-is-believing chinese-conv gitignore-templates dotenv-mode nginx-mode rjsx-mode magit-svn json-navigator hierarchy evil-goggles simpleclip magithub ghub+ apiwrap magit-gh-pulls github-search github-clone git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito diff-hl browse-at-remote stickyfunc-enhance srefactor swift-mode ranger pipenv helm-xref all-the-icons memoize spaceline powerline pyim-basedict pcre2el spinner ht org-category-capture alert log4e gntp markdown-mode skewer-mode json-snatcher json-reformat multiple-cursors epc ctable concurrent simple-httpd htmlize parent-mode window-purpose imenu-list haml-mode pcache gitignore-mode flyspell-correct pos-tip flycheck flx magit magit-popup git-commit ghub with-editor iedit smartparens paredit anzu highlight sbt-mode scala-mode projectile counsel swiper ivy ycmd pkg-info request-deferred let-alist request deferred epl web-completion-data dash-functional tern rtags restclient know-your-http-well lua-mode eclim inf-ruby packed anaconda-mode pythonic dash pinyinlib helm helm-core auto-complete popup org-plus-contrib evil goto-chg diminish bind-map bind-key yasnippet undo-tree sml-mode test-simple loc-changes load-relative js2-mode f s company seq auctex avy hydra async nlinum-relative nlinum csv-mode yasnippet-snippets yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vlf vimrc-mode vi-tilde-fringe uuidgen use-package toc-org tagedit symon string-inflection sql-indent spaceline-all-the-icons solarized-theme smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restclient-helm restart-emacs realgud rbenv rake rainbow-mode rainbow-delimiters pyvenv pytest pyim pyenv-mode py-isort pug-mode prodigy popwin pippel pip-requirements persp-mode password-generator paradox pangu-spacing ox-pandoc ox-gfm overseer orgit org-projectile org-preview-html org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file ob-sml ob-restclient ob-http noflet nodejs-repl neotree nameless mvn multi-term move-text moonscript mmm-mode minitest meghanada maven-test-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc insert-shebang indent-guide importmagic impatient-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode groovy-imports gradle-mode google-translate google-c-style golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fzf fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-bashate flx-ido fish-mode find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ensime enh-ruby-mode emmet-mode elisp-slime-nav editorconfig dumb-jump dockerfile-mode disaster define-word dactyl-mode cython-mode counsel-projectile company-ycmd company-web company-tern company-statistics company-shell company-rtags company-restclient company-lua company-emacs-eclim company-c-headers company-auctex company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow coffee-mode cnfonts clean-aindent-mode clang-format chruby centered-cursor-mode bundler beacon auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile applescript-mode aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ace-jump-helm-line ac-ispell)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(safe-local-variable-values (quote ((eval progn (pp-buffer) (indent-buffer)))))

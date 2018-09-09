@@ -162,6 +162,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (when (file-exists-p custom-file)
     (load-file custom-file))
 
+  ;; fix background and switch theme
   (defun window-did-setup (&rest r)
     ;; get transparent background in terminal
     (unless (display-graphic-p)
@@ -178,6 +179,17 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-hook 'spacemacs-post-theme-change-hook 'window-did-setup)
   (add-hook 'window-setup-hook 'frame-did-setup)
   (add-to-list 'after-make-frame-functions 'frame-did-setup)
+
+  ;; persp autosave
+  (if (display-graphic-p)
+      (setq-default    dotspacemacs-auto-resume-layouts t
+                       layouts-enable-autosave t
+                       persp-auto-save-opt 2
+                       )
+    (setq-default dotspacemacs-auto-resume-layouts nil
+                  layouts-enable-autosave nil
+                  persp-auto-save-opt 0
+                  ))
 )
 
 (defun dotspacemacs/user-config ()
@@ -200,7 +212,6 @@ you should place your code here."
   (spacemacs/toggle-indent-guide-globally-on)
   ;; layout autosave config for servers in GUI and Terminal
   (if (display-graphic-p)
-      (setq-default layouts-enable-autosave t)
     (setq-default layouts-enable-autosave nil))
 
   ;; beacon
@@ -224,14 +235,6 @@ You should not put any user code in there besides modifying the variable
 values."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
-  (if (display-graphic-p)
-      (setq-default    dotspacemacs-auto-resume-layouts t
-                       ;; Location where to auto-save files. Possible values are `original' to
-                       ;; auto-save the file in-place, `cache' to auto-save the file to another
-                       ;; file stored in the cache directory and `nil' to disable auto-saving.
-                       ;; (default 'cache)
-                       )
-    (setq-default dotspacemacs-auto-resume-layouts nil))
   (setq-default
    ;; If non nil ELPA repositories are contacted via HTTPS whenever it's
    ;; possible. Set it to nil if you have no way to use HTTPS in your

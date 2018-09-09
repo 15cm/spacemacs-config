@@ -14,11 +14,6 @@
           )
       ;; Set Okular as the default PDF viewer.
       (setcar (cdr (assoc 'output-pdf TeX-view-program-selection)) "Okular"))
-    (add-hook 'LaTeX-mode-hook
-              (lambda ()
-                (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
-                (add-to-list 'TeX-command-list '("Latexmk" "latexmk -pdf %s" TeX-run-TeX nil t))
-                ))
     ))
 
 ;; Markdown

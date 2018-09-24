@@ -40,6 +40,8 @@
     (lsp-cquery-enable)
     (when (>= emacs-major-version 26)
       (lsp-ui-doc-mode 1)))
+  (eval-after-load 'editorconfig
+    (editorconfig-apply))
   )
 
 (defun my-sh-mode-hook()

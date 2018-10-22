@@ -16,11 +16,14 @@
     prodigy
     ox-pandoc
     org-brain
+    org-cliplink
     ))
 
 (defun my-writing/init-org-preview-html()
-  (use-package org-preview-html
-    :defer t))
+  (use-package org-preview-html))
+
+(defun my-writing/init-org-cliplink()
+  (use-package org-cliplink))
 
 (defun my-writing/post-init-org()
   (add-hook 'org-mode-hook 'after-org-mode-loaded)

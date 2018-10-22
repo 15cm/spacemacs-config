@@ -97,3 +97,13 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 (defun my-org-post ()
   (interactive)
   (message (shell-command-to-string (format "org-post-md.py post %s -u" (buffer-file-name)))))
+
+(defun org-brain-cliplink-resource ()
+  "Add a URL from the clipboard as an org-brain resource.
+Suggest the URL title as a description for resource."
+  (interactive)
+  (let ((url (org-cliplink-clipboard-content)))
+    (org-brain-add-resource
+     url
+     (org-cliplink-retrieve-title-synchronously url)
+     t)))

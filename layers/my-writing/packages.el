@@ -89,8 +89,8 @@
 
 (defun my-writing/post-init-org-brain()
   (with-eval-after-load 'org-brain
-    (setq org-brain-path "~/resilio-sync/personal/brain")
-    (setq org-id-locations-file "~/resilio-sync/personal/brain/.org-id-locations")
+    ;; (setq org-brain-path "~/resilio-sync/personal/brain")
+    ;; (setq org-id-locations-file "~/resilio-sync/personal/brain/.org-id-locations")
     (with-eval-after-load 'evil
       (evil-set-initial-state 'org-brain-visualize-mode 'normal)
       (evil-make-overriding-map org-brain-visualize-mode-map 'normal)))

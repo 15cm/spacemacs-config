@@ -107,7 +107,9 @@ values."
                                       (company-auctex :location
                                                       (recipe :fetcher github
                                                               :repo "15cm/company-auctex"))
-                                      simpleclip
+                                      (simpleclip :location
+                                                  (recipe :fetcher github
+                                                          :repo "15cm/simpleclip"))
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -140,7 +142,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (setq-default package-archives configuration-layer-elpa-archives)
 
   ;; separate custom-file
-  (setq custom-file "~/.spacemacs.d/custom.el")
+  (setq-default custom-file "~/.spacemacs.d/custom.el")
 
   (setenv "INSIDE_EMACS" "true")
   ;; Shell bug fix
@@ -190,6 +192,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
                   layouts-enable-autosave nil
                   persp-auto-save-opt 0
                   ))
+
+  ;; simpleclip content provider
+  (when (and (not (my-system-typep-darwin)) (executable-find "copyq"))
+    (setq-default simpleclip-custom-content-provider "copyq clipboard"))
 )
 
 (defun dotspacemacs/user-config ()

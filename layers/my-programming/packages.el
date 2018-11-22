@@ -26,10 +26,6 @@
     sml-mode
     applescript-mode
     dockerfile-mode
-    lsp-mode
-    lsp-ui
-    company-lsp
-    cquery
     ))
 
 (defun my-programming/post-init-company()
@@ -94,50 +90,6 @@
   (use-package dockerfile-mode
     :defer t))
 
-(defun my-programming/init-lsp-mode()
-  (use-package lsp-mode
-    :config
-    ))
-
-(defun my-programming/post-init-lsp-mode()
-  (dolist (mode c-c++-modes)
-    (spacemacs/declare-prefix-for-mode mode "mr" "refactor")
-    (spacemacs/set-leader-keys-for-major-mode mode
-      "gd" #'xref-find-definitions
-      "gD" #'xref-find-definitions-other-window
-      "gr" #'xref-find-references
-      "rr" #'lsp-rename
-      ))
-  )
-
-(defun my-programming/init-lsp-ui()
-  (use-package lsp-ui
-    :hook (lsp-mode . lsp-ui-mode)))
-
-(defun my-programming/init-company-lsp()
-  (use-package company-lsp
-    :config
-    (spacemacs|add-company-backends :backends company-lsp :modes c-mode-common)
-    ))
-
 (defun my-programming/post-init-company-lsp()
   (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
   )
-
-(defun my-programming/init-cquery()
-  (use-package cquery
-    :defer t))
-
-(defun my-programming/post-init-cquery()
-  (dolist (mode c-c++-modes)
-    (spacemacs/declare-prefix-for-mode mode "ml" "list")
-    (spacemacs/set-leader-keys-for-major-mode mode
-      "lc" 'cquery-call-hierarchy
-      "lm" 'cquery-member-hierarchy
-      )))
-
-(defun my-programming/post-init-lsp-ui()
-  (dolist (mode c-c++-modes)
-    (spacemacs/set-leader-keys-for-major-mode mode
-      "gi" #'lsp-ui-imenu
-      )))

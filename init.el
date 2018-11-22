@@ -55,8 +55,9 @@ values."
      restclient
      emacs-lisp
      (c-c++ :variables
-            ;; c-c++-enable-c++11 t
-            c-c++-default-mode-for-headers 'c++-mode)
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-backend 'lsp-cquery
+            )
      python
      (java :variables
            java-backend nil)

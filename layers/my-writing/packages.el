@@ -26,6 +26,14 @@
   (use-package org-cliplink))
 
 (defun my-writing/post-init-org()
+  ;; Library for searching org files under a certain directory
+  (load-library "find-lisp")
+
+  ;; Multiple agenda files root support for "wiki" and "todo"
+  ;; Ensure that org-agenda respect directory-local settings
+  ;; https://emacs.stackexchange.com/questions/10012/a-search-interface-for-org-mode-files
+  (add-hook 'org-agenda-mode-hook #'hack-dir-local-variables-non-file-buffer)
+
   (add-hook 'org-mode-hook 'after-org-mode-loaded)
   (with-eval-after-load 'org
     (progn
@@ -36,11 +44,10 @@
       (setq org-agenda-use-tag-inheritance nil) ;; 3-4x speedup
 
       ;; agenda files for tag search
-      (let ((notes-dir "~/tech/wiki/notes"))
+      (let ((notes-dir "~/resilio-sync/personal/todo"))
         (if (file-exists-p notes-dir)
             (progn
-              (load-library "find-lisp")
-              (setq org-agenda-files (find-lisp-find-files "~/tech/wiki/notes" "\.org$"))
+              (setq org-agenda-files (find-lisp-find-files notes-dir "\.org$"))
                                         )))
 
       ;; Disable underscore to subscript

@@ -12,6 +12,7 @@
 (global-set-key (kbd "<S-return>") 'spacemacs/evil-insert-line-above)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "M-.") 'company-files)
 
 ;; vim surround
 (with-eval-after-load 'evil-surround

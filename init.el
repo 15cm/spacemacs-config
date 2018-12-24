@@ -37,6 +37,7 @@ values."
      spell-checking
      chinese
 
+     ;; tools
       (ranger :variables
               ranger-show-preview t
               ranger-show-literal nil
@@ -44,6 +45,7 @@ values."
               ranger-max-preview-size 10
               ranger-parent-depth 2
               )
+      systemd
 
      ;; programming
      (auto-completion :variables
@@ -108,6 +110,7 @@ values."
                                       (company-auctex :location
                                                       (recipe :fetcher github
                                                               :repo "15cm/company-auctex"))
+                                      evil-mc
                                       simpleclip
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.

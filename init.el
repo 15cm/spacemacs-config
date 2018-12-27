@@ -212,6 +212,10 @@ you should place your code here."
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
   (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 
+  ;; proxy env
+  (exec-path-from-shell-copy-env "HTTP_PROXY")
+  (exec-path-from-shell-copy-env "HTTPS_PROXY")
+
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)
   (company-statistics-mode)

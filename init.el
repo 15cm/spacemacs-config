@@ -237,6 +237,15 @@ you should place your code here."
   (setq-default helm-ag-use-agignore t)
 
   (global-anzu-mode +1)
+
+  ;; set theme according to global_env
+  (when (file-exists-p "~/.global-env.sh")
+    (let ((global-theme (shell-command-to-string "source ~/.global-env.sh; printf \"$GLOBAL_THEME\"")))
+      (when spacemacs--cur-theme
+        (disable-theme spacemacs--cur-theme))
+      (if (string= global-theme "dark")
+          (spacemacs/load-theme 'sanityinc-tomorrow-night)
+        (spacemacs/load-theme 'solarized-light))))
 )
 
 (defun dotspacemacs/init ()

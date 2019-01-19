@@ -46,6 +46,7 @@ values."
               ranger-parent-depth 2
               )
       systemd
+      restclient
 
      ;; programming
      (auto-completion :variables
@@ -54,7 +55,7 @@ values."
                                                            )
                       auto-completion-enable-snippets-in-popup t
                       )
-     restclient
+     lsp
      emacs-lisp
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode

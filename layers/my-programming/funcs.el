@@ -37,7 +37,7 @@
       (or (locate-dominating-file default-directory "compile_commands.json")
           (locate-dominating-file default-directory ".cquery")))
     (setq eldoc-idle-delay 0.2)
-    (lsp-cquery-enable)
+    (lsp)
     (when (>= emacs-major-version 26)
       (lsp-ui-doc-mode 1)))
   (eval-after-load 'editorconfig

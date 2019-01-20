@@ -513,6 +513,8 @@ values."
                                          fundamental-mode
                                          prog-mode
                                          text-mode
+                                         conf-mode
+                                         javascript-mode
                               )
 
    ;; Code folding method. Possible values are `evil' and `origami'.

@@ -20,3 +20,9 @@
 (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
 (evil-define-key 'insert emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand)
 (evil-define-key 'hybrid emmet-mode-keymap (kbd "C-i") 'spacemacs/emmet-expand)
+
+;; gdb
+(with-eval-after-load 'gdb-mi
+  (evil-make-overriding-map gdb-breakpoints-mode-map 'normal)
+  (evil-set-initial-state 'gdb-breakpoints-mode 'normal)
+  )

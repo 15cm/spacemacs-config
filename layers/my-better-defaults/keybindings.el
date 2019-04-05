@@ -42,7 +42,8 @@
 ;; clipboard
 (setq my-paste-key (if (my-system-typep-darwin) "s-v" "C-S-v"))
 
-(define-key evil-visual-state-map (kbd "C-y") 'copy-to-clipboard)
+(define-key evil-visual-state-map (kbd "C-y") 'copy-selection-to-clipboard)
+(define-key evil-normal-state-map (kbd "C-y") 'copy-kill-ring-to-clipboard)
 (global-set-key (kbd my-paste-key) 'paste-from-clipboard)
 
 (with-eval-after-load 'helm

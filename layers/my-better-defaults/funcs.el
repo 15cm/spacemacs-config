@@ -1,24 +1,30 @@
 ;; clipboard
-(defun x-paste-function()
-  (let ((x-output (shell-command-to-string "xclip -o -selection clipboard")))
-    (unless (string= (car kill-ring) x-output)
-      x-output )))
 
-(defun copy-to-clipboard ()
-  "Copies selection to x-clipboard."
+(defun copy-kill-ring-to-clipboard()
+  "Copy the first item of kill ring to clipboard"
   (interactive)
-  (let ((cmd (if (my-system-typep-darwin) "nc localhost 8377" "nc -q0 localhost 8377")))
+  (let ((copy-cmd (if (my-system-typep-darwin) "nc localhost 8377" "nc -q0 localhost 8377"))
+        (kill-ring-str (replace-regexp-in-string "\n$" "" (substring-no-properties (car kill-ring)))))
+    (shell-command-to-string (format "printf '%s' | %s" kill-ring-str copy-cmd))
+    (message "Yanked kill ring to clipboard!")
+    )
+  )
+
+(defun copy-selection-to-clipboard ()
+  "Copy selected region to system clipboard."
+  (interactive)
+  (let ((copy-cmd (if (my-system-typep-darwin) "nc localhost 8377" "nc -q0 localhost 8377")))
     (if (region-active-p)
         (progn
-          (shell-command-on-region (region-beginning) (region-end) cmd)
-          (message "Yanked region to clipboard!")
+          (shell-command-on-region (region-beginning) (region-end) copy-cmd)
+          (message "Yanked selected region to clipboard!")
           (deactivate-mark))
       (message "No region active; can't yank to clipboard!"))
     )
   )
 
 (defun paste-from-clipboard ()
-  "Pastes from x-clipboard."
+  "Pastes from system clipboard."
   (interactive)
   (if (my-system-typep-darwin)
     (insert (shell-command-to-string "pbpaste"))

@@ -237,7 +237,7 @@ you should place your code here."
   (global-anzu-mode +1)
 
   ;; set theme according to global_env
-  (when (file-exists-p "~/.global-env.sh")
+  (when (file-exists-p (expand-file-name "~/.global-env.sh"))
     (let ((global-theme (shell-command-to-string "source ~/.global-env.sh; printf \"$GLOBAL_THEME\"")))
       (when spacemacs--cur-theme
         (disable-theme spacemacs--cur-theme))

@@ -59,7 +59,7 @@ values."
      emacs-lisp
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
-            c-c++-backend 'lsp-cquery
+            c-c++-backend 'lsp-ccls
             )
      python
      (java :variables

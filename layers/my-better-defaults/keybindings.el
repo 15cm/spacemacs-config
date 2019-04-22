@@ -32,14 +32,20 @@
 (evil-define-key 'normal term-raw-map (kbd "C-p") 'term-send-up)
 
 ;; smartparens
-(global-set-key (kbd "M-f") 'sp-forward-sexp)
-(global-set-key (kbd "M-b") 'sp-backward-sexp)
-(global-set-key (kbd "M-d") 'sp-down-sexp)
-(global-set-key (kbd "M-D") 'sp-backward-down-sexp)
-(global-set-key (kbd "M-u") 'sp-up-sexp)
-(global-set-key (kbd "M-U") 'sp-backward-up-sexp)
-(global-set-key (kbd "M-a") 'sp-beginning-of-sexp)
-(global-set-key (kbd "M-e") 'sp-end-of-sexp)
+(with-eval-after-load 'smartparens
+  (global-set-key (kbd "M-l") 'sp-next-sexp)
+  (global-set-key (kbd "M-h") 'sp-previous-sexp)
+  (global-set-key (kbd "M-k") 'sp-backward-sexp)
+  (global-set-key (kbd "M-j") 'sp-forward-sexp)
+  (global-set-key (kbd "M-u") 'sp-down-sexp)
+  (global-set-key (kbd "M-U") 'sp-backward-down-sexp)
+  (global-set-key (kbd "M-i") 'sp-up-sexp)
+  (global-set-key (kbd "M-I") 'sp-backward-up-sexp)
+  (global-set-key (kbd "M-o") 'sp-end-of-sexp)
+  (global-set-key (kbd "M-y") 'sp-beginning-of-sexp)
+  (global-set-key (kbd "M-f") 'sp-beginning-of-sexp)
+  (spacemacs/set-leader-keys-for-minor-mode smartparens-mode "ns" 'sp-narrow-to-sexp))
+
 
 ;; clipboard
 (setq my-paste-key (if (my-system-typep-darwin) "s-v" "C-S-v"))

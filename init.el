@@ -61,6 +61,7 @@ values."
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-backend 'lsp-ccls
             )
+     rust
      python
      (java :variables
            java-backend nil)
@@ -218,6 +219,7 @@ you should place your code here."
   (global-company-mode)
   (company-statistics-mode)
   (editorconfig-mode 1)
+  (smartparens-global-mode 1)
 
   (spacemacs/toggle-indent-guide-globally-on)
   ;; layout autosave config for servers in GUI and Terminal

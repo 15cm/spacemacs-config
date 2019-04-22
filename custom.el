@@ -152,6 +152,7 @@
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")))
  '(magit-diff-use-overlays nil)
+ '(my-org-wiki/blog-post-project-root "~/tech/15cm-site/blog")
  '(nrepl-message-colors
    (quote
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
@@ -184,6 +185,7 @@
  '(save-interprogram-paste-before-kill nil)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(sp-escape-quotes-after-insert nil)
+ '(sp-navigate-interactive-always-progress-point t)
  '(split-height-threshold nil)
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")

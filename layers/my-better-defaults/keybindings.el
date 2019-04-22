@@ -60,10 +60,10 @@
 (global-set-key (kbd "M-c") 'helm-show-kill-ring)
 
 ;; avy
-(define-key evil-normal-state-map (kbd "t") 'evil-avy-goto-char-in-line)
-(define-key evil-visual-state-map (kbd "t") 'evil-avy-goto-char-in-line)
-(define-key evil-normal-state-map (kbd "T") 'evil-avy-goto-char-timer)
-(define-key evil-visual-state-map (kbd "T") 'evil-avy-goto-char-timer)
+(define-key evil-normal-state-map "t" 'evil-avy-goto-char-in-line)
+(define-key evil-visual-state-map "t" 'evil-avy-goto-char-in-line)
+(define-key evil-normal-state-map "T" 'evil-avy-goto-symbol-1)
+(define-key evil-visual-state-map "T" 'evil-avy-goto-symbol-1)
 
 ;; anzu
 (evil-leader/set-key "<SPC>r" 'anzu-query-replace-regexp)

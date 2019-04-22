@@ -21,10 +21,3 @@
     (setq markdown-open-command (lambda ()
                                   (shell-command (format "open -a %s %s" (shell-quote-argument "/Applications/Marked 2.app") (shell-quote-argument (buffer-file-name))))))
   )
-
-;; Blog
-(setq blog-path (concat user-home-directory "tech/15cm-site/blog")
-      hexo-exec "hexo"
-      hexo-config-path "source/_data/next.yml"
-      post-path (concat blog-path "/source/_posts")
-      )

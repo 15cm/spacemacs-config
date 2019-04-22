@@ -19,25 +19,22 @@
     fzf
     ))
 
-;; (defun my-better-defaults/init-cnfonts()
-;;   (use-package cnfonts
-;;     :config
-;;     (require 'cnfonts)
-;;     (cnfonts-enable)
-;;     (setq cfs-profiles '("programming" "reading"))
-;;     ))
-
 (defun my-better-defaults/init-anzu()
-  (use-package anzu))
+  (use-package anzu
+    :defer t))
 
 (defun my-better-defaults/init-vlf()
-  (use-package vlf))
+  (use-package vlf
+    :defer t))
 
 (defun my-better-defaults/init-rainbow-mode()
-  (use-package rainbow-mode))
+  (use-package rainbow-mode
+    :defer t))
 
 (defun my-better-defaults/init-beacon()
-  (use-package beacon))
+  (use-package beacon
+    :defer t))
 
 (defun my-better-defaults/init-fzf()
-  (use-package fzf))
+  (use-package fzf
+    :defer t))

@@ -1,3 +1,4 @@
+;; Spacemacs defaults
 (evil-leader/set-key "C-r" 'dotspacemacs/sync-configuration-layers)
 (evil-leader/set-key "C-d" 'spacemacs/find-dotfile)
 
@@ -14,7 +15,8 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-.") 'company-files)
 
-;; vim surround
+
+;; evil
 (with-eval-after-load 'evil-surround
   (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
   (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region))
@@ -49,8 +51,7 @@
 (with-eval-after-load 'helm
     (define-key helm-map (kbd my-paste-key) 'paste-from-clipboard))
 
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-
+(global-set-key (kbd "M-c") 'helm-show-kill-ring)
 
 ;; avy
 (define-key evil-normal-state-map (kbd "t") 'evil-avy-goto-char-in-line)
@@ -65,8 +66,7 @@
 ;; view mode
 (with-eval-after-load 'view-mode
   (define-key view-mode-map (kbd "j") 'View-scroll-line-forward)
-  (define-key view-mode-map (kbd "k") 'View-scroll-line-backward)
-  )
+  (define-key view-mode-map (kbd "k") 'View-scroll-line-backward))
 
 ;; yas
 (global-unset-key (kbd "C-\\"))

@@ -13,7 +13,6 @@
         js2-bounce-indent-p t
         )
   ;; include '_' in word motion
-  (modify-syntax-entry ?_ "w")
   (set-header-line)
   )
 
@@ -26,7 +25,6 @@
 (defun my-cc-mode-hook()
   (setq c-basic-offset 4)
   (setq c-auto-newline nil)
-  (modify-syntax-entry ?_ "w")
   (set-header-line)
   ;; auto enable cquery
   (when
@@ -50,12 +48,10 @@
         tab-width 2))
 
 (defun my-python-mode-hook()
-  (modify-syntax-entry ?_ "w")
   (set-header-line)
   )
 
 (defun my-elisp-mode-hook()
-  (modify-syntax-entry ?- "w")
   (set-header-line)
   )
 

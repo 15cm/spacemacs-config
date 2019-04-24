@@ -15,3 +15,6 @@
 (add-to-list 'auto-mode-alist '("\\..*rc\\(.[a-z]+\\)+$" . shell-script-mode))
 
 (add-to-list 'auto-mode-alist '("\\.ti[gh]$" . tiger-mode))
+
+;; smartparens hack
+(defvar smartparens-mode-original-value)

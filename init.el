@@ -246,6 +246,13 @@ you should place your code here."
       (if (string= global-theme "dark")
           (spacemacs/load-theme 'sanityinc-tomorrow-night)
         (spacemacs/load-theme 'solarized-light))))
+
+  ;; Hack to enable smartparens in auto-completion
+  (with-eval-after-load 'yasnippet
+    (remove-hook 'yas-before-expand-snippet-hook
+                 #'spacemacs//smartparens-disable-before-expand-snippet)
+    (remove-hook 'yas-after-exit-snippet-hook
+                 #'spacemacs//smartparens-restore-after-exit-snippet))
 )
 
 (defun dotspacemacs/init ()

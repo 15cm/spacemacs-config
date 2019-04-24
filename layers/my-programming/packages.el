@@ -12,6 +12,8 @@
 (defconst my-programming-packages
   '(
     company
+    company-lsp
+    yasnippet
     js2-mode
     json-mode
     nodejs-repl
@@ -33,9 +35,22 @@
   (spacemacs|add-company-backends :backends (company-anaconda) :modes python-mode)
   )
 
+(defun my-programming/post-init-yasnippet ()
+  (with-eval-after-load 'yasnippet
+    ;; Better fix for conflict of yasnippet and smartparens
+    ;; https://github.com/joaotavora/yasnippet/issues/785
+    ;; This advice could be added to other functions that usually insert
+    ;; balanced parens, like `try-expand-list'.
+    (advice-add 'yas-hippie-try-expand :after-while #'disable-sp-hippie-advice)
+
+    (advice-add 'hippie-expand :after #'reenable-sp-hippie-advice
+                ;; Set negative depth to make sure we go after
+                ;; `sp-auto-complete-advice'.
+                '((depth . -100)))
+    ))
+
 (defun my-programming/post-init-js2-mode()
-  (add-hook 'js2-mode-hook 'my-js-mode-hook)
-  )
+  (add-hook 'js2-mode-hook 'my-js-mode-hook))
 
 (defun my-programming/init-nodejs-repl()
   (use-package nodejs-repl
@@ -43,20 +58,18 @@
 
 (defun my-programming/post-init-cc-mode()
   (add-hook 'c++-mode-hook 'my-cc-mode-hook)
-  (add-hook 'c-mode-hook 'my-cc-mode-hook)
-  )
+  (add-hook 'c-mode-hook 'my-cc-mode-hook))
+
 
 (defun my-programming/post-init-sh-script()
-  (add-hook 'sh-mode-hook 'my-sh-mode-hook)
-  )
+  (add-hook 'sh-mode-hook 'my-sh-mode-hook))
 
 (defun my-programming/post-init-python-mode()
   (add-hook 'python-mode-hook 'my-python-mode-hook))
 
 (defun my-programming/post-init-enh-ruby-mode()
     (spacemacs|add-company-backends :backends (company-robe company-dabbrev-code)
-                                  :modes ruby-mode enh-ruby-mode)
-  )
+                                  :modes ruby-mode enh-ruby-mode))
 
 (defun my-programming/post-init-emacs-lisp()
   (add-hook 'emacs-lisp-mode-hook 'my-elisp-mode-hook))
@@ -73,8 +86,7 @@
 
 (defun my-programming/post-init-web-mode()
   (add-hook 'web-mode-hook 'my-web-mode-hook)
-  (add-hook 'web-mode-hook #'turn-on-smartparens-mode t)
-  )
+  (add-hook 'web-mode-hook #'turn-on-smartparens-mode t))
 
 (defun my-programming/post-init-sql()
   (add-hook 'sql-mode-hook 'my-sql-mode-hook))
@@ -91,5 +103,4 @@
     :defer t))
 
 (defun my-programming/post-init-company-lsp()
-  (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
-  )
+  (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil))

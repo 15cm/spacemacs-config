@@ -82,3 +82,13 @@
 (defun my-sml-cm-mode-hook()
   (setq-local comment-start "(* ")
   (setq-local comment-end " *)"))
+
+(defun disable-sp-hippie-advice (&rest _)
+  (setq smartparens-mode-original-value smartparens-mode)
+  (setq smartparens-mode nil)
+  t) ; We should still return t.
+
+(defun reenable-sp-hippie-advice (&rest _)
+  (when (boundp 'smartparens-mode-original-value)
+    (setq smartparens-mode smartparens-mode-original-value)
+    (makunbound 'smartparens-mode-original-value)))

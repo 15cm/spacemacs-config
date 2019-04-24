@@ -62,6 +62,9 @@ values."
             c-c++-backend 'lsp-ccls
             )
      rust
+     (go :variables
+         go-backend 'lsp
+         go-use-golangci-lint t)
      python
      (java :variables
            java-backend nil)

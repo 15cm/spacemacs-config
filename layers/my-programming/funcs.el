@@ -42,6 +42,8 @@
     (editorconfig-apply))
   )
 
+(defun my-go-mode-hook ())
+
 (defun my-sh-mode-hook()
   (setq sh-basic-offset 2
         sh-indentation 2

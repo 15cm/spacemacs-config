@@ -18,6 +18,7 @@
     json-mode
     nodejs-repl
     cc-mode
+    go-mode
     sh-script
     python-mode
     enh-ruby-mode
@@ -60,6 +61,8 @@
   (add-hook 'c++-mode-hook 'my-cc-mode-hook)
   (add-hook 'c-mode-hook 'my-cc-mode-hook))
 
+(defun my-programming/post-init-go-mode ()
+  (add-hook 'go-mode-hook 'my-go-mode-hook))
 
 (defun my-programming/post-init-sh-script()
   (add-hook 'sh-mode-hook 'my-sh-mode-hook))

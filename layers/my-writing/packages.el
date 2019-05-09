@@ -40,7 +40,7 @@
     ;; Default agenda files
     ;; Library for searching org files under a certain directory
     (unless (boundp 'find-lisp-find-files) (load-library "find-lisp"))
-    (let ((notes-dir "~/resilio-sync/personal/todo"))
+    (let ((notes-dir "~/resilio-sync/my-data/todo"))
       (if (file-exists-p notes-dir)
           (progn (setq org-agenda-files (find-lisp-find-files notes-dir "\.org$")))))
 

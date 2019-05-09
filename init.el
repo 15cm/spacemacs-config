@@ -117,6 +117,10 @@ values."
                                                               :repo "15cm/company-auctex"))
                                       evil-mc
                                       simpleclip
+                                      (go-impl :location
+                                                     (recipe :fetcher github
+                                                             :repo "15cm/emacs-go-impl"
+                                                             :branch "godoc"))
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(

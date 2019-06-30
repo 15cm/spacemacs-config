@@ -42,7 +42,8 @@
     (editorconfig-apply))
   )
 
-(defun my-go-mode-hook ())
+(defun my-go-mode-hook ()
+  (eldoc-mode 0))
 
 (defun my-sh-mode-hook()
   (setq sh-basic-offset 2

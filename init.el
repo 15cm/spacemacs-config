@@ -45,6 +45,7 @@ values."
               ranger-max-preview-size 10
               ranger-parent-depth 2
               )
+      neotree
       systemd
       restclient
 
@@ -57,6 +58,7 @@ values."
                       )
      lsp
      emacs-lisp
+     scheme
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-backend 'lsp-ccls
@@ -218,6 +220,8 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; Fix PATH on macOS
+  (exec-path-from-shell-copy-env "PATH")
   ;; magit: fix ssh-agent on Linux
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
   (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
@@ -381,7 +385,7 @@ values."
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '(
                                "Inconsolata"
-                               :size 24
+                               :size 12
                                :weight normal
                                :width normal
                                )

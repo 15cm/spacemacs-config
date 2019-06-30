@@ -17,6 +17,7 @@
     rainbow-mode
     beacon
     fzf
+    yasnippet
     ))
 
 (defun my-better-defaults/init-anzu()
@@ -38,3 +39,5 @@
 (defun my-better-defaults/init-fzf()
   (use-package fzf
     :defer t))
+(defun my-better-defaults/post-init-yasnippet()
+  (define-key yas-keymap (kbd "<tab>") 'yas-next-field))

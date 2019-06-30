@@ -201,7 +201,6 @@
            (pp-buffer)
            (indent-buffer)))))
  '(save-interprogram-paste-before-kill nil)
- '(show-trailing-whitespace t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(sp-escape-quotes-after-insert nil)
  '(sp-navigate-interactive-always-progress-point t)

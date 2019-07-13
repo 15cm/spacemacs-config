@@ -40,4 +40,5 @@
   (use-package fzf
     :defer t))
 (defun my-better-defaults/post-init-yasnippet()
-  (define-key yas-keymap (kbd "<tab>") 'yas-next-field))
+  (with-eval-after-load 'yasnippet
+    (define-key yas-keymap (kbd "<tab>") 'yas-next-field)))

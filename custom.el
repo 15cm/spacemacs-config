@@ -120,6 +120,7 @@
  '(custom-safe-themes
    (quote
     ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "fa3328c4b23fdba77a360fff513b4a6b2ad44e39b70b650bd5f3407bed60b784" "66d837d5bad27c5ea9480d07048d1a469678823c42daea672e3a7dd4fac6a1bf" "07b0650a8c00ccdc946e8452f931384b536e761106fc7c81e62ba2fb6afef8b6" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+ '(delete-by-moving-to-trash t)
  '(evil-toggle-key "C-M-z")
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
@@ -150,7 +151,7 @@
  '(hl-fg-colors
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
- '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")) t)
+ '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")))
  '(hl-todo-keyword-faces
    (quote
     (("TODO" . "#dc752f")
@@ -211,6 +212,7 @@
  '(weechat-color-list
    (quote
     (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496")))
+ '(window-divider-mode nil)
  '(xterm-color-names
    ["#eee8d5" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#073642"])
  '(xterm-color-names-bright

@@ -385,7 +385,7 @@ values."
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '(
                                "Inconsolata"
-                               :size 12
+                               ;; :size 12
                                :weight normal
                                :width normal
                                )

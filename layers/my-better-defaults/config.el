@@ -17,3 +17,6 @@
 
 ;; clipboard
 (setq select-enable-clipboard nil)
+
+(defvar auto-mode-alist-has-been-patched nil
+  "Mark whether the auto-mode-list has been patched")

@@ -264,6 +264,15 @@ you should place your code here."
                  #'spacemacs//smartparens-disable-before-expand-snippet)
     (remove-hook 'yas-after-exit-snippet-hook
                  #'spacemacs//smartparens-restore-after-exit-snippet))
+
+  ;; Patch auto-mode-alist to inspect extensions that's not at the end
+  (unless auto-mode-alist-has-been-patched
+    (setq auto-mode-alist-has-been-patched t)
+    (let ((patched-auto-mode-alist (mapcar
+                           (lambda (pr) (let ((pattern (car pr))
+                                              (mode (cdr pr)))
+                                          (cons (replace-regexp-in-string "\\\\\'" (lambda (s) (concat "\\.tmpl" s)) pattern nil t) mode))) auto-mode-alist)))
+      (setq auto-mode-alist (append auto-mode-alist patched-auto-mode-alist))))
 )
 
 (defun dotspacemacs/init ()

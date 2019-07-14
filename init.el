@@ -67,7 +67,8 @@ values."
      (go :variables
          go-backend 'lsp
          go-use-golangci-lint t)
-     python
+     (python :variables
+             python-backend 'lsp)
      (java :variables
            java-backend nil)
      (ruby :variables
@@ -249,14 +250,10 @@ you should place your code here."
 
   (global-anzu-mode +1)
 
-  ;; set theme according to global_env
-  (when (file-exists-p (expand-file-name "~/.global-env.sh"))
-    (let ((global-theme (shell-command-to-string "source ~/.global-env.sh; printf \"$GLOBAL_THEME\"")))
-      (when spacemacs--cur-theme
-        (disable-theme spacemacs--cur-theme))
-      (if (string= global-theme "dark")
-          (spacemacs/load-theme 'sanityinc-tomorrow-night)
-        (spacemacs/load-theme 'solarized-light))))
+  ;; Load the theme config
+  (let ((theme-conf-file "~/.config/scripts/emacs/load-theme.el"))
+    (when (file-exists-p theme-conf-file))
+    (load-file theme-conf-file))
 
   ;; Hack to enable smartparens in auto-completion
   (with-eval-after-load 'yasnippet

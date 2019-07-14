@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Dotfiles template theme condition
+# key: themecond
+# --
+
+{{- if eq .global.theme "light"}}
+$0
+{{- else}}
+{{- end}}

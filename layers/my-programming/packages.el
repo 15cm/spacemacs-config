@@ -48,6 +48,12 @@
                 ;; Set negative depth to make sure we go after
                 ;; `sp-auto-complete-advice'.
                 '((depth . -100)))
+
+    ;; Add global snippets(provided by fundamental-mode)
+    ;; https://github.com/joaotavora/yasnippet/issues/557
+    (add-hook 'yas-minor-mode-hook
+          (lambda ()
+            (yas-activate-extra-mode 'fundamental-mode)))
     ))
 
 (defun my-programming/post-init-js2-mode()

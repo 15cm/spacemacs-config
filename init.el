@@ -68,7 +68,10 @@ values."
          go-backend 'lsp
          go-use-golangci-lint t)
      (python :variables
-             python-backend 'lsp)
+             python-backend 'anaconda
+             python-sort-imports-on-save t)
+             ;; python-backend 'lsp
+             ;; python-lsp-server 'mspyls)
      (java :variables
            java-backend nil)
      (ruby :variables
@@ -372,8 +375,7 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          sanityinc-tomorrow-night
-                         (solarized-light :location (recipe :fetcher github
-                                                            :repo "15cm/solarized-emacs"))
+                         solarized-light
                          )
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',

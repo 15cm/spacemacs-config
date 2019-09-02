@@ -25,19 +25,6 @@
 (defun my-cc-mode-hook()
   (setq c-basic-offset 4)
   (setq c-auto-newline nil)
-  (set-header-line)
-  ;; auto enable cquery
-  (when
-      (and (not (and (boundp 'lsp-mode) lsp-mode))
-           ;; (or
-           ;;  (cl-some (lambda (x) (string-match-p x buffer-file-name)) my-cquery-whitelist)
-           ;;  (cl-notany (lambda (x) (string-match-p x buffer-file-name)) my-cquery-blacklist))
-      (or (locate-dominating-file default-directory "compile_commands.json")
-          (locate-dominating-file default-directory ".cquery")))
-    (setq eldoc-idle-delay 0.2)
-    (lsp)
-    (when (>= emacs-major-version 26)
-      (lsp-ui-doc-mode 1)))
   (eval-after-load 'editorconfig
     (editorconfig-apply))
   )

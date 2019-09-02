@@ -56,6 +56,7 @@ values."
                                                            )
                       auto-completion-enable-snippets-in-popup t
                       )
+     semantic
      lsp
      emacs-lisp
      scheme
@@ -68,10 +69,11 @@ values."
          go-backend 'lsp
          go-use-golangci-lint t)
      (python :variables
-             python-backend 'anaconda
+             ;; python-backend 'anaconda
+             ;; python-sort-imports-on-save t)
+             python-backend 'lsp
+             python-lsp-server 'pyls
              python-sort-imports-on-save t)
-             ;; python-backend 'lsp
-             ;; python-lsp-server 'mspyls)
      (java :variables
            java-backend nil)
      (ruby :variables
@@ -497,7 +499,7 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 90
+   dotspacemacs-active-transparency 95
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.

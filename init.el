@@ -73,7 +73,9 @@ values."
              ;; python-sort-imports-on-save t)
              python-backend 'lsp
              python-lsp-server 'pyls
-             python-sort-imports-on-save t)
+             python-sort-imports-on-save t
+             python-formatter 'black
+             python-format-on-save t)
      (java :variables
            java-backend nil)
      (ruby :variables
@@ -253,7 +255,7 @@ you should place your code here."
   (setq-default helm-ag-fuzzy-match t)
   (setq-default helm-ag-use-agignore t)
 
-  (global-anzu-mode +1)
+  (global-anzu-mode 1)
 
   ;; Load the theme config
   (let ((theme-conf-file "~/.config/scripts/emacs/load-theme.el"))

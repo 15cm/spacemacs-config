@@ -33,7 +33,6 @@
 
 (defun my-programming/post-init-company()
   (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode)
-  (spacemacs|add-company-backends :backends (company-anaconda) :modes python-mode)
   )
 
 (defun my-programming/post-init-yasnippet ()
@@ -67,7 +66,7 @@
   (add-hook 'c++-mode-hook 'my-cc-mode-hook)
   (add-hook 'c-mode-hook 'my-cc-mode-hook))
 
-(defun my-programming/post-init-go-mode ()
+(defun my-programming/post-init-go-mode()
   (add-hook 'go-mode-hook 'my-go-mode-hook))
 
 (defun my-programming/post-init-sh-script()

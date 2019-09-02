@@ -6,7 +6,6 @@
 (spacemacs/declare-prefix "<SPC>" "better-defaults")
 (evil-leader/set-key "<SPC>f" 'fzf)
 (evil-leader/set-key "<SPC>F" 'fzf-directory)
-(evil-leader/set-key "<SPC>u" 'spacemacs/avy-open-url)
 
 ;; common
 (global-set-key (kbd "<C-return>") 'spacemacs/evil-insert-line-below)

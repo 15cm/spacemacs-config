@@ -69,12 +69,10 @@ values."
          go-backend 'lsp
          go-use-golangci-lint t)
      (python :variables
-             ;; python-backend 'anaconda
-             ;; python-sort-imports-on-save t)
              python-backend 'lsp
              python-lsp-server 'pyls
              python-sort-imports-on-save t
-             python-formatter 'black
+             python-formatter 'yapf
              python-format-on-save t)
      (java :variables
            java-backend nil)
@@ -137,6 +135,7 @@ values."
                                     evil-escape
                                     helm-swoop
                                     ace-pinyin
+                                    importmagic
                                     )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of

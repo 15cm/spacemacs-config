@@ -169,6 +169,7 @@
      ("FIXME" . "#dc752f")
      ("XXX" . "#dc752f")
      ("XXXX" . "#dc752f"))))
+ '(lsp-pyls-server-command (quote ("/bin/pyls")))
  '(magit-diff-use-overlays nil)
  '(my-org-wiki/blog-post-project-root "~/tech/15cm-site/blog")
  '(nrepl-message-colors

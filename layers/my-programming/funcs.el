@@ -82,3 +82,10 @@
   (when (boundp 'smartparens-mode-original-value)
     (setq smartparens-mode smartparens-mode-original-value)
     (makunbound 'smartparens-mode-original-value)))
+
+(defun company-lsp-complete-selection-no-snippet ()
+  (interactive)
+  (let ((company-lsp-enable-snippet-old company-lsp-enable-snippet))
+    (setq company-lsp-enable-snippet nil)
+    (company-complete-selection)
+    (setq company-lsp-enable-snippet company-lsp-enable-snippet-old)))

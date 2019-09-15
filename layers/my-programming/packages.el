@@ -32,8 +32,7 @@
     ))
 
 (defun my-programming/post-init-company()
-  (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode)
-  )
+  (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode))
 
 (defun my-programming/post-init-yasnippet ()
   (with-eval-after-load 'yasnippet
@@ -111,4 +110,6 @@
     :defer t))
 
 (defun my-programming/post-init-company-lsp()
-  (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil))
+  (setq company-transformers nil
+        company-lsp-async t
+        company-lsp-cache-candidates 'auto))

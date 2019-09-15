@@ -8,8 +8,6 @@
 (evil-leader/set-key "<SPC>F" 'fzf-directory)
 
 ;; common
-(global-set-key (kbd "<C-return>") 'spacemacs/evil-insert-line-below)
-(global-set-key (kbd "<S-return>") 'spacemacs/evil-insert-line-above)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-.") 'company-files)

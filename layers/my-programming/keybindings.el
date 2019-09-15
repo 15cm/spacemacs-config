@@ -24,5 +24,7 @@
 ;; gdb
 (with-eval-after-load 'gdb-mi
   (evil-make-overriding-map gdb-breakpoints-mode-map 'normal)
-  (evil-set-initial-state 'gdb-breakpoints-mode 'normal)
-  )
+  (evil-set-initial-state 'gdb-breakpoints-mode 'normal))
+
+(with-eval-after-load 'company-lsp
+    (define-key company-active-map (kbd "<S-return>") 'company-lsp-complete-selection-no-snippet))

@@ -12,9 +12,11 @@
         js2-strict-missing-semi-warning nil
         js2-bounce-indent-p t
         )
-  ;; include '_' in word motion
   (set-header-line)
   )
+
+(defun my-typescript-mode-hook ()
+  (setq typescript-indent-level 2))
 
 (defun run-node (cwd)
   (interactive "Directory: ")

@@ -12,7 +12,6 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-.") 'company-files)
 
-
 ;; evil
 (with-eval-after-load 'evil-surround
   (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)

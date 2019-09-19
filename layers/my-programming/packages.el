@@ -15,6 +15,7 @@
     company-lsp
     yasnippet
     js2-mode
+    typescript-mode
     json-mode
     nodejs-repl
     cc-mode
@@ -56,6 +57,9 @@
 
 (defun my-programming/post-init-js2-mode()
   (add-hook 'js2-mode-hook 'my-js-mode-hook))
+
+(defun my-programming/post-init-typescript-mode()
+  (add-hook 'typescript-mode-hook 'my-typescript-mode-hook))
 
 (defun my-programming/init-nodejs-repl()
   (use-package nodejs-repl

@@ -32,7 +32,7 @@
   )
 
 (defun my-go-mode-hook ()
-  (eldoc-mode 0))
+  (remove-hook 'go-mode-hook 'go-eldoc-setup))
 
 (defun my-sh-mode-hook()
   (setq sh-basic-offset 2

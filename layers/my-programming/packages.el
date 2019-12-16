@@ -29,6 +29,7 @@
     sml-mode
     applescript-mode
     dockerfile-mode
+    toml-mode
     ))
 
 (defun my-programming/post-init-company()
@@ -112,3 +113,6 @@
   (setq company-transformers nil
         company-lsp-async t
         company-lsp-cache-candidates 'auto))
+
+(defun my-programming/post-init-toml-mode ()
+  (add-hook 'toml-mode-hook 'my-toml-mode-hook))

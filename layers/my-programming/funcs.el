@@ -92,3 +92,7 @@
     (setq company-lsp-enable-snippet nil)
     (company-complete-selection)
     (setq company-lsp-enable-snippet company-lsp-enable-snippet-old)))
+
+(defun my-toml-mode-hook ()
+  (setq c-basic-offset 2)
+  (setq tab-width 2))

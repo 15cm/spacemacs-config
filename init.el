@@ -45,7 +45,6 @@ values."
               ranger-max-preview-size 10
               ranger-parent-depth 2
               )
-      neotree
       systemd
       restclient
 
@@ -58,6 +57,7 @@ values."
                       )
      semantic
      lsp
+     dap
      emacs-lisp
      scheme
      (c-c++ :variables
@@ -177,7 +177,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; separate custom-file
   (setq-default custom-file "~/.spacemacs.d/custom.el")
 
-  (setenv "INSIDE_EMACS" "true")
+  ;; (setenv "INSIDE_EMACS" "true")
   ;; Shell bug fix
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
 
@@ -407,7 +407,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '(
-                               "Inconsolata"
+                               "Inconsolata Nerd Font"
                                ;; :size 12
                                :weight normal
                                :width normal

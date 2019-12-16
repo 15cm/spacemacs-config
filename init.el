@@ -129,6 +129,10 @@ values."
                                                      (recipe :fetcher github
                                                              :repo "15cm/emacs-go-impl"
                                                              :branch "godoc"))
+                                      (emmet-mode :location
+                                               (recipe :fetcher github
+                                                       :repo "15cm/emmet-mode"
+                                                       :branch "jsx"))
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(

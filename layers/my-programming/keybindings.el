@@ -12,10 +12,11 @@
 (evil-leader/set-key "jgp" 'dumb-jump-go-prompt)
 
 ;; emmet mode
-(evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
-(evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
-(define-key emmet-mode-keymap (kbd "C-j") 'spacemacs/emmet-expand)
-(define-key emmet-mode-keymap (kbd "C-l") 'emmet-expand-line)
+(with-eval-after-load 'emmet
+  (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
+  (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
+  (define-key emmet-mode-keymap (kbd "C-j") 'spacemacs/emmet-expand)
+  (define-key emmet-mode-keymap (kbd "C-l") 'emmet-expand-line))
 
 ;; gdb
 (with-eval-after-load 'gdb-mi

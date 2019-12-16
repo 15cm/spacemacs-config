@@ -17,7 +17,6 @@
     js2-mode
     typescript-mode
     json-mode
-    nodejs-repl
     cc-mode
     go-mode
     sh-script
@@ -60,10 +59,6 @@
 
 (defun my-programming/post-init-typescript-mode()
   (add-hook 'typescript-mode-hook 'my-typescript-mode-hook))
-
-(defun my-programming/init-nodejs-repl()
-  (use-package nodejs-repl
-    :defer t))
 
 (defun my-programming/post-init-cc-mode()
   (add-hook 'c++-mode-hook 'my-cc-mode-hook)

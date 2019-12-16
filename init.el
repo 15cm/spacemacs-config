@@ -80,7 +80,15 @@ values."
            ruby-enable-enh-ruby-mode t
            ruby-version-manager 'rbenv)
      swift
-     javascript
+     (javascript :variables
+                 javascript-backend 'lsp
+                 javascript-fmt-on-save t
+                 javascript-fmt-tool 'prettier)
+     (typescript :variables
+                 node-add-modules-path t
+                 typescript-backend 'lsp
+                 typescript-fmt-on-save t
+                 typescript-fmt-tool 'prettier)
      ;; react
      yaml
      html

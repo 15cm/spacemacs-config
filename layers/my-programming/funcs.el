@@ -60,6 +60,7 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-enable-current-element-highlight t)
+  (setq web-mode-enable-auto-quoting nil)
   (set-face-background 'web-mode-current-element-highlight-face "color-99")
   (defun sp-web-mode-is-code-context (id action context)
     (and (eq action 'insert)

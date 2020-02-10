@@ -20,7 +20,7 @@
     cc-mode
     go-mode
     sh-script
-    python-mode
+    python
     enh-ruby-mode
     emacs-lisp
     moonscript
@@ -71,7 +71,7 @@
 (defun my-programming/post-init-sh-script()
   (add-hook 'sh-mode-hook 'my-sh-mode-hook))
 
-(defun my-programming/post-init-python-mode()
+(defun my-programming/post-init-python()
   (add-hook 'python-mode-hook 'my-python-mode-hook))
 
 (defun my-programming/post-init-enh-ruby-mode()

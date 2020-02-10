@@ -4,6 +4,17 @@
   (setq header-line-format
         '((which-func-mode ("" which-func-format " ")))))
 
+(defun my-pyenv-find-exec (name dir)
+  (let ((pyenv-version (getenv "PYENV_VERSION")))
+    (setenv "PYENV_VERSION" nil)
+    (let* ((pyenv-command-path (executable-find "pyenv"))
+           (path (when pyenv-command-path
+                   (shell-command-to-string
+                    (format "PYENV_DIR='%s' %s which %s"
+                            dir pyenv-command-path name)))))
+      (setenv "PYENV_VERSION" pyenv-version)
+      path)))
+
 ;; hooks
 (defun my-js-mode-hook()
   (setq js2-basic-offset 2
@@ -41,11 +52,11 @@
 
 (defun my-python-mode-hook()
   (set-header-line)
-  )
+  (flycheck-set-checker-executable 'python-mypy "mypy")
+  (flycheck-select-checker 'python-mypy))
 
 (defun my-elisp-mode-hook()
-  (set-header-line)
-  )
+  (set-header-line))
 
 (defun my-moonscript-mode-hook()
   (setq moonscript-indent-offset 2)

@@ -11,13 +11,13 @@
 
 (defconst my-better-defaults-packages
   '(
-    ;; cnfonts
     anzu
     vlf
     rainbow-mode
     beacon
     fzf
     yasnippet
+    cnfonts
     ))
 
 (defun my-better-defaults/init-anzu()
@@ -39,6 +39,11 @@
 (defun my-better-defaults/init-fzf()
   (use-package fzf
     :defer t))
+
+(defun my-better-defaults/init-cnfonts()
+  (use-package cnfonts
+    :defer t))
+
 (defun my-better-defaults/post-init-yasnippet()
   (with-eval-after-load 'yasnippet
     (define-key yas-keymap (kbd "<tab>") 'yas-next-field)))

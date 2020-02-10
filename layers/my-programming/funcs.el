@@ -97,12 +97,18 @@
     (setq smartparens-mode smartparens-mode-original-value)
     (makunbound 'smartparens-mode-original-value)))
 
+(defun my-disable-snippet-around-curry (&optional mode)
+  (let ((around-f (lambda (f &rest args)
+                  (let ((lsp-enable-snippet nil)
+                        (company-lsp-enable-snippet nil))
+                    (funcall f args)))))
+    (if (boundp mode)
+        (lambda (f &rest args) (if (eq major-mode mode) (funcall around-f f args) (funcall f args)))
+      around-f)))
+
 (defun company-lsp-complete-selection-no-snippet ()
   (interactive)
-  (let ((company-lsp-enable-snippet-old company-lsp-enable-snippet))
-    (setq company-lsp-enable-snippet nil)
-    (company-complete-selection)
-    (setq company-lsp-enable-snippet company-lsp-enable-snippet-old)))
+  (funcall (my-disable-snippet-around-curry) #'company-complete-selection))
 
 (defun my-toml-mode-hook ()
   (setq c-basic-offset 2)

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: if statement and err not nil
+# key: ifse
+# --
+if $1; err != nil {
+$0
+}

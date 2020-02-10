@@ -36,6 +36,7 @@ values."
 
      spell-checking
      chinese
+     neotree
 
      ;; tools
       (ranger :variables
@@ -54,11 +55,13 @@ values."
                                                            (company-abbrev company-dabbrev)
                                                            )
                       auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-help-tooltip t
                       )
      semantic
+     emacs-lisp
      lsp
      dap
-     emacs-lisp
      scheme
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
@@ -79,7 +82,6 @@ values."
      (ruby :variables
            ruby-enable-enh-ruby-mode t
            ruby-version-manager 'rbenv)
-     swift
      (javascript :variables
                  javascript-backend 'lsp
                  javascript-fmt-on-save t
@@ -89,7 +91,7 @@ values."
                  typescript-backend 'lsp
                  typescript-fmt-on-save t
                  typescript-fmt-tool 'prettier)
-     ;; react
+     react
      yaml
      html
      lua
@@ -97,10 +99,11 @@ values."
      vimscript
      sql
      csv
-     (scala :variables
-            ;; scala-auto-start-ensime t
-            )
-     sml
+     ;; (scala :variables
+     ;;        ;; scala-auto-start-ensime t
+     ;;        )
+     ;; sml
+     ;; swift
 
      syntax-checking
 
@@ -180,10 +183,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; (setenv "INSIDE_EMACS" "true")
   ;; Shell bug fix
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
-
-  ;; ensime
-  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer-elpa-archives)
-  (push '("ensime" . "melpa-stable") package-pinned-packages)
 
   ;; Init exec-path-from-shell
   ;; Speed up launch
@@ -279,6 +278,9 @@ you should place your code here."
                  #'spacemacs//smartparens-disable-before-expand-snippet)
     (remove-hook 'yas-after-exit-snippet-hook
                  #'spacemacs//smartparens-restore-after-exit-snippet))
+
+  ;; Fonts
+  (cnfonts-enable)
 
   ;; Patch auto-mode-alist to inspect extensions that's not at the end
   (unless auto-mode-alist-has-been-patched

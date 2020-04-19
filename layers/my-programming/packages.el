@@ -76,7 +76,8 @@
 
 (defun my-programming/post-init-enh-ruby-mode()
     (spacemacs|add-company-backends :backends (company-robe company-dabbrev-code)
-                                  :modes ruby-mode enh-ruby-mode))
+                                    :modes ruby-mode enh-ruby-mode)
+    (add-hook 'enh-ruby-mode-hook 'my-ruby-mode-hook))
 
 (defun my-programming/post-init-emacs-lisp()
   (add-hook 'emacs-lisp-mode-hook 'my-elisp-mode-hook))

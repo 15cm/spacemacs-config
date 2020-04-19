@@ -15,6 +15,25 @@
       (setenv "PYENV_VERSION" pyenv-version)
       path)))
 
+(defun my-python-generate-imports ()
+  "Add default imports to python files"
+  (interactive)
+  (let ((surround-content-begin "# fmt: off")
+        (surround-content-end "# fmt: on")
+        (generated-tag  "# [auto_generated][imports_future]")
+        (generated-content "from __future__ import annotations"))
+    (save-excursion
+      (goto-char (point-min))
+      (unless (search-forward generated-tag nil t)
+        (goto-char (point-min))
+        (insert surround-content-begin)
+        (newline)
+        (insert (concat generated-content " " generated-tag))
+        (newline)
+        (insert surround-content-end)
+        (newline))
+      )))
+
 ;; hooks
 (defun my-js-mode-hook()
   (setq js2-basic-offset 2
@@ -113,3 +132,7 @@
 (defun my-toml-mode-hook ()
   (setq c-basic-offset 2)
   (setq tab-width 2))
+
+(defun my-ruby-mode-hook ()
+  (with-eval-after-load 'lsp-mode
+    (add-hook 'before-save-hook 'lsp-format-buffer)))

@@ -75,12 +75,13 @@ values."
              python-backend 'lsp
              python-lsp-server 'pyls
              python-sort-imports-on-save t
-             python-formatter 'yapf
+             python-formatter 'black
              python-format-on-save t)
      (java :variables
            java-backend nil)
      (ruby :variables
            ruby-enable-enh-ruby-mode t
+           ruby-backend 'lsp
            ruby-version-manager 'rbenv)
      (javascript :variables
                  javascript-backend 'lsp
@@ -143,8 +144,7 @@ values."
                                       (emmet-mode :location
                                                (recipe :fetcher github
                                                        :repo "15cm/emmet-mode"
-                                                       :branch "jsx"))
-                                      )
+                                                       :branch "jsx")))
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-escape

@@ -92,6 +92,7 @@ values."
                  typescript-backend 'lsp
                  typescript-fmt-on-save t
                  typescript-fmt-tool 'prettier)
+     haskell
      react
      yaml
      html
@@ -290,6 +291,8 @@ you should place your code here."
                                               (mode (cdr pr)))
                                           (cons (replace-regexp-in-string "\\\\\'" (lambda (s) (concat "\\.tmpl" s)) pattern nil t) mode))) auto-mode-alist)))
       (setq auto-mode-alist (append auto-mode-alist patched-auto-mode-alist))))
+
+  (advice-add 'semantic-idle-scheduler-function :around #'ignore)
 )
 
 (defun dotspacemacs/init ()

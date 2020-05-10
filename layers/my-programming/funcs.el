@@ -71,8 +71,7 @@
 
 (defun my-python-mode-hook()
   (set-header-line)
-  (flycheck-set-checker-executable 'python-mypy "mypy")
-  (flycheck-select-checker 'python-mypy))
+  (flycheck-add-next-checker 'lsp 'python-mypy))
 
 (defun my-elisp-mode-hook()
   (set-header-line))

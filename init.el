@@ -197,23 +197,24 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (when (file-exists-p custom-file)
     (load-file custom-file))
 
-  ;; fix background and switch theme
+  ;; Transparency config and its persistent after switching the theme.
   (defun window-did-setup (&rest r)
     ;; get transparent background in terminal
     (unless (display-graphic-p)
       (set-face-background 'default "unspecified-bg"))
     )
-
-  (defun frame-did-setup (&rest r)
-    (let ((frame (if r (car r) ())))
-      (spacemacs/enable-transparency frame)
-      )
-    )
-
   (add-hook 'window-setup-hook 'window-did-setup)
   (add-hook 'spacemacs-post-theme-change-hook 'window-did-setup)
-  (add-hook 'window-setup-hook 'frame-did-setup)
-  (add-to-list 'after-make-frame-functions 'frame-did-setup)
+
+  ;; Disabled to handle over transparency management to compositors.
+  ;; (defun frame-did-setup (&rest r)
+  ;;   (let ((frame (if r (car r) ())))
+  ;;     (spacemacs/enable-transparency frame)
+  ;;     )
+  ;;   )
+
+  ;; (add-hook 'window-setup-hook 'frame-did-setup)
+  ;; (add-to-list 'after-make-frame-functions 'frame-did-setup)
 
   ;; persp autosave
   (if (display-graphic-p)
@@ -521,12 +522,12 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 95
+   dotspacemacs-active-transparency 100
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 90
+   dotspacemacs-inactive-transparency 100
 
       ;; If non-nil show the titles of transient states. (default t)
    dotspacemacs-show-transient-state-title t

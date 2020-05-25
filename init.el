@@ -73,7 +73,7 @@ values."
          go-use-golangci-lint t)
      (python :variables
              python-backend 'lsp
-             python-lsp-server 'pyls
+             python-lsp-server 'mspyls
              python-sort-imports-on-save t
              python-formatter 'black
              python-format-on-save t)
@@ -293,6 +293,10 @@ you should place your code here."
       (setq auto-mode-alist (append auto-mode-alist patched-auto-mode-alist))))
 
   (advice-add 'semantic-idle-scheduler-function :around #'ignore)
+
+  ;; https://github.com/yyoncho/lsp-mode/tree/perf-docs#performance
+  (setq gc-cons-threshold 200000000)
+  (setq read-process-output-max (* 1024 1024)) ;; 1mb
 )
 
 (defun dotspacemacs/init ()

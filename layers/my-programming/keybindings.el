@@ -27,4 +27,5 @@
     (define-key company-active-map (kbd "<S-return>") 'company-lsp-complete-selection-no-snippet))
 
 ;; python
-(spacemacs/set-leader-keys-for-major-mode 'python-mode "ig" 'my-python-generate-imports)
+;; (spacemacs/set-leader-keys-for-major-mode 'python-mode "ig" 'my-python-generate-imports)
+(spacemacs/set-leader-keys-for-major-mode 'python-mode "gD" 'xref-find-definitions-other-window)

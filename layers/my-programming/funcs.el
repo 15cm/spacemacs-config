@@ -15,24 +15,24 @@
       (setenv "PYENV_VERSION" pyenv-version)
       path)))
 
-(defun my-python-generate-imports ()
-  "Add default imports to python files"
-  (interactive)
-  (let ((surround-content-begin "# fmt: off")
-        (surround-content-end "# fmt: on")
-        (generated-tag  "# [auto_generated][imports_future]")
-        (generated-content "from __future__ import annotations"))
-    (save-excursion
-      (goto-char (point-min))
-      (unless (search-forward generated-tag nil t)
-        (goto-char (point-min))
-        (insert surround-content-begin)
-        (newline)
-        (insert (concat generated-content " " generated-tag))
-        (newline)
-        (insert surround-content-end)
-        (newline))
-      )))
+;; (defun my-python-generate-imports ()
+;;   "Add default imports to python files"
+;;   (interactive)
+;;   (let ((surround-content-begin "# fmt: off")
+;;         (surround-content-end "# fmt: on")
+;;         (generated-tag  "# [auto_generated][imports_future]")
+;;         (generated-content "from __future__ import annotations"))
+;;     (save-excursion
+;;       (goto-char (point-min))
+;;       (unless (search-forward generated-tag nil t)
+;;         (goto-char (point-min))
+;;         (insert surround-content-begin)
+;;         (newline)
+;;         (insert (concat generated-content " " generated-tag))
+;;         (newline)
+;;         (insert surround-content-end)
+;;         (newline))
+;;       )))
 
 ;; hooks
 (defun my-js-mode-hook()
@@ -71,7 +71,12 @@
 
 (defun my-python-mode-hook()
   (set-header-line)
-  (flycheck-add-next-checker 'lsp 'python-mypy))
+  (flycheck-add-next-checker 'lsp 'python-flake8)
+  (flycheck-remove-next-checker 'python-flake8 'python-mypy)
+  (flycheck-remove-next-checker 'python-flake8 'python-pylint)
+  (flycheck-add-next-checker 'python-flake8 'python-pylint)
+  (flycheck-remove-next-checker 'python-pylint 'python-mypy)
+  (flycheck-add-next-checker 'python-pylint 'python-mypy))
 
 (defun my-elisp-mode-hook()
   (set-header-line))

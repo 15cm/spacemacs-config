@@ -34,6 +34,24 @@
 ;;         (newline))
 ;;       )))
 
+(defun my-python-remove-unused-imports()
+  "Use Autoflake to remove unused function with multi-line
+import workaround patched.
+https://github.com/myint/autoflake/issues/8"
+  "autoflake --remove-all-unused-imports -i unused_imports.py"
+  (interactive)
+  "Fixes multi-line import when removing unused imports via
+autoflake. "
+  (let ((py-isort-options '("-rc" "-sl")))
+    (py-isort-buffer))
+  (if (executable-find "autoflake")
+      (progn
+        (write-region nil nil (buffer-file-name))
+        (shell-command (format "autoflake --remove-all-unused-imports -i %s"
+                               (shell-quote-argument (buffer-file-name))))
+        (revert-buffer t t t))
+    (message "Error: Cannot find autoflake executable.")))
+
 ;; hooks
 (defun my-js-mode-hook()
   (setq js2-basic-offset 2
@@ -42,8 +60,7 @@
         js2-strict-missing-semi-warning nil
         js2-bounce-indent-p t
         )
-  (set-header-line)
-  )
+  (set-header-line))
 
 (defun my-typescript-mode-hook ()
   (setq typescript-indent-level 2))
@@ -71,12 +88,8 @@
 
 (defun my-python-mode-hook()
   (set-header-line)
-  (flycheck-add-next-checker 'lsp 'python-flake8)
-  (flycheck-remove-next-checker 'python-flake8 'python-mypy)
-  (flycheck-remove-next-checker 'python-flake8 'python-pylint)
-  (flycheck-add-next-checker 'python-flake8 'python-pylint)
-  (flycheck-remove-next-checker 'python-pylint 'python-mypy)
-  (flycheck-add-next-checker 'python-pylint 'python-mypy))
+  (flycheck-add-next-checker 'lsp 'python-mypy)
+  )
 
 (defun my-elisp-mode-hook()
   (set-header-line))

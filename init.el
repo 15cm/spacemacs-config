@@ -73,7 +73,7 @@ values."
          go-use-golangci-lint t)
      (python :variables
              python-backend 'lsp
-             python-lsp-server 'mspyls
+             python-lsp-server 'pyls
              python-sort-imports-on-save t
              python-formatter 'black
              python-format-on-save t)

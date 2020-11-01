@@ -417,8 +417,8 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '(
-                               "Inconsolata Nerd Font"
-                               ;; :size 12
+                               "Inconsolata Nerd Font Mono"
+                               ;; :size 30
                                :weight normal
                                :width normal
                                )

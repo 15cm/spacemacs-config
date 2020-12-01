@@ -53,7 +53,7 @@
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(beacon-color "#cc6666")
- '(blacken-allow-py36 t)
+ '(blacken-allow-py36 nil)
  '(c-default-style
    '((c++-mode . "linux")
      (java-mode . "java")

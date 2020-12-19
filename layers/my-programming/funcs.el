@@ -87,9 +87,12 @@ autoflake. "
         tab-width 2))
 
 (defun my-python-mode-hook()
-  (set-header-line)
-  (flycheck-add-next-checker 'lsp 'python-mypy)
-  )
+  (set-header-line))
+
+;; Hooks that applies to projects.
+(defun my-python-mode-lsp-hook()
+  (flycheck-add-next-checker 'lsp 'python-pylint)
+  (py-docformatter-enable-on-save))
 
 (defun my-elisp-mode-hook()
   (set-header-line))

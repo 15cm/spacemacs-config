@@ -84,7 +84,7 @@ values."
          go-use-golangci-lint t)
      (python :variables
              python-backend 'lsp
-             python-lsp-server 'pyls
+             python-lsp-server 'pyright
              python-sort-imports-on-save t
              python-formatter 'black
              python-format-on-save t)
@@ -156,7 +156,10 @@ values."
                                       (emmet-mode :location
                                                (recipe :fetcher github
                                                        :repo "15cm/emmet-mode"
-                                                       :branch "jsx")))
+                                                       :branch "jsx"))
+                                      (py-docformatter :location
+                                                       (recipe :fetcher github
+                                                               :repo "humitos/py-docformatter.el")))
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-escape

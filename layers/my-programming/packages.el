@@ -30,6 +30,7 @@
     applescript-mode
     dockerfile-mode
     toml-mode
+    lsp-mode
     ))
 
 (defun my-programming/post-init-company()
@@ -117,3 +118,6 @@
 
 (defun my-programming/post-init-toml-mode ()
   (add-hook 'toml-mode-hook 'my-toml-mode-hook))
+
+(defun my-programming/post-init-lsp-mode()
+  (add-hook 'lsp-pyright-after-open-hook #'my-python-mode-lsp-hook))

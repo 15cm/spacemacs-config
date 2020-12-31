@@ -85,9 +85,7 @@ values."
      (python :variables
              python-backend 'lsp
              python-lsp-server 'pyright
-             python-sort-imports-on-save t
-             python-formatter 'black
-             python-format-on-save t)
+             python-sort-imports-on-save t)
      (java :variables
            java-backend nil)
      (ruby :variables

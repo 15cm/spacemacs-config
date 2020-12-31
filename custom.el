@@ -123,6 +123,7 @@
  '(evil-toggle-key "C-M-z")
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
+ '(flycheck-disabled-checkers '(python-pylint))
  '(frame-background-mode 'dark)
  '(fzf/args "-x --color bw --print-query")
  '(helm-ag-base-command "rg --no-heading")

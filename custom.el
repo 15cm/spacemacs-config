@@ -63,6 +63,7 @@
    '(("Monaco" "Inconsolata Nerd Font")
      ("Sarasa Mono CL" "Noto Sans Mono CJK SC")
      ("HanaMinB")))
+ '(cnfonts-use-face-font-rescale t)
  '(company-auctex-arg-lookup-table
    '((TeX-arg-define-macro "\\MacroName")
      (TeX-arg-counter "Counter")

@@ -294,7 +294,8 @@ you should place your code here."
                  #'spacemacs//smartparens-restore-after-exit-snippet))
 
   ;; Fonts
-  (cnfonts-enable)
+  (cnfonts-set-font-with-saved-step)
+  (cnfonts-set-spacemacs-fallback-fonts)
 
   ;; Patch auto-mode-alist to inspect extensions that's not at the end
   (unless auto-mode-alist-has-been-patched

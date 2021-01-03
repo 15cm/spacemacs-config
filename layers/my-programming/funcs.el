@@ -87,7 +87,8 @@ autoflake. "
         tab-width 2))
 
 (defun my-python-mode-hook()
-  (set-header-line))
+  (set-header-line)
+  (semantic-mode 0))
 
 ;; Hooks that applies to projects.
 (defun my-python-mode-lsp-hook()

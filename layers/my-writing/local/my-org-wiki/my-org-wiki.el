@@ -41,6 +41,7 @@
 
 ;;;###autoload
 (define-minor-mode my-org-wiki-mode
+  "Org wiki mode with extra configs."
   :init-value nil
   :lighter "my-org-wiki"
   (if (not my-org-wiki/blog-post-project-root)
@@ -52,12 +53,9 @@
 (defun my-org-wiki-post-to-blog ()
   "Export current org to markdown file located in my-org-wiki/blog-post-project-dir"
   (interactive)
-  (let* ((dir-locals-path (dir-locals-find-file (buffer-file-name)))
-         (wiki-project-root (if (consp dir-locals-path) (car dir-locals-path) dir-locals-path))
-         (src-relative-path (file-relative-name (buffer-file-name) (file-name-as-directory (concat (file-name-as-directory wiki-project-root) "notes"))))
-         (category (replace-regexp-in-string "/.*" "" src-relative-path)))
-    (message (shell-command-to-string (format "org-post-md.py post -u %s %s %s" (buffer-file-name) category my-org-wiki/blog-post-project-root)))
-    ))
+  (let* ((wiki-path (f-dirname (buffer-file-name)))
+         (asset-path (org-attach-dir)))
+    (message (shell-command-to-string (format "org-post-md.py post -i %s --assets-dir %s -o %s" (buffer-file-name) asset-path my-org-wiki/blog-post-project-root)))))
 
 (provide 'my-org-wiki)
 ;;; my-org-wiki.el ends here

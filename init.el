@@ -121,7 +121,8 @@ values."
      ;writing
      (org :variables
           org-enable-github-support t
-          org-startup-indented t)
+          org-startup-indented t
+          org-enable-roam-support t)
      markdown
      (latex :variables
             latex-build-command "XeLaTeX")
@@ -164,6 +165,7 @@ values."
                                     helm-swoop
                                     ace-pinyin
                                     importmagic
+                                    org-brain
                                     )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of

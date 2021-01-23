@@ -85,7 +85,7 @@ values."
      (python :variables
              python-backend 'lsp
              python-lsp-server 'pyright
-             python-sort-imports-on-save t)
+             python-sort-imports-on-save nil)
      (java :variables
            java-backend nil)
      (ruby :variables
@@ -158,7 +158,8 @@ values."
                                                        :branch "jsx"))
                                       (py-docformatter :location
                                                        (recipe :fetcher github
-                                                               :repo "humitos/py-docformatter.el")))
+                                                               :repo "humitos/py-docformatter.el"))
+                                      direnv)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-escape
@@ -265,6 +266,8 @@ you should place your code here."
   (company-statistics-mode)
   (editorconfig-mode 1)
   (smartparens-global-mode 1)
+  (direnv-mode 1)
+  (apheleia-global-mode +1)
 
   (spacemacs/toggle-indent-guide-globally-on)
   ;; layout autosave config for servers in GUI and Terminal
@@ -296,6 +299,7 @@ you should place your code here."
                  #'spacemacs//smartparens-restore-after-exit-snippet))
 
   ;; Fonts
+  (cnfonts-enable)
   (cnfonts-set-font-with-saved-step)
   (cnfonts-set-spacemacs-fallback-fonts)
 

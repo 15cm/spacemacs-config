@@ -31,6 +31,9 @@
     dockerfile-mode
     toml-mode
     lsp-mode
+    (apheleia :location
+              (recipe :fetcher github
+                      :repo "raxod502/apheleia"))
     ))
 
 (defun my-programming/post-init-company()
@@ -121,3 +124,7 @@
 
 (defun my-programming/post-init-lsp-mode()
   (add-hook 'lsp-pyright-after-open-hook #'my-python-mode-lsp-hook))
+
+(defun my-programming/init-apheleia()
+  (use-package apheleia
+    :defer t))

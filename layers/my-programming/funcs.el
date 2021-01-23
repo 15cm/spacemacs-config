@@ -92,9 +92,7 @@ autoflake. "
 
 ;; Hooks that applies to projects.
 (defun my-python-mode-lsp-hook()
-  (blacken-mode)
-  (flycheck-add-next-checker 'lsp 'python-flake8)
-  (py-docformatter-enable-on-save))
+  (flycheck-add-next-checker 'lsp 'python-flake8))
 
 (defun my-elisp-mode-hook()
   (set-header-line))

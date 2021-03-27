@@ -156,10 +156,10 @@ values."
                                                (recipe :fetcher github
                                                        :repo "15cm/emmet-mode"
                                                        :branch "jsx"))
-                                      (py-docformatter :location
-                                                       (recipe :fetcher github
-                                                               :repo "humitos/py-docformatter.el"))
-                                      direnv)
+                                      direnv
+                                      (keychain-environment :location
+                                                            (recipe :fetcher github
+                                                                     :repo "tarsius/keychain-environment")))
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-escape
@@ -245,6 +245,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; simpleclip content provider
   (when (and (not (my-system-typep-darwin)) (executable-find "copyq"))
     (setq-default simpleclip-custom-content-provider "copyq clipboard"))
+
 )
 
 (defun dotspacemacs/user-config ()
@@ -257,9 +258,9 @@ you should place your code here."
 
   ;; Fix PATH on macOS
   (exec-path-from-shell-copy-env "PATH")
-  ;; magit: fix ssh-agent on Linux
-  (exec-path-from-shell-copy-env "SSH_AGENT_PID")
-  (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
+
+  ;; Linux ssh keychain
+  (keychain-refresh-environment)
 
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)

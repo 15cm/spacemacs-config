@@ -92,6 +92,7 @@ autoflake. "
 
 ;; Hooks that applies to projects.
 (defun my-python-mode-lsp-hook()
+  (apheleia-mode 1)
   (flycheck-add-next-checker 'lsp 'python-flake8))
 
 (defun my-elisp-mode-hook()

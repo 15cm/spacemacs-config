@@ -267,7 +267,6 @@ you should place your code here."
   (editorconfig-mode 1)
   (smartparens-global-mode 1)
   (direnv-mode 1)
-  (apheleia-global-mode +1)
 
   (spacemacs/toggle-indent-guide-globally-on)
   ;; layout autosave config for servers in GUI and Terminal

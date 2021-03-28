@@ -24,6 +24,7 @@
   (define-key company-active-map (kbd "C-f") 'right-char)
   (define-key company-active-map (kbd "C-h") 'delete-backward-char)
   (define-key company-active-map (kbd "<C-return>") 'newline-and-indent))
+(evil-leader/set-key "<SPC>c" 'my-completion-at-end-of-symbol-in-normal-state)
 
 ;; term
 (evil-define-key 'normal term-raw-map (kbd "C-n") 'term-send-down)

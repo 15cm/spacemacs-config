@@ -86,3 +86,9 @@ in any way you like."
         (cdr answer)))
     )
   )
+
+(defun my-completion-at-end-of-symbol-in-normal-state ()
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+    (goto-char (cdr bounds))
+    (completion-at-point)))

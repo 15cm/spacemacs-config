@@ -159,7 +159,10 @@ values."
                                       direnv
                                       (keychain-environment :location
                                                             (recipe :fetcher github
-                                                                     :repo "tarsius/keychain-environment")))
+                                                                    :repo "tarsius/keychain-environment"))
+                                      (evil-matchit :location
+                                                      (recipe :fetcher github
+                                                              :repo "15cm/evil-matchit")))
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-escape

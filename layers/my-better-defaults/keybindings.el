@@ -6,6 +6,7 @@
 (spacemacs/declare-prefix "<SPC>" "better-defaults")
 (evil-leader/set-key "<SPC>f" 'fzf)
 (evil-leader/set-key "<SPC>F" 'fzf-directory)
+(evil-leader/set-key "<SPC>a" 'ranger)
 
 ;; common
 (global-set-key (kbd "C-s") 'save-buffer)
@@ -23,7 +24,7 @@
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-f") 'right-char)
   (define-key company-active-map (kbd "C-h") 'delete-backward-char)
-  (define-key company-active-map (kbd "<C-return>") 'newline-and-indent))
+  (define-key company-active-map (kbd "<S-return>") 'newline-and-indent))
 (evil-leader/set-key "<SPC>c" 'my-completion-at-end-of-symbol-in-normal-state)
 
 ;; term

@@ -182,6 +182,11 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
+  ;; Fix the issue that --fg-daemon=<server_name> is not passed to server-name.
+  (with-eval-after-load 'server
+    (when (daemonp) (setq server-name (daemonp))))
+
   ;; helper functions
   (defun my-system-typep-darwin ()
     (string-equal system-type "darwin"))

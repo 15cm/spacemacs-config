@@ -614,7 +614,7 @@ values."
    ;; like \"~/.emacs.d/server\". It has no effect if
    ;; `dotspacemacs-enable-server' is nil.
    ;; (default nil)
-   dotspacemacs-server-socket-dir nil
+   dotspacemacs-server-socket-dir "~/local/run/emacs"
 
    ;; If non nil advises quit functions to keep server open when quitting.
    ;; (default nil)

@@ -154,8 +154,7 @@ values."
                                                              :branch "godoc"))
                                       (emmet-mode :location
                                                (recipe :fetcher github
-                                                       :repo "15cm/emmet-mode"
-                                                       :branch "jsx"))
+                                                       :repo "15cm/emmet-mode"))
                                       direnv
                                       (keychain-environment :location
                                                             (recipe :fetcher github

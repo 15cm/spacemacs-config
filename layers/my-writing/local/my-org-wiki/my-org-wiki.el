@@ -47,7 +47,7 @@
   (if (not my-org-wiki/blog-post-project-root)
       (message "Error: please set the custom vars my-org-wiki/blog-post-project-dir and then restart my-org-wiki-mode")
     (progn (spacemacs/set-leader-keys-for-major-mode 'org-mode ">" 'my-org-wiki-post-to-blog)
-           )))
+           (org-roam-setup))))
 
 ;;;###autoload
 (defun my-org-wiki-post-to-blog ()

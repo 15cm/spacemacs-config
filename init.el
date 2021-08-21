@@ -237,6 +237,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; (add-hook 'window-setup-hook 'frame-did-setup)
   ;; (add-to-list 'after-make-frame-functions 'frame-did-setup)
+  (setq org-roam-v2-ack t)
 
   ;; persp autosave
   (if (display-graphic-p)

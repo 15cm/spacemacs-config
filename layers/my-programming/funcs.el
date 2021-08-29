@@ -106,6 +106,14 @@ autoflake. "
   (make-local-variable 'js-indent-level)
   (setq js-indent-level 2))
 
+(defun flycheck-node_modules-executable-find (executable)
+    (or
+      (let* ((base (locate-dominating-file buffer-file-name "node_modules"))
+            (cmd  (if base (expand-file-name (concat "node_modules/.bin/" executable)  base))))
+        (if (and cmd (file-exists-p cmd))
+            cmd))
+      (flycheck-default-executable-find executable)))
+
 (defun my-web-mode-hook()
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
@@ -120,6 +128,12 @@ autoflake. "
 
   (sp-local-pair 'web-mode "<" nil :when '(sp-web-mode-is-code-context))
   (auto-rename-tag-mode t)
+
+  ;; Flycheck eslint.
+  ;; Find node executable by path because `npx' was not supported by flycheck
+  ;; https://github.com/flycheck/flycheck/issues/1428.
+  (setq-local flycheck-executable-find #'flycheck-node_modules-executable-find)
+  (flycheck-add-next-checker 'lsp 'javascript-eslint))
 
 (defun my-sql-mode-hook()
   (setq tab-width 2))

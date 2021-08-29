@@ -99,6 +99,7 @@ values."
      (typescript :variables
                  node-add-modules-path t
                  typescript-backend 'lsp
+                 typescript-linter 'eslint
                  typescript-fmt-on-save t
                  typescript-fmt-tool 'prettier)
      haskell

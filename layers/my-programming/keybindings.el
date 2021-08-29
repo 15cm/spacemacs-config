@@ -11,12 +11,11 @@
 (evil-leader/set-key "jgb" 'dumb-jump-back)
 (evil-leader/set-key "jgp" 'dumb-jump-go-prompt)
 
-;; emmet mode
-(with-eval-after-load 'emmet
-  (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'indent-for-tab-command)
-  (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'indent-for-tab-command)
-  (define-key emmet-mode-keymap (kbd "C-j") 'spacemacs/emmet-expand)
-  (define-key emmet-mode-keymap (kbd "C-l") 'emmet-expand-line))
+(with-eval-after-load 'emmet-mode
+     (define-key emmet-mode-keymap (kbd "C-j") nil))
+
+(with-eval-after-load 'web-mode
+  (define-key typescript-tsx-mode-map (kbd "C-j") 'web-mode-navigate))
 
 ;; gdb
 (with-eval-after-load 'gdb-mi

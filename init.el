@@ -152,6 +152,7 @@ values."
                                                      (recipe :fetcher github
                                                              :repo "15cm/emacs-go-impl"
                                                              :branch "godoc"))
+                                      auto-rename-tag
                                       direnv
                                       (keychain-environment :location
                                                             (recipe :fetcher github

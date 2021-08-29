@@ -118,7 +118,8 @@ autoflake. "
          (not (or (get-text-property (point) 'part-side)
                   (get-text-property (point) 'block-side)))))
 
-  (sp-local-pair 'web-mode "<" nil :when '(sp-web-mode-is-code-context)))
+  (sp-local-pair 'web-mode "<" nil :when '(sp-web-mode-is-code-context))
+  (auto-rename-tag-mode t)
 
 (defun my-sql-mode-hook()
   (setq tab-width 2))

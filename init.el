@@ -304,8 +304,7 @@ you should place your code here."
 
   ;; Load the theme config
   (let ((theme-conf-file "~/.config/scripts/emacs/load-theme.el"))
-    (when (file-exists-p theme-conf-file))
-    (load-file theme-conf-file))
+    (when (file-exists-p theme-conf-file) (load-file theme-conf-file)))
 
   ;; Hack to enable smartparens in auto-completion
   (with-eval-after-load 'yasnippet

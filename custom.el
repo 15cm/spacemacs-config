@@ -121,6 +121,7 @@
      (9 "" "" "" "" "" "" "" "" "")))
  '(company-statistics-file "~/.emacs.d/.cache/company-statistics-cache.el")
  '(compilation-message-face 'default)
+ '(create-lockfiles nil)
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
@@ -128,10 +129,12 @@
  '(custom-safe-themes
    '("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "fa3328c4b23fdba77a360fff513b4a6b2ad44e39b70b650bd5f3407bed60b784" "66d837d5bad27c5ea9480d07048d1a469678823c42daea672e3a7dd4fac6a1bf" "07b0650a8c00ccdc946e8452f931384b536e761106fc7c81e62ba2fb6afef8b6" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default))
  '(delete-by-moving-to-trash t)
+ '(enable-local-variables :all)
  '(evil-toggle-key "C-M-z")
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
  '(flycheck-disabled-checkers '(python-pylint))
+ '(flycheck-javascript-eslint-executable "eslint")
  '(frame-background-mode 'dark)
  '(fzf/args "-x --color bw --print-query")
  '(helm-ag-base-command "rg --no-heading")
@@ -197,35 +200,6 @@
  '(pos-tip-foreground-color "#586e75")
  '(pyenv-mode nil)
  '(recentf-max-saved-items 5000)
- '(safe-local-variable-values
-   '((python-shell-interpreter-args . "shell")
-     (python-shell-interpreter . "/home/sinkerine/tech/repo/housou-server/housou/manage.py")
-     (python-shell-interpreter . "/home/sinkerine/tech/repo/housou-server/housou/manage.py shell")
-     (python-shell-virtualenv-root . "/home/sinkerine/.pyenv/versions/housou-server")
-     (python-shell-extra-pythonpaths "/home/sinkerine/tech/repo/housou-server/housou")
-     (python-shell-process-environment "DJANGO_SETTINGS_MODULE=housou.settings.dev")
-     (eval progn
-           (unless
-               (boundp 'find-lisp-find-files)
-             (load-library "find-lisp"))
-           (setq org-agenda-files
-                 (find-lisp-find-files "~/tech/wiki/notes" ".org$")))
-     (mangle-whitespace . t)
-     (eval setq-local org-agenda-files
-           (find-lisp-find-files "~/tech/wiki/notes" ".org$"))
-     (eval setq org-agenda-files
-           (find-lisp-find-files "~/tech/wiki/notes" ".org$"))
-     (eval setq org-agenda-files
-           (find-lisp-find-files "." ".org$"))
-     (org-agenda-files ".")
-     (org-agenda-files
-      (find-lisp-find-files "." ".org$"))
-     (org-agenda-files find-lisp-find-files "." ".org$")
-     (javascript-backend . tern)
-     (javascript-backend . lsp)
-     (eval progn
-           (pp-buffer)
-           (indent-buffer))))
  '(save-interprogram-paste-before-kill nil)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(sp-escape-quotes-after-insert nil)

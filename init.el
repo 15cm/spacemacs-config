@@ -102,6 +102,8 @@ values."
                  typescript-linter 'eslint
                  typescript-fmt-on-save t
                  typescript-fmt-tool 'prettier)
+     (json :variables
+           json-backend 'company-capf)
      haskell
      react
      yaml

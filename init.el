@@ -47,7 +47,7 @@ values."
 
      spell-checking
      chinese
-     neotree
+     treemacs
 
      ;; tools
       (ranger :variables

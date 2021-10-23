@@ -122,9 +122,19 @@
 (defun my-programming/post-init-toml-mode ()
   (add-hook 'toml-mode-hook 'my-toml-mode-hook))
 
-(defun my-programming/post-init-lsp-mode()
-  (add-hook 'lsp-pyright-after-open-hook #'my-python-mode-lsp-hook))
+(defun my-programming/post-init-lsp-mode ()
+  (add-hook 'lsp-pyright-after-open-hook #'my-python-mode-lsp-hook)
+  (with-eval-after-load 'lsp-mode
+    (add-to-list 'lsp-language-id-configuration '(direnv-envrc-mode . "shellscript"))))
 
-(defun my-programming/init-apheleia()
+(defun my-programming/init-apheleia ()
   (use-package apheleia
+    :defer t))
+
+(defun my-programming/init-prisma-mode ()
+  (use-package prisma-mode
+    :defer t))
+
+(defun my-programming/init-company-fuzzy ()
+  (use-package company-fuzzy
     :defer t))

@@ -275,6 +275,21 @@ you should place your code here."
   ;; Fix PATH on macOS
   (exec-path-from-shell-copy-env "PATH")
 
+  ;; Patch auto-mode-alist to inspect extensions that's not at the end
+  (unless auto-mode-alist-has-been-patched
+    (setq auto-mode-alist-has-been-patched t)
+    (let ((patched-auto-mode-alist (mapcar
+                                    (lambda (pr) (let ((pattern (car pr))
+                                                       (mode (cdr pr)))
+                                                   (cons (replace-regexp-in-string "\\\\\'" (lambda (s) (concat "\\.tmpl" s)) pattern nil t) mode))) auto-mode-alist)))
+      (setq auto-mode-alist (append auto-mode-alist patched-auto-mode-alist))))
+
+  (advice-add 'semantic-idle-scheduler-function :around #'ignore)
+
+  ;; https://github.com/yyoncho/lsp-mode/tree/perf-docs#performance
+  (setq gc-cons-threshold 200000000)
+  (setq read-process-output-max (* 1024 1024)) ;; 1mb
+
   ;; Linux ssh keychain
   (keychain-refresh-environment)
 
@@ -318,20 +333,8 @@ you should place your code here."
   (cnfonts-set-font-with-saved-step)
   (cnfonts-set-spacemacs-fallback-fonts)
 
-  ;; Patch auto-mode-alist to inspect extensions that's not at the end
-  (unless auto-mode-alist-has-been-patched
-    (setq auto-mode-alist-has-been-patched t)
-    (let ((patched-auto-mode-alist (mapcar
-                           (lambda (pr) (let ((pattern (car pr))
-                                              (mode (cdr pr)))
-                                          (cons (replace-regexp-in-string "\\\\\'" (lambda (s) (concat "\\.tmpl" s)) pattern nil t) mode))) auto-mode-alist)))
-      (setq auto-mode-alist (append auto-mode-alist patched-auto-mode-alist))))
-
-  (advice-add 'semantic-idle-scheduler-function :around #'ignore)
-
-  ;; https://github.com/yyoncho/lsp-mode/tree/perf-docs#performance
-  (setq gc-cons-threshold 200000000)
-  (setq read-process-output-max (* 1024 1024)) ;; 1mb
+  ;; Key bindings that should load at last.
+  (global-set-key (kbd "M-.") 'hippie-expand)
 )
 
 (defun dotspacemacs/init ()

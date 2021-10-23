@@ -12,7 +12,6 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-/") 'company-files)
-(global-set-key (kbd "M-.") 'hippie-expand)
 (global-set-key (kbd "M-,") 'helm-company)
 
 ;; evil

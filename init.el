@@ -162,7 +162,8 @@ values."
                                                                     :repo "tarsius/keychain-environment"))
                                       (evil-matchit :location
                                                       (recipe :fetcher github
-                                                              :repo "15cm/evil-matchit")))
+                                                              :repo "15cm/evil-matchit"))
+                                      (git-modes))
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-escape
@@ -170,6 +171,10 @@ values."
                                     ace-pinyin
                                     importmagic
                                     org-brain
+                                    helm-gitignore
+                                    gitattributes-mode
+                                    gitignore-mode
+                                    gitconfig-mode
                                     )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -335,7 +340,7 @@ you should place your code here."
   (cnfonts-set-font-with-saved-step)
   (cnfonts-set-spacemacs-fallback-fonts)
 
-  ;; Key bindings that should load at last.
+  ;; General key bindings.
   (global-set-key (kbd "M-.") 'hippie-expand)
 )
 

@@ -18,6 +18,7 @@
     fzf
     yasnippet
     cnfonts
+    edit-indirect
     ))
 
 (defun my-better-defaults/init-anzu()
@@ -47,3 +48,7 @@
 (defun my-better-defaults/post-init-yasnippet()
   (with-eval-after-load 'yasnippet
     (define-key yas-keymap (kbd "<tab>") 'yas-next-field)))
+
+(defun my-better-defaults/init-edit-indirect()
+  (use-package edit-indirect
+    :defer t))

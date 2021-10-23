@@ -137,6 +137,7 @@
  '(flycheck-javascript-eslint-executable "eslint")
  '(frame-background-mode 'dark)
  '(fzf/args "-x --color bw --print-query")
+ '(global-company-fuzzy-mode t)
  '(helm-ag-base-command "rg --no-heading")
  '(helm-ag-command-option "--smart-case")
  '(helm-completion-style 'emacs)
@@ -207,7 +208,9 @@
  '(split-height-threshold nil)
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")
+ '(treemacs-follow-mode t)
  '(vc-annotate-background-mode nil)
+ '(warning-suppress-types '((comp)))
  '(weechat-color-list
    '(unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496"))
  '(window-divider-mode nil)

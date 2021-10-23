@@ -34,7 +34,10 @@
     (apheleia :location
               (recipe :fetcher github
                       :repo "raxod502/apheleia"))
-    ))
+    (prisma-mode :location
+                 (recipe :fetcher github
+                         :repo "pimeys/emacs-prisma-mode"))
+    company-fuzzy))
 
 (defun my-programming/post-init-company()
   (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode))

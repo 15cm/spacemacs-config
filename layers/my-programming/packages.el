@@ -40,7 +40,8 @@
     company-fuzzy))
 
 (defun my-programming/post-init-company()
-  (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode))
+  (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode)
+  (with-eval-after-load 'company (add-hook 'company-mode-hook #'my-company-mode-hook)))
 
 (defun my-programming/post-init-yasnippet ()
   (with-eval-after-load 'yasnippet
@@ -137,7 +138,6 @@
 (defun my-programming/init-prisma-mode ()
   (use-package prisma-mode
     :defer t))
-
 (defun my-programming/init-company-fuzzy ()
   (use-package company-fuzzy
     :defer t))

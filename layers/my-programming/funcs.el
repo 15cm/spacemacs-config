@@ -173,5 +173,4 @@ autoflake. "
   (with-eval-after-load 'lsp-mode
     (add-hook 'before-save-hook 'lsp-format-buffer)))
 
-(defun my-company-mode-hook ()
-  (company-fuzzy-mode 1))
+(defun my-company-mode-hook ())

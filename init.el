@@ -125,7 +125,7 @@ values."
      (org :variables
           org-enable-github-support t
           org-startup-indented t
-          org-enable-roam-support t)
+          org-enable-roam-support (string-equal (system-name) "kazuki"))
      markdown
      (latex :variables
             latex-build-command "XeLaTeX")

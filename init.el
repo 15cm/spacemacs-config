@@ -110,7 +110,8 @@ values."
      html
      lua
      shell-scripts
-     vimscript
+     (vimscript :variables
+                vimscript-backend 'nil)
      sql
      csv
      ;; (scala :variables

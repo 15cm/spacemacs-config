@@ -186,6 +186,7 @@
  '(org-cliplink-simpleclip-source t)
  '(org-roam-db-update-method 'immediate)
  '(org-roam-directory "~/wiki/")
+ '(org-roam-node-display-template "${title:60} ${tags:40}")
  '(org-roam-tag-sources '(prop vanilla))
  '(org-use-property-inheritance t)
  '(package-selected-packages

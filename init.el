@@ -152,10 +152,6 @@ values."
                                                               :repo "15cm/company-auctex"))
                                       evil-mc
                                       simpleclip
-                                      (go-impl :location
-                                                     (recipe :fetcher github
-                                                             :repo "15cm/emacs-go-impl"
-                                                             :branch "godoc"))
                                       auto-rename-tag
                                       direnv
                                       (keychain-environment :location

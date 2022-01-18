@@ -12,9 +12,6 @@
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LANG" "en_US.UTF-8")
 
-;; pangu-spacing
-(setq pangu-spacing-real-insert-separtor t)
-
 ;; clipboard
 (setq select-enable-clipboard nil)
 

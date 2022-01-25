@@ -30,8 +30,6 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     ;; my layer
-
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -137,6 +135,7 @@ values."
      github
      prodigy
 
+     ;; my layers
      my-better-defaults
      my-writing
      my-programming
@@ -335,6 +334,8 @@ you should place your code here."
 
   ;; Fonts
   (cnfonts-mode 1)
+  (cnfonts-increase-fontsize)
+  (cnfonts-decrease-fontsize)
 
   ;; General key bindings.
   (global-set-key (kbd "M-.") 'hippie-expand)

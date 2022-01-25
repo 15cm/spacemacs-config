@@ -28,3 +28,7 @@
 ;; python
 (spacemacs/set-leader-keys-for-major-mode 'python-mode "gD" 'xref-find-definitions-other-window)
 (spacemacs/set-leader-keys-for-major-mode 'python-mode "ir" 'my-python-remove-unused-imports)
+
+;; Lsp
+(with-eval-after-load 'lsp-mode
+  (spacemacs/lsp-define-key lsp-command-map "to" #'lsp-treemacs-symbols))

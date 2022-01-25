@@ -67,7 +67,7 @@ values."
                       auto-completion-enable-sort-by-usage t
                       auto-completion-enable-help-tooltip t
                       )
-     semantic
+     tree-sitter
      emacs-lisp
      lsp
      dap

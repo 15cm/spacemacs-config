@@ -119,7 +119,7 @@
      (7 "" "" "" "" "" "" "")
      (8 "" "" "" "" "" "" "" "")
      (9 "" "" "" "" "" "" "" "" "")))
- '(company-statistics-file "~/.emacs.d/.cache/company-statistics-cache.el")
+ '(company-statistics-file "~/.emacs.d/.cache/company-statistics-cache.el" t)
  '(compilation-message-face 'default)
  '(create-lockfiles nil)
  '(cua-global-mark-cursor-color "#2aa198")
@@ -160,7 +160,7 @@
    '("#DEB542" "#F2804F" "#FF6E64" "#F771AC" "#9EA0E5" "#69B7F0" "#69CABF" "#B4C342"))
  '(hl-fg-colors
    '("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3"))
- '(hl-paren-colors '("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900"))
+ '(hl-paren-colors '("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900") t)
  '(hl-todo-keyword-faces
    '(("TODO" . "#dc752f")
      ("NEXT" . "#dc752f")

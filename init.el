@@ -65,8 +65,9 @@ values."
                                                            )
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-help-tooltip t
-                      auto-completion-use-company-box t
+                      ;; Enabling tooltip slow things down
+                      ;; auto-completion-enable-help-tooltip t
+                      ;; auto-completion-use-company-box t
                       )
      tree-sitter
      emacs-lisp

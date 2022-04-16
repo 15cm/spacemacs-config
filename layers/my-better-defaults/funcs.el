@@ -4,11 +4,11 @@
   "Copy the first item of kill ring to clipboard"
   (interactive)
   (let ((copy-cmd (if (my-system-typep-darwin) "nc localhost 8377" "nc -q0 localhost 8377"))
-        (kill-ring-str (replace-regexp-in-string "\n$" "" (substring-no-properties (car kill-ring)))))
-    (shell-command-to-string (format "printf '%s' | %s" kill-ring-str copy-cmd))
-    (message "Yanked kill ring to clipboard!")
-    )
-  )
+        (kill-ring-str (substring-no-properties (car kill-ring))))
+    (with-temp-buffer
+      (insert kill-ring-str)
+      (shell-command-on-region (point-min) (point-max) copy-cmd))
+    (message "Yanked kill ring to clipboard!")))
 
 (defun copy-selection-to-clipboard ()
   "Copy selected region to system clipboard."

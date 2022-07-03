@@ -129,7 +129,9 @@
 (defun my-programming/post-init-lsp-mode ()
   (add-hook 'lsp-pyright-after-open-hook #'my-python-mode-lsp-hook)
   (with-eval-after-load 'lsp-mode
-    (add-to-list 'lsp-language-id-configuration '(direnv-envrc-mode . "shellscript"))))
+    (add-to-list 'lsp-language-id-configuration '(direnv-envrc-mode . "shellscript"))
+    (advice-add 'lsp--path-is-watchable-directory
+            :around #'++lsp--path-is-watchable-directory-a)))
 
 (defun my-programming/init-apheleia ()
   (use-package apheleia

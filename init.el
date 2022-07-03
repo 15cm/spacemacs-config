@@ -134,7 +134,6 @@ values."
 
      ;; services
      git
-     github
      prodigy
 
      ;; my layers

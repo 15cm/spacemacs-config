@@ -174,3 +174,18 @@ autoflake. "
     (add-hook 'before-save-hook 'lsp-format-buffer)))
 
 (defun my-company-mode-hook ())
+
+;; https://github.com/emacs-lsp/lsp-mode/issues/713#issuecomment-985653873
+(defun ++git-ignore-p (path)
+  (let* (; trailing / breaks git check-ignore if path is a symlink:
+         (path (directory-file-name path))
+         (default-directory (file-name-directory path))
+         (relpath (file-name-nondirectory path))
+         (cmd (format "git check-ignore '%s'" relpath))
+         (status (call-process-shell-command cmd)))
+    (eq status 0)))
+
+(defun ++lsp--path-is-watchable-directory-a
+    (fn path dir ignored-directories)
+  (and (not (++git-ignore-p (f-join dir path)))
+       (funcall fn path dir ignored-directories)))

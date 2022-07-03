@@ -1,2 +1,5 @@
 /plugins/YouCompleteMe
 .spacemacs.env
+.gitsecret/keys/random_seed
+!*.secret
+custom.el

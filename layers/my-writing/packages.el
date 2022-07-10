@@ -14,7 +14,6 @@
     org
     prodigy
     ox-pandoc
-    org-cliplink
     org-preview-html
     markdown
     org-download
@@ -95,12 +94,6 @@
   (use-package org-preview-html
     :defer t
     :commands (org-preview-html/preview org-preview-html-mode)
-    ))
-
-(defun my-writing/init-org-cliplink()
-  (use-package org-cliplink
-    :defer t
-    :commands (org-cliplink)
     ))
 
 (defun my-writing/post-init-org-download ()

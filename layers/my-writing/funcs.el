@@ -27,7 +27,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 
 (defun my-org-mode-hook ()
   (when (string-prefix-p (file-truename org-roam-directory) default-directory)
-        (my-org-wiki-mode 1)))
+        (my-org-mode 1)))
 
 (defun my-markdown-mode-hook ()
   (auto-fill-mode 1))

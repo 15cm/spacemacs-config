@@ -160,7 +160,8 @@ values."
                                       (evil-matchit :location
                                                       (recipe :fetcher github
                                                               :repo "15cm/evil-matchit"))
-                                      (git-modes))
+                                      (git-modes)
+                                      dash)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-escape

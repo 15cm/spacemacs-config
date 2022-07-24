@@ -17,7 +17,7 @@
     org-preview-html
     markdown
     org-download
-    (my-org-wiki :location local)
+    (my-org :location local)
     ))
 
 (defun my-writing/post-init-org()
@@ -102,10 +102,10 @@
     (setq-default org-download-heading-lvl nil)
     ))
 
-(defun my-writing/init-my-org-wiki ()
-  (use-package my-org-wiki
+(defun my-writing/init-my-org ()
+  (use-package my-org
     :defer t
-    :commands (my-org-wiki-mode)))
+    :commands (my-org-mode)))
 
 (defun my-writing/post-init-markdown()
   (add-hook 'markdown-mode-hook 'my-markdown-mode-hook))

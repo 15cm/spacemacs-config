@@ -1,8 +1,8 @@
 ;; show function name in header line
-(defun set-header-line ()
-  (which-func-mode)
-  (setq header-line-format
-        '((which-func-mode ("" which-func-format " ")))))
+;; (defun set-header-line ()
+;;   (which-function-mode)
+;;   (setq header-line-format
+;;         '((which-function-mode ("" which-func-format " ")))))
 
 (defun my-pyenv-find-exec (name dir)
   (let ((pyenv-version (getenv "PYENV_VERSION")))
@@ -59,8 +59,7 @@ autoflake. "
         js2-include-node-externs t
         js2-strict-missing-semi-warning nil
         js2-bounce-indent-p t
-        )
-  (set-header-line))
+        ))
 
 (defun my-typescript-mode-hook ()
   (setq typescript-indent-level 2))
@@ -87,7 +86,6 @@ autoflake. "
         tab-width 2))
 
 (defun my-python-mode-hook()
-  (set-header-line)
   (semantic-mode 0))
 
 ;; Hooks that applies to projects.
@@ -95,8 +93,7 @@ autoflake. "
   (apheleia-mode 1)
   (flycheck-add-next-checker 'lsp 'python-flake8))
 
-(defun my-elisp-mode-hook()
-  (set-header-line))
+(defun my-elisp-mode-hook())
 
 (defun my-moonscript-mode-hook()
   (setq moonscript-indent-offset 2)

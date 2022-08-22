@@ -156,7 +156,12 @@ values."
                                                       (recipe :fetcher github
                                                               :repo "15cm/evil-matchit"))
                                       (git-modes)
-                                      dash)
+                                      dash
+                                      (kbd-mode
+                                       :location
+                                       (recipe
+                                        :fetcher github
+                                        :repo "kmonad/kbd-mode")))
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-escape

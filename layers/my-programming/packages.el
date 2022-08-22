@@ -37,7 +37,8 @@
     (prisma-mode :location
                  (recipe :fetcher github
                          :repo "pimeys/emacs-prisma-mode"))
-    company-fuzzy))
+    company-fuzzy
+    (lark-mode :location local)))
 
 (defun my-programming/post-init-company()
   (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode)
@@ -140,6 +141,12 @@
 (defun my-programming/init-prisma-mode ()
   (use-package prisma-mode
     :defer t))
+
 (defun my-programming/init-company-fuzzy ()
   (use-package company-fuzzy
     :defer t))
+
+(defun my-programming/init-lark-mode ()
+  (use-package lark-mode
+    :defer t
+    :commands (lark-mode)))

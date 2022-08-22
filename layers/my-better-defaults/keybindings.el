@@ -8,6 +8,7 @@
 (evil-leader/set-key "<SPC>F" 'fzf-directory)
 (evil-leader/set-key "<SPC>a" 'ranger)
 (evil-leader/set-key "<SPC>e" 'edit-indirect-region)
+(evil-leader/set-key "<SPC>l" 'revert-buffer-quick)
 
 ;; common
 (global-set-key (kbd "C-s") 'save-buffer)

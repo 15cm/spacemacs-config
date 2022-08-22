@@ -114,11 +114,6 @@ values."
                 vimscript-backend 'nil)
      sql
      csv
-     ;; (scala :variables
-     ;;        ;; scala-auto-start-ensime t
-     ;;        )
-     ;; sml
-     ;; swift
 
      syntax-checking
 
@@ -126,7 +121,7 @@ values."
      (org :variables
           org-enable-github-support t
           org-startup-indented t
-          org-enable-roam-support (string-equal (system-name) "kazuki"))
+          org-enable-roam-support (member (system-name) '("kazuki" "asako")))
      markdown
      (latex :variables
             latex-build-command "XeLaTeX")

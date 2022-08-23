@@ -94,6 +94,30 @@ updated: %s
     ;; Drop the file:// added by pandoc
     (replace-regexp-in-region "\\](file://" "](" (point-min)))
 
+;; Candidate as a replacement for `kill-buffer', at least when used interactively.
+;; For example: (define-key global-map [remap kill-buffer] 'kill-buffer-and-its-windows)
+;;
+;; We cannot just redefine `kill-buffer', because some programs count on a
+;; specific other buffer taking the place of the killed buffer (in the window).
+;;;###autoload
+(defun kill-buffer-and-its-windows (buffer &optional msgp)
+  "Kill BUFFER and delete its windows.  Default is `current-buffer'.
+BUFFER may be either a buffer or its name (a string)."
+  (interactive (list (read-buffer "Kill buffer: " (current-buffer) 'existing) 'MSGP))
+  (setq buffer  (get-buffer buffer))
+  (if (buffer-live-p buffer)            ; Kill live buffer only.
+      (let ((wins  (get-buffer-window-list buffer nil t))) ; On all frames.
+        (when (and (buffer-modified-p buffer)
+                   (fboundp '1on1-flash-ding-minibuffer-frame))
+          (1on1-flash-ding-minibuffer-frame t)) ; Defined in `oneonone.el'.
+        (when (kill-buffer buffer)      ; Only delete windows if buffer killed.
+          (dolist (win  wins)           ; (User might keep buffer if modified.)
+            (when (window-live-p win)
+              ;; Ignore error, in particular,
+              ;; "Attempt to delete the sole visible or iconified frame".
+              (condition-case nil (delete-window win) (error nil))))))
+    (when msgp (error "Cannot kill buffer.  Not a live buffer: `%s'" buffer))))
+
 ;;;###autoload
 (defun my-org-post-buffer-to-blog (&optional skip-modify-updated-at)
   "Export current org to markdown file located in my-org/blog-post-project-dir.
@@ -131,7 +155,7 @@ If untouch-updated-at is not nil, change the udpated_at keyword to now."
       (with-current-buffer md-buffer
         (my-org--process-md-output title published_at updated_at tags)
         (write-file md-output-file-path))
-      (kill-buffer md-buffer))))
+      (kill-buffer-and-its-windows md-buffer))))
 
 (provide 'my-org)
 ;;; my-org.el ends here

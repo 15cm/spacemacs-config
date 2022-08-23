@@ -86,7 +86,7 @@ updated: %s
 " title published-at updated-at))
     (when tags (insert (format "tags:
 %s" (string-join (--map (concat "- " it) tags) "\n"))))
-    (insert "---\n\n")
+    (insert "\n---\n\n")
     ;; Add read more.
     (re-search-forward "^#")
     (beginning-of-line)
@@ -114,7 +114,7 @@ If untouch-updated-at is not nil, change the udpated_at keyword to now."
          (attach-dir (org-attach-dir))
          (data-root (f-join (file-truename org-roam-directory) "data"))
          (data-rel-dir (when attach-dir (string-replace (concat data-root "/") "" attach-dir)))
-         (md-output-file-path (f-join my-org/blog-post-project-root "source" "_posts" (concat (file-name-base buffer-file-name) ".md"))))
+         (md-output-file-path (f-join my-org/blog-post-project-root "source" "_posts" (concat (replace-regexp-in-string "[0-9]\\{14\\}-" "" (file-name-base buffer-file-name)) ".md"))))
     (org-roam-set-keyword "published_at" published_at)
     (org-roam-set-keyword "updated_at" updated_at)
     ;; Metadata is ready.

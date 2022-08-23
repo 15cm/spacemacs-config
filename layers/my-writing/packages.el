@@ -17,6 +17,7 @@
     org-preview-html
     markdown
     org-download
+    org-roam
     (my-org :location local)
     ))
 
@@ -106,6 +107,13 @@
   (use-package my-org
     :defer t
     :commands (my-org-mode)))
+
+(defun my-writing/post-init-org-roam ()
+  (with-eval-after-load 'org-roam
+    (setq org-roam-capture-templates '(("d" "default" plain "%?"
+     :target (file+head "${slug}.org.gpg"
+                        "#+title: ${title}\n#+OPTIONS: ^:nil\n")
+     :unnarrowed t)))))
 
 (defun my-writing/post-init-markdown()
   (add-hook 'markdown-mode-hook 'my-markdown-mode-hook))

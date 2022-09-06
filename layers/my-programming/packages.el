@@ -148,5 +148,4 @@
 
 (defun my-programming/init-lark-mode ()
   (use-package lark-mode
-    :defer t
     :commands (lark-mode)))

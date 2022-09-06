@@ -111,7 +111,7 @@
 (defun my-writing/post-init-org-roam ()
   (with-eval-after-load 'org-roam
     (setq org-roam-capture-templates '(("d" "default" plain "%?"
-     :target (file+head "${slug}.org.gpg"
+     :target (file+head "${slug}.org"
                         "#+title: ${title}\n#+OPTIONS: ^:nil\n")
      :unnarrowed t)))))
 

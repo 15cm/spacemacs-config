@@ -45,7 +45,8 @@ values."
 
      spell-checking
      chinese
-     treemacs
+     (treemacs :variables
+               treemacs-use-scope-type 'Perspectives)
 
      ;; tools
       (ranger :variables
@@ -76,8 +77,7 @@ values."
      scheme
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
-            c-c++-backend 'lsp-ccls
-            )
+            c-c++-backend 'lsp-ccls)
      rust
      (go :variables
          go-backend 'lsp

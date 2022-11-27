@@ -26,11 +26,11 @@
 (defun paste-from-clipboard ()
   "Pastes from system clipboard."
   (interactive)
-  (if (my-system-typep-darwin)
-    (insert (shell-command-to-string "pbpaste"))
-    (simpleclip-paste)
-    )
-  )
+  ;; Override the default-directory to avoid tramp mode pasting using remote commands.
+  (let ((default-directory temporary-file-directory))
+    (if (my-system-typep-darwin)
+        (insert (shell-command-to-string "pbpaste"))
+      (simpleclip-paste))))
 
 ;; https://github.com/syl20bnr/spacemacs/issues/5186#issuecomment-251950135
 ;; redefine lock grasping function https://github.com/syl20bnr/spacemacs/issues/5186#issuecomment-251950135

@@ -114,6 +114,8 @@ values."
                 vimscript-backend 'nil)
      sql
      csv
+     (nixos :variables
+            nixos-format-on-save t)
 
      syntax-checking
 
@@ -284,11 +286,15 @@ you should place your code here."
   ;; Patch auto-mode-alist to inspect extensions that's not at the end
   (unless auto-mode-alist-has-been-patched
     (setq auto-mode-alist-has-been-patched t)
-    (let ((patched-auto-mode-alist (mapcar
+    (let ((patched-auto-mode-alist-tmpl (mapcar
                                     (lambda (pr) (let ((pattern (car pr))
                                                        (mode (cdr pr)))
-                                                   (cons (replace-regexp-in-string "\\\\\'" (lambda (s) (concat "\\.tmpl" s)) pattern nil t) mode))) auto-mode-alist)))
-      (setq auto-mode-alist (append auto-mode-alist patched-auto-mode-alist))))
+                                                   (cons (replace-regexp-in-string "\\\\\'" (lambda (s) (concat "\\.tmpl" s)) pattern nil t) mode))) auto-mode-alist))
+          (patched-auto-mode-alist-jinja (mapcar
+                                         (lambda (pr) (let ((pattern (car pr))
+                                                            (mode (cdr pr)))
+                                                        (cons (replace-regexp-in-string "\\\\\'" (lambda (s) (concat "\\.jinja" s)) pattern nil t) mode))) auto-mode-alist)) )
+      (setq auto-mode-alist (append auto-mode-alist patched-auto-mode-alist-tmpl patched-auto-mode-alist-jinja))))
 
   (advice-add 'semantic-idle-scheduler-function :around #'ignore)
 

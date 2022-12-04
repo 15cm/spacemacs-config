@@ -341,9 +341,10 @@ you should place your code here."
                  #'spacemacs//smartparens-restore-after-exit-snippet))
 
   ;; Fonts
-  (cnfonts-mode 1)
-  (cnfonts-increase-fontsize)
-  (cnfonts-decrease-fontsize)
+  (when (display-graphic-p)
+    (cnfonts-mode 1)
+    (cnfonts-increase-fontsize)
+    (cnfonts-decrease-fontsize))
 
   ;; General key bindings.
   (global-set-key (kbd "M-.") 'hippie-expand)

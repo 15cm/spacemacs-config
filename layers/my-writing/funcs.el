@@ -26,7 +26,8 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
                                         buf-content nil t)))))
 
 (defun my-org-mode-hook ()
-  (when (string-prefix-p (file-truename org-roam-directory) default-directory)
+  (when (and (boundp' org-roam-directory)
+             (string-prefix-p (file-truename org-roam-directory) default-directory))
         (my-org-mode 1)))
 
 (defun my-markdown-mode-hook ()

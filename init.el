@@ -235,24 +235,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (when (file-exists-p custom-file)
     (load-file custom-file))
 
-  ;; Transparency config and its persistent after switching the theme.
-  (defun window-did-setup (&rest r)
-    ;; get transparent background in terminal
-    (unless (display-graphic-p)
-      (set-face-background 'default "unspecified-bg"))
-    )
-  (add-hook 'window-setup-hook 'window-did-setup)
-  (add-hook 'spacemacs-post-theme-change-hook 'window-did-setup)
-
-  ;; Disabled to handle over transparency management to compositors.
-  ;; (defun frame-did-setup (&rest r)
-  ;;   (let ((frame (if r (car r) ())))
-  ;;     (spacemacs/enable-transparency frame)
-  ;;     )
-  ;;   )
-
-  ;; (add-hook 'window-setup-hook 'frame-did-setup)
-  ;; (add-to-list 'after-make-frame-functions 'frame-did-setup)
   (setq org-roam-v2-ack t)
 
   ;; persp autosave
@@ -269,7 +251,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; simpleclip content provider
   (when (and (not (my-system-typep-darwin)) (executable-find "copyq"))
     (setq-default simpleclip-custom-content-provider "copyq clipboard"))
-
 )
 
 (defun dotspacemacs/user-config ()

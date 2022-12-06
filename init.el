@@ -199,10 +199,6 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-  ;; Fix the issue that --fg-daemon=<server_name> is not passed to server-name.
-  (with-eval-after-load 'server
-    (when (daemonp) (setq server-name (daemonp))))
-
   ;; helper functions
   (defun my-system-typep-darwin ()
     (string-equal system-type "darwin"))
@@ -210,16 +206,14 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Solve problem of hanging on startup
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-  ;; (setq configuration-layer-elpa-archives
-  ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-  ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
-  ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
     (setq-default package-archives configuration-layer-elpa-archives)
 
   ;; separate custom-file
   (setq-default custom-file "~/.spacemacs.d/custom.el")
+  ;; load separated custom-file
+  (when (file-exists-p custom-file)
+    (load-file custom-file))
 
-  ;; (setenv "INSIDE_EMACS" "true")
   ;; Shell bug fix
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
 
@@ -231,22 +225,19 @@ before packages are loaded. If you are unsure, you should try in setting them in
       (exec-path-from-shell-initialize))
     )
 
-  ;; load separated custom-file
-  (when (file-exists-p custom-file)
-    (load-file custom-file))
+  (defun my-frame-setup ()
+    (when (display-graphic-p)
+      (cnfonts-mode 1)
+      (cnfonts-increase-fontsize)
+      (cnfonts-decrease-fontsize)))
+  (add-hook 'server-after-make-frame-hook #'my-frame-setup)
 
   (setq org-roam-v2-ack t)
 
   ;; persp autosave
-  (if (display-graphic-p)
-      (setq-default    dotspacemacs-auto-resume-layouts t
-                       layouts-enable-autosave t
-                       persp-auto-save-opt 2
-                       )
-    (setq-default dotspacemacs-auto-resume-layouts nil
-                  layouts-enable-autosave nil
-                  persp-auto-save-opt 0
-                  ))
+  (setq-default    dotspacemacs-auto-resume-layouts t
+                   layouts-enable-autosave t
+                   persp-auto-save-opt 2)
 
   ;; simpleclip content provider
   (when (and (not (my-system-typep-darwin)) (executable-find "copyq"))
@@ -294,15 +285,9 @@ you should place your code here."
   (direnv-mode 1)
 
   (spacemacs/toggle-indent-guide-globally-on)
-  ;; layout autosave config for servers in GUI and Terminal
-  (if (display-graphic-p)
-    (setq-default layouts-enable-autosave nil))
 
   ;; beacon
   (beacon-mode 1)
-
-  ;; avoid multiple instance conflict
-  (setq recentf-save-file (format "~/.emacs.d/.cache/recentf.%s" server-name))
 
   ;; helm-ag
   (setq-default helm-ag-fuzzy-match t)
@@ -320,12 +305,6 @@ you should place your code here."
                  #'spacemacs//smartparens-disable-before-expand-snippet)
     (remove-hook 'yas-after-exit-snippet-hook
                  #'spacemacs//smartparens-restore-after-exit-snippet))
-
-  ;; Fonts
-  (when (display-graphic-p)
-    (cnfonts-mode 1)
-    (cnfonts-increase-fontsize)
-    (cnfonts-decrease-fontsize))
 
   ;; General key bindings.
   (global-set-key (kbd "M-.") 'hippie-expand)

@@ -235,9 +235,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq org-roam-v2-ack t)
 
   ;; persp autosave
-  (setq-default    dotspacemacs-auto-resume-layouts t
-                   layouts-enable-autosave t
-                   persp-auto-save-opt 2)
+  (setq-default dotspacemacs-auto-resume-layouts t
+                layouts-enable-autosave t
+                persp-auto-save-opt 2)
 
   ;; simpleclip content provider
   (when (and (not (my-system-typep-darwin)) (executable-find "copyq"))
@@ -427,7 +427,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '(
-                               "Inconsolata Nerd Font Mono"
+                               "InconsolataLGC Nerd Font Mono"
                                ;; :size 12
                                :weight normal
                                :width normal

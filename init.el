@@ -109,7 +109,8 @@ values."
      yaml
      html
      lua
-     shell-scripts
+     (shell-scripts :variables
+                   shell-scripts-backend 'nil)
      (vimscript :variables
                 vimscript-backend 'nil)
      sql

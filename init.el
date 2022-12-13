@@ -226,13 +226,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
       (exec-path-from-shell-initialize))
     )
 
-  (defun my-frame-setup ()
-    (when (display-graphic-p)
-      (cnfonts-mode 1)
-      (cnfonts-increase-fontsize)
-      (cnfonts-decrease-fontsize)))
-  (add-hook 'server-after-make-frame-hook #'my-frame-setup)
-
   (setq org-roam-v2-ack t)
 
   ;; persp autosave
@@ -295,9 +288,10 @@ you should place your code here."
   (setq-default helm-ag-use-agignore t)
 
   (global-anzu-mode 1)
+  (cnfonts-mode 1)
 
   ;; Load the theme config
-  (let ((theme-conf-file "~/.config/scripts/emacs/load-theme.el"))
+  (let ((theme-conf-file "~/.config/emacs/scripts/load-theme.el"))
     (when (file-exists-p theme-conf-file) (load-file theme-conf-file)))
 
   ;; Hack to enable smartparens in auto-completion

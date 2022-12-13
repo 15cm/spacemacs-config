@@ -229,9 +229,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq org-roam-v2-ack t)
 
   ;; persp autosave
-  (setq-default dotspacemacs-auto-resume-layouts t
-                layouts-enable-autosave t
-                persp-auto-save-opt 2)
+  ;; Not working in systemd emacs server + emacsclient GUI 
+  ;; (setq-default dotspacemacs-auto-resume-layouts t
+  ;;               layouts-enable-autosave t
+  ;;               persp-auto-save-opt 2)
 
   ;; simpleclip content provider
   (when (and (not (my-system-typep-darwin)) (executable-find "copyq"))

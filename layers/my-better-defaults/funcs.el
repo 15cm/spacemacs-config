@@ -3,7 +3,7 @@
 (defun copy-kill-ring-to-clipboard()
   "Copy the first item of kill ring to clipboard"
   (interactive)
-  (let ((copy-cmd (if (my-system-typep-darwin) "nc localhost 8377" "nc -q0 localhost 8377"))
+  (let ((copy-cmd (if (my-system-typep-darwin) "nc localhost 8377" "nc -N localhost 8377"))
         (kill-ring-str (substring-no-properties (car kill-ring))))
     (with-temp-buffer
       (insert kill-ring-str)
@@ -13,7 +13,7 @@
 (defun copy-selection-to-clipboard ()
   "Copy selected region to system clipboard."
   (interactive)
-  (let ((copy-cmd (if (my-system-typep-darwin) "nc localhost 8377" "nc -q0 localhost 8377")))
+  (let ((copy-cmd (if (my-system-typep-darwin) "nc localhost 8377" "nc -N localhost 8377")))
     (if (region-active-p)
         (progn
           (shell-command-on-region (region-beginning) (region-end) copy-cmd)

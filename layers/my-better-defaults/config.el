@@ -17,3 +17,11 @@
 
 (defvar auto-mode-alist-has-been-patched nil
   "Mark whether the auto-mode-list has been patched")
+
+(with-eval-after-load "ispell"
+        (setq ispell-program-name "hunspell")
+        ;; ispell-set-spellchecker-params has to be called
+        ;; before ispell-hunspell-add-multi-dic will work
+        (ispell-set-spellchecker-params)
+        (ispell-find-hunspell-dictionaries)
+        (setq ispell-dictionary "en_US"))

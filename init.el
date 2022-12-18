@@ -229,10 +229,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq org-roam-v2-ack t)
 
   ;; persp autosave
-  ;; Not working in systemd emacs server + emacsclient GUI 
-  ;; (setq-default dotspacemacs-auto-resume-layouts t
-  ;;               layouts-enable-autosave t
-  ;;               persp-auto-save-opt 2)
+  (setq-default dotspacemacs-auto-resume-layouts t
+                layouts-enable-autosave t
+                persp-auto-save-opt 2)
 
   ;; simpleclip content provider
   (when (and (not (my-system-typep-darwin)) (executable-find "copyq"))
@@ -401,7 +400,7 @@ values."
       ;; Initial message in the scratch buffer, such as "Welcome to Spacemacs!"
    ;; (default nil)
    dotspacemacs-initial-scratch-message nil
-   
+
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)

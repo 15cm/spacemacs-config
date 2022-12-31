@@ -176,8 +176,7 @@ values."
                                     gitattributes-mode
                                     gitignore-mode
                                     gitconfig-mode
-                                    pangu-spacing
-                                    )
+                                    pangu-spacing)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -423,7 +422,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '(
-                               "InconsolataLGC Nerd Font Mono"
+                               "Iosevka"
                                ;; :size 12
                                :weight normal
                                :width normal

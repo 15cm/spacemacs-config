@@ -55,7 +55,7 @@
       (message "Error: please set the custom vars my-org/blog-post-project-dir and then restart my-org-mode")
     (let ((enable
             (if (eq arg 'toggle)
-                (not foo-mode) ; this is the mode’s mode variable
+                (not my-org-mode) ; this is the mode’s mode variable
               (> (prefix-numeric-value arg) 0))))
        (if enable
            (progn (spacemacs/set-leader-keys-for-major-mode 'org-mode ">" 'my-org-post-buffer-to-blog)

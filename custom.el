@@ -70,7 +70,7 @@
  '(cnfonts-directory "~/.spacemacs.d/cnfonts/")
  '(cnfonts-personal-fontnames
    '(("Monaco" "Inconsolata Nerd Font" "InconsolataLGC Nerd Font Mono")
-     ("Sarasa Mono CL" "Noto Sans Mono CJK SC")
+     ("Sarasa Mono SC" "Noto Sans Mono CJK SC")
      ("HanaMinB")
      nil nil))
  '(cnfonts-use-face-font-rescale t)
@@ -122,7 +122,7 @@
      (7 "" "" "" "" "" "" "")
      (8 "" "" "" "" "" "" "" "")
      (9 "" "" "" "" "" "" "" "" "")))
- '(company-statistics-file "~/.emacs.d/.cache/company-statistics-cache.el" t)
+ '(company-statistics-file "~/.emacs.d/.cache/company-statistics-cache.el")
  '(compilation-message-face 'default)
  '(create-lockfiles nil)
  '(cua-global-mark-cursor-color "#2aa198")
@@ -142,7 +142,7 @@
  '(fzf/args "-x --color bw --print-query")
  '(helm-ag-base-command "rg --no-heading")
  '(helm-ag-command-option "--smart-case")
- '(helm-completion-style 'emacs t)
+ '(helm-completion-style 'emacs)
  '(highlight-changes-colors '("#d33682" "#6c71c4"))
  '(highlight-symbol-colors
    (--map
@@ -182,6 +182,7 @@
  '(lsp-enable-snippet nil)
  '(lsp-enable-symbol-highlighting nil)
  '(lsp-ui-doc-border "#586e75")
+ '(magit-delete-by-moving-to-trash nil)
  '(magit-diff-use-overlays nil)
  '(magit-git-global-arguments
    '("--no-pager" "-c" "core.preloadindex=true" "-c" "log.showSignature=false" "-c" "color.ui=false" "-c" "color.diff=false"))

@@ -152,9 +152,6 @@ values."
                                       simpleclip
                                       auto-rename-tag
                                       direnv
-                                      (keychain-environment :location
-                                                            (recipe :fetcher github
-                                                                    :repo "tarsius/keychain-environment"))
                                       (evil-matchit :location
                                                       (recipe :fetcher github
                                                               :repo "15cm/evil-matchit"))
@@ -245,8 +242,10 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;; Fix PATH on macOS
   (exec-path-from-shell-copy-env "PATH")
+  ;; Necessary for magit interactions with ssh.
+  (exec-path-from-shell-copy-env "SSH_AGENT_PID")
+  (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 
   ;; Patch auto-mode-alist to inspect extensions that's not at the end
   (unless auto-mode-alist-has-been-patched
@@ -266,9 +265,6 @@ you should place your code here."
   ;; https://github.com/yyoncho/lsp-mode/tree/perf-docs#performance
   (setq gc-cons-threshold 200000000)
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
-
-  ;; Linux ssh keychain
-  (keychain-refresh-environment)
 
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)

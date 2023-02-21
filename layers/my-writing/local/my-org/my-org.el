@@ -66,7 +66,9 @@
   "The current buffer should be a copy of the org buffer."
   ;; Replace attachment links with blog post assets links.
   (when data-rel-dir
-    (replace-regexp-in-region "\\[\\[attachment:\\([^\\[]*\\)\\]\\]" (format "[[/%s/%s/%s]]" my-org/blog-assets-dir data-rel-dir "\\1") (point-min)))
+    (goto-char (point-min))
+    (while (re-search-forward "\\[\\[attachment:\\([^\\[]*\\)\\]\\]" nil t)
+      (replace-match (format "[[/%s/%s/%s]]" my-org/blog-assets-dir data-rel-dir "\\1"))))
   ;; Remove keywords to avoid outputting them to md.
   (--each keyword-list-to-delete (org-roam-erase-keyword it)))
 

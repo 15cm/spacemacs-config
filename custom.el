@@ -122,7 +122,7 @@
      (7 "" "" "" "" "" "" "")
      (8 "" "" "" "" "" "" "" "")
      (9 "" "" "" "" "" "" "" "" "")))
- '(company-statistics-file "~/.emacs.d/.cache/company-statistics-cache.el")
+ '(company-statistics-file "~/.emacs.d/.cache/company-statistics-cache.el" t)
  '(compilation-message-face 'default)
  '(create-lockfiles nil)
  '(cua-global-mark-cursor-color "#2aa198")
@@ -142,7 +142,7 @@
  '(fzf/args "-x --color bw --print-query")
  '(helm-ag-base-command "rg --no-heading")
  '(helm-ag-command-option "--smart-case")
- '(helm-completion-style 'emacs)
+ '(helm-completion-style 'emacs t)
  '(highlight-changes-colors '("#d33682" "#6c71c4"))
  '(highlight-symbol-colors
    (--map

@@ -38,7 +38,8 @@
                  (recipe :fetcher github
                          :repo "pimeys/emacs-prisma-mode"))
     company-fuzzy
-    (lark-mode :location local)))
+    (lark-mode :location local)
+    nix-mode))
 
 (defun my-programming/post-init-company()
   (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode)
@@ -149,3 +150,6 @@
 (defun my-programming/init-lark-mode ()
   (use-package lark-mode
     :commands (lark-mode)))
+
+(defun my-programming/post-init-nix-mode ()
+  (add-hook 'before-save-hook 'nix-format-before-save))

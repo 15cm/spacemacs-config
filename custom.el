@@ -124,6 +124,82 @@
      (9 "" "" "" "" "" "" "" "" "")))
  '(company-statistics-file "~/.emacs.d/.cache/company-statistics-cache.el" t)
  '(compilation-message-face 'default)
+ '(connection-local-criteria-alist
+   '(((:application tramp)
+      tramp-connection-local-default-system-profile tramp-connection-local-default-shell-profile)))
+ '(connection-local-profile-alist
+   '((tramp-connection-local-darwin-ps-profile
+      (tramp-process-attributes-ps-args "-acxww" "-o" "pid,uid,user,gid,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "state=abcde" "-o" "ppid,pgid,sess,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etime,pcpu,pmem,args")
+      (tramp-process-attributes-ps-format
+       (pid . number)
+       (euid . number)
+       (user . string)
+       (egid . number)
+       (comm . 52)
+       (state . 5)
+       (ppid . number)
+       (pgrp . number)
+       (sess . number)
+       (ttname . string)
+       (tpgid . number)
+       (minflt . number)
+       (majflt . number)
+       (time . tramp-ps-time)
+       (pri . number)
+       (nice . number)
+       (vsize . number)
+       (rss . number)
+       (etime . tramp-ps-time)
+       (pcpu . number)
+       (pmem . number)
+       (args)))
+     (tramp-connection-local-busybox-ps-profile
+      (tramp-process-attributes-ps-args "-o" "pid,user,group,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "stat=abcde" "-o" "ppid,pgid,tty,time,nice,etime,args")
+      (tramp-process-attributes-ps-format
+       (pid . number)
+       (user . string)
+       (group . string)
+       (comm . 52)
+       (state . 5)
+       (ppid . number)
+       (pgrp . number)
+       (ttname . string)
+       (time . tramp-ps-time)
+       (nice . number)
+       (etime . tramp-ps-time)
+       (args)))
+     (tramp-connection-local-bsd-ps-profile
+      (tramp-process-attributes-ps-args "-acxww" "-o" "pid,euid,user,egid,egroup,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "state,ppid,pgid,sid,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etimes,pcpu,pmem,args")
+      (tramp-process-attributes-ps-format
+       (pid . number)
+       (euid . number)
+       (user . string)
+       (egid . number)
+       (group . string)
+       (comm . 52)
+       (state . string)
+       (ppid . number)
+       (pgrp . number)
+       (sess . number)
+       (ttname . string)
+       (tpgid . number)
+       (minflt . number)
+       (majflt . number)
+       (time . tramp-ps-time)
+       (pri . number)
+       (nice . number)
+       (vsize . number)
+       (rss . number)
+       (etime . number)
+       (pcpu . number)
+       (pmem . number)
+       (args)))
+     (tramp-connection-local-default-shell-profile
+      (shell-file-name . "/bin/sh")
+      (shell-command-switch . "-c"))
+     (tramp-connection-local-default-system-profile
+      (path-separator . ":")
+      (null-device . "/dev/null"))))
  '(create-lockfiles nil)
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
@@ -142,7 +218,7 @@
  '(fzf/args "-x --color bw --print-query")
  '(helm-ag-base-command "rg --no-heading")
  '(helm-ag-command-option "--smart-case")
- '(helm-completion-style 'emacs t)
+ '(helm-completion-style 'emacs)
  '(highlight-changes-colors '("#d33682" "#6c71c4"))
  '(highlight-symbol-colors
    (--map
@@ -199,7 +275,7 @@
  '(org-roam-tag-sources '(prop vanilla))
  '(org-use-property-inheritance t)
  '(package-selected-packages
-   '(company-nixos-options emacsql-sqlite-builtin help-fns+ hide-comnt journalctl-mode kbd-mode xref load-env-vars pylookup shfmt reformatter space-doc spacemacs-whitespace-cleanup term-cursor tree-sitter tsc treemacs queue vim-powerline evil-evilified-state holy-mode code-cells lsp-docker evil-tex multi-vterm spacemacs-purpose-popwin compat tree-sitter-langs elisp-def treemacs-persp treemacs-icons-dired string-edit quickrun pydoc prisma-mode org-contrib npm-mode nose multi-line shut-up keychain-environment inspector info+ git-modes gendoxy yaml annalist emmet-mode edit-indirect drag-stuff company-fuzzy auto-rename-tag evil-collection apheleia company-math math-symbol-lists org-roam-server poetry cfrs emacsql-sqlite3 direnv pony-mode py-docformatter valign lsp-latex grip-mode evil-easymotion dired-quick-sort sphinx-doc org-rich-yank lsp-origami origami ron-mode lsp-pyright org-superstar posframe emr lsp-haskell intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell dante lcr company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode attrap lsp-ui dap-mode lsp-treemacs lsp-mode magit-section org-ql peg ov org-super-agenda ts flycheck-elsa mixed-pitch unicode-fonts ucs-utils font-utils persistent-soft list-utils terminal-here helm-ls-git vterm treemacs-magit hybrid-mode add-node-modules-path tide bui tree-mode xr lsp-scala helm-org go-impl rubocopfmt lsp-python-ms python cpp-auto-include company-reftex geiser devdocs toml-mode symbol-overlay racer flycheck-rust cargo rust-mode helm-lsp flycheck-package package-lint blacken company-go company-quickhelp flycheck-golangci-lint godoctor go-tag go-rename go-guru go-gen-test go-fill-struct go-eldoc go-mode import-js grizzl evil-textobj-line lv transient treemacs-projectile treemacs-evil pfuture emacsql systemd writeroom-mode visual-fill-column helm-org-rifle ccls simpleclip org-cliplink doom-modeline eldoc-eval shrink-path treepy graphql eglot jsonrpc twilight-bright-theme phpunit phpcbf php-extras php-auto-yasnippets drupal-mode company-php ac-php-core xcscope php-mode company-lsp lsp-python lsp-javascript-typescript lsp-java cquery evil-lisp-state typescript-mode prettier-js helm-git-grep seeing-is-believing chinese-conv gitignore-templates dotenv-mode nginx-mode rjsx-mode magit-svn json-navigator hierarchy evil-goggles magithub ghub+ apiwrap magit-gh-pulls github-search github-clone git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito diff-hl browse-at-remote stickyfunc-enhance srefactor swift-mode ranger pipenv helm-xref all-the-icons memoize spaceline powerline pyim-basedict pcre2el spinner ht org-category-capture alert log4e gntp markdown-mode skewer-mode json-snatcher json-reformat multiple-cursors epc ctable concurrent simple-httpd htmlize parent-mode window-purpose imenu-list haml-mode pcache gitignore-mode flyspell-correct pos-tip flycheck flx magit magit-popup git-commit ghub with-editor iedit smartparens paredit anzu highlight sbt-mode scala-mode projectile counsel swiper ivy ycmd pkg-info request-deferred let-alist request deferred epl web-completion-data dash-functional tern rtags restclient know-your-http-well lua-mode eclim inf-ruby packed anaconda-mode pythonic dash pinyinlib helm helm-core auto-complete popup org-plus-contrib evil goto-chg diminish bind-map bind-key yasnippet undo-tree sml-mode test-simple loc-changes load-relative js2-mode f s company seq auctex avy hydra async nlinum-relative nlinum csv-mode yasnippet-snippets yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vlf vimrc-mode vi-tilde-fringe uuidgen use-package toc-org tagedit symon string-inflection sql-indent spaceline-all-the-icons solarized-theme smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restclient-helm restart-emacs realgud rbenv rake rainbow-mode rainbow-delimiters pyvenv pytest pyim pyenv-mode py-isort pug-mode prodigy popwin pippel pip-requirements persp-mode password-generator paradox pangu-spacing ox-pandoc ox-gfm overseer org-projectile org-preview-html org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file ob-sml ob-restclient ob-http noflet nodejs-repl neotree nameless mvn multi-term move-text moonscript mmm-mode minitest meghanada maven-test-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc insert-shebang indent-guide importmagic impatient-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode groovy-imports gradle-mode google-translate google-c-style golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fzf fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-bashate flx-ido fish-mode find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ensime enh-ruby-mode elisp-slime-nav editorconfig dumb-jump dockerfile-mode disaster define-word dactyl-mode cython-mode counsel-projectile company-ycmd company-web company-tern company-statistics company-shell company-rtags company-restclient company-lua company-emacs-eclim company-c-headers company-auctex company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow coffee-mode cnfonts clean-aindent-mode clang-format chruby centered-cursor-mode bundler beacon auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile applescript-mode aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ace-jump-helm-line ac-ispell))
+   '(helm-nixos-options nix-mode nixos-options org-roam orgit-forge orgit forge closql string-edit-at-point company-nixos-options emacsql-sqlite-builtin help-fns+ hide-comnt journalctl-mode kbd-mode xref load-env-vars pylookup shfmt reformatter space-doc spacemacs-whitespace-cleanup term-cursor tree-sitter tsc treemacs queue vim-powerline evil-evilified-state holy-mode code-cells lsp-docker evil-tex multi-vterm spacemacs-purpose-popwin compat tree-sitter-langs elisp-def treemacs-persp treemacs-icons-dired string-edit quickrun pydoc prisma-mode org-contrib npm-mode nose multi-line shut-up keychain-environment inspector info+ git-modes gendoxy yaml annalist emmet-mode edit-indirect drag-stuff company-fuzzy auto-rename-tag evil-collection apheleia company-math math-symbol-lists org-roam-server poetry cfrs emacsql-sqlite3 direnv pony-mode py-docformatter valign lsp-latex grip-mode evil-easymotion dired-quick-sort sphinx-doc org-rich-yank lsp-origami origami ron-mode lsp-pyright org-superstar posframe emr lsp-haskell intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell dante lcr company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode attrap lsp-ui dap-mode lsp-treemacs lsp-mode magit-section org-ql peg ov org-super-agenda ts flycheck-elsa mixed-pitch unicode-fonts ucs-utils font-utils persistent-soft list-utils terminal-here helm-ls-git vterm treemacs-magit hybrid-mode add-node-modules-path tide bui tree-mode xr lsp-scala helm-org go-impl rubocopfmt lsp-python-ms python cpp-auto-include company-reftex geiser devdocs toml-mode symbol-overlay racer flycheck-rust cargo rust-mode helm-lsp flycheck-package package-lint blacken company-go company-quickhelp flycheck-golangci-lint godoctor go-tag go-rename go-guru go-gen-test go-fill-struct go-eldoc go-mode import-js grizzl evil-textobj-line lv transient treemacs-projectile treemacs-evil pfuture emacsql systemd writeroom-mode visual-fill-column helm-org-rifle ccls simpleclip org-cliplink doom-modeline eldoc-eval shrink-path treepy graphql eglot jsonrpc twilight-bright-theme phpunit phpcbf php-extras php-auto-yasnippets drupal-mode company-php ac-php-core xcscope php-mode company-lsp lsp-python lsp-javascript-typescript lsp-java cquery evil-lisp-state typescript-mode prettier-js helm-git-grep seeing-is-believing chinese-conv gitignore-templates dotenv-mode nginx-mode rjsx-mode magit-svn json-navigator hierarchy evil-goggles magithub ghub+ apiwrap magit-gh-pulls github-search github-clone git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito diff-hl browse-at-remote stickyfunc-enhance srefactor swift-mode ranger pipenv helm-xref all-the-icons memoize spaceline powerline pyim-basedict pcre2el spinner ht org-category-capture alert log4e gntp markdown-mode skewer-mode json-snatcher json-reformat multiple-cursors epc ctable concurrent simple-httpd htmlize parent-mode window-purpose imenu-list haml-mode pcache gitignore-mode flyspell-correct pos-tip flycheck flx magit magit-popup git-commit ghub with-editor iedit smartparens paredit anzu highlight sbt-mode scala-mode projectile counsel swiper ivy ycmd pkg-info request-deferred let-alist request deferred epl web-completion-data dash-functional tern rtags restclient know-your-http-well lua-mode eclim inf-ruby packed anaconda-mode pythonic dash pinyinlib helm helm-core auto-complete popup org-plus-contrib evil goto-chg diminish bind-map bind-key yasnippet undo-tree sml-mode test-simple loc-changes load-relative js2-mode f s company seq auctex avy hydra async nlinum-relative nlinum csv-mode yasnippet-snippets yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vlf vimrc-mode vi-tilde-fringe uuidgen use-package toc-org tagedit symon string-inflection sql-indent spaceline-all-the-icons solarized-theme smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restclient-helm restart-emacs realgud rbenv rake rainbow-mode rainbow-delimiters pyvenv pytest pyim pyenv-mode py-isort pug-mode prodigy popwin pippel pip-requirements persp-mode password-generator paradox pangu-spacing ox-pandoc ox-gfm overseer org-projectile org-preview-html org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file ob-sml ob-restclient ob-http noflet nodejs-repl neotree nameless mvn multi-term move-text moonscript mmm-mode minitest meghanada maven-test-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc insert-shebang indent-guide importmagic impatient-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode groovy-imports gradle-mode google-translate google-c-style golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fzf fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-bashate flx-ido fish-mode find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ensime enh-ruby-mode elisp-slime-nav editorconfig dumb-jump dockerfile-mode disaster define-word dactyl-mode cython-mode counsel-projectile company-ycmd company-web company-tern company-statistics company-shell company-rtags company-restclient company-lua company-emacs-eclim company-c-headers company-auctex company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow coffee-mode cnfonts clean-aindent-mode clang-format chruby centered-cursor-mode bundler beacon auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile applescript-mode aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ace-jump-helm-line ac-ispell))
  '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
  '(persp-autokill-buffer-on-remove 'kill-weak)
  '(pos-tip-background-color "#eee8d5")
@@ -224,17 +300,12 @@
    '((user :default "postgres")
      (server :default "localhost")
      (database :default "postgres" :completion
-               #[771 "\211\242\302=\206
- \211\303=?\2053 r\301\204 p\202( \304 \305!\203% \306!\202& p\262q\210\307\300!$)\207"
+               #[771 "\211\242\302=\206\12\0\211\303=?\2053\0r\301\204\27\0p\202(\0\304 \305\1!\203%\0\306\1!\202&\0p\262\1q\210\307\1\300\5!\5\5$)\207"
                      [#[257 "\300 \207"
                             [sql-postgres-list-databases]
-                            2 "
-
-(fn _)"]
+                            2 "\12\12(fn _)"]
                       nil boundaries metadata minibuffer-selected-window window-live-p window-buffer complete-with-action]
-                     8 "
-
-(fn STRING PRED ACTION)"]
+                     8 "\12\12(fn STRING PRED ACTION)"]
                :must-match confirm)))
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")

@@ -115,7 +115,8 @@ values."
                 vimscript-backend 'nil)
      sql
      csv
-     nixos
+     (nixos :variables
+            nixos-format-on-save t)
 
      syntax-checking
 
@@ -242,6 +243,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (exec-path-from-shell-copy-env "PATH")
+  ;; Necessary for magit interactions with ssh.
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
   (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 

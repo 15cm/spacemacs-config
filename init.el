@@ -247,6 +247,8 @@ you should place your code here."
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
   (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 
+  (prefer-coding-system 'utf-8-unix)
+
   ;; Patch auto-mode-alist to inspect extensions that's not at the end
   (unless auto-mode-alist-has-been-patched
     (setq auto-mode-alist-has-been-patched t)

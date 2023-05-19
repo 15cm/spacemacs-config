@@ -214,14 +214,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Shell bug fix
   (add-hook 'term-mode-hook (lambda () (toggle-truncate-lines) (make-local-variable 'transient-mark-mode) (setq transient-mark-mode nil)))
 
-  ;; Init exec-path-from-shell
-  ;; Speed up launch
-  (with-eval-after-load 'exec-path-from-shell
-    (setq-default exec-path-from-shell-check-startup-files nil)
-    (when (memq window-system '(mac ns x))
-      (exec-path-from-shell-initialize))
-    )
-
   (setq org-roam-v2-ack t)
 
   ;; persp autosave
@@ -241,11 +233,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-
-  (exec-path-from-shell-copy-env "PATH")
-  ;; Necessary for magit interactions with ssh.
-  (exec-path-from-shell-copy-env "SSH_AGENT_PID")
-  (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
+  ;; SSH_* variables are required for magit interactions with ssh.
+  (setq exec-path-from-shell-arguments "")
+  (setq exec-path-from-shell-variables '("PATH" "SSH_AGENT_PID" "SSH_AUTH_SOCK"))
+  (exec-path-from-shell-initialize)
 
   (prefer-coding-system 'utf-8-unix)
 

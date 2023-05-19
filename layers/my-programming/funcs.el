@@ -86,11 +86,11 @@ autoflake. "
         tab-width 2))
 
 (defun my-python-mode-hook()
+  (apheleia-mode 1)
   (semantic-mode 0))
 
 ;; Hooks that applies to projects.
 (defun my-python-mode-lsp-hook()
-  (apheleia-mode 1)
   (flycheck-add-next-checker 'lsp 'python-flake8))
 
 (defun my-elisp-mode-hook())

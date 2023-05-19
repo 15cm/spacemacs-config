@@ -31,13 +31,8 @@
     dockerfile-mode
     toml-mode
     lsp-mode
-    (apheleia :location
-              (recipe :fetcher github
-                      :repo "raxod502/apheleia"))
-    (prisma-mode :location
-                 (recipe :fetcher github
-                         :repo "pimeys/emacs-prisma-mode"))
     company-fuzzy
+    apheleia
     (lark-mode :location local)))
 
 (defun my-programming/post-init-company()
@@ -136,7 +131,15 @@
 
 (defun my-programming/init-apheleia ()
   (use-package apheleia
-    :defer t))
+    :defer t
+    :config
+    (setf (alist-get 'isort apheleia-formatters)
+          '("isort" "--stdout" "-"))
+    (setf (alist-get 'isort apheleia-formatters)
+          '("docformatter" "-"))
+    (setf (alist-get 'python-mode apheleia-formatters)
+          '(black isort docformatter))
+    ))
 
 (defun my-programming/init-prisma-mode ()
   (use-package prisma-mode

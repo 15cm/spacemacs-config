@@ -70,7 +70,6 @@ values."
                       ;; auto-completion-enable-help-tooltip t
                       ;; auto-completion-use-company-box t
                       )
-     tree-sitter
      emacs-lisp
      lsp
      dap
@@ -278,17 +277,12 @@ you should place your code here."
 
   (global-anzu-mode 1)
   (cnfonts-mode 1)
+  (setq-default org-roam-directory "~/org")
 
   ;; Load the theme config
   (let ((theme-conf-file "~/.config/emacs/scripts/load-theme.el"))
-    (when (file-exists-p theme-conf-file) (load-file theme-conf-file)))
-
-  ;; Hack to enable smartparens in auto-completion
-  (with-eval-after-load 'yasnippet
-    (remove-hook 'yas-before-expand-snippet-hook
-                 #'spacemacs//smartparens-disable-before-expand-snippet)
-    (remove-hook 'yas-after-exit-snippet-hook
-                 #'spacemacs//smartparens-restore-after-exit-snippet))
+    (when (file-exists-p theme-conf-file)
+      (load-file theme-conf-file)))
 
   ;; General key bindings.
   (global-set-key (kbd "M-.") 'hippie-expand)

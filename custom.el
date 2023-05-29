@@ -256,9 +256,6 @@
      ("FIXME" . "#dc752f")
      ("XXX" . "#dc752f")
      ("XXXX" . "#dc752f")))
- '(lsp-enable-snippet nil)
- '(lsp-enable-symbol-highlighting nil)
- '(lsp-ui-doc-border "#586e75")
  '(magit-delete-by-moving-to-trash nil)
  '(magit-diff-use-overlays nil)
  '(magit-git-global-arguments
@@ -287,11 +284,7 @@
    '((python-shell-extra-pythonpaths "/home/sinkerine/tech/repo/otominato-server/__pypackages__/3.10/lib")
      (python-shell-extra-pythonpaths "/home/sinkerine/tech/repo/otominato-server/otominato/__pypackages__/3.10/lib")
      (python-shell-process-environment "DJANGO_SETTINGS_MODULE=otominato.settings.dev" "OTOMINATO_CONFIG_PATH=$HOME/tech/repo/otominato-server/environments/dev/otominato-dev.toml")
-     (typescript-backend . tide)
-     (typescript-backend . lsp)
-     (javascript-backend . tide)
-     (javascript-backend . tern)
-     (javascript-backend . lsp)))
+     ))
  '(save-interprogram-paste-before-kill nil)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(sp-escape-quotes-after-insert nil)
@@ -336,5 +329,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t)
- '(lsp-ui-doc-background ((((background light)) :background "#f8f2f1") (t :background "#272A36"))))
+ '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))

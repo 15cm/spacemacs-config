@@ -12,7 +12,6 @@
 (defconst my-programming-packages
   '(
     company
-    company-lsp
     yasnippet
     js2-mode
     typescript-mode
@@ -30,14 +29,12 @@
     applescript-mode
     dockerfile-mode
     toml-mode
-    lsp-mode
     company-fuzzy
     apheleia
     (lark-mode :location local)))
 
 (defun my-programming/post-init-company()
-  (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode)
-  (with-eval-after-load 'company (add-hook 'company-mode-hook #'my-company-mode-hook)))
+  (spacemacs|add-company-backends :backends (company-dabbrev-code) :modes sh-mode))
 
 (defun my-programming/post-init-yasnippet ()
   (with-eval-after-load 'yasnippet
@@ -80,8 +77,7 @@
 
 (defun my-programming/post-init-enh-ruby-mode()
     (spacemacs|add-company-backends :backends (company-robe company-dabbrev-code)
-                                    :modes ruby-mode enh-ruby-mode)
-    (add-hook 'enh-ruby-mode-hook 'my-ruby-mode-hook))
+                                    :modes ruby-mode enh-ruby-mode))
 
 (defun my-programming/post-init-emacs-lisp()
   (add-hook 'emacs-lisp-mode-hook 'my-elisp-mode-hook))
@@ -114,20 +110,8 @@
   (use-package dockerfile-mode
     :defer t))
 
-(defun my-programming/post-init-company-lsp()
-  (setq company-transformers nil
-        company-lsp-async t
-        company-lsp-cache-candidates 'auto))
-
 (defun my-programming/post-init-toml-mode ()
   (add-hook 'toml-mode-hook 'my-toml-mode-hook))
-
-(defun my-programming/post-init-lsp-mode ()
-  (add-hook 'lsp-pyright-after-open-hook #'my-python-mode-lsp-hook)
-  (with-eval-after-load 'lsp-mode
-    (add-to-list 'lsp-language-id-configuration '(direnv-envrc-mode . "shellscript"))
-    (advice-add 'lsp--path-is-watchable-directory
-            :around #'++lsp--path-is-watchable-directory-a)))
 
 (defun my-programming/init-apheleia ()
   (use-package apheleia

@@ -89,10 +89,6 @@ autoflake. "
   (apheleia-mode 1)
   (semantic-mode 0))
 
-;; Hooks that applies to projects.
-(defun my-python-mode-lsp-hook()
-  (flycheck-add-next-checker 'lsp 'python-flake8))
-
 (defun my-elisp-mode-hook())
 
 (defun my-moonscript-mode-hook()
@@ -130,7 +126,7 @@ autoflake. "
   ;; Find node executable by path because `npx' was not supported by flycheck
   ;; https://github.com/flycheck/flycheck/issues/1428.
   (setq-local flycheck-executable-find #'flycheck-node_modules-executable-find)
-  (flycheck-add-next-checker 'lsp 'javascript-eslint))
+  (flycheck-add-next-checker 'javascript-eslint))
 
 (defun my-sql-mode-hook()
   (setq tab-width 2))
@@ -149,40 +145,7 @@ autoflake. "
     (setq smartparens-mode smartparens-mode-original-value)
     (makunbound 'smartparens-mode-original-value)))
 
-(defun my-disable-snippet-around-curry (&optional mode)
-  (let ((around-f (lambda (f &rest args)
-                  (let ((lsp-enable-snippet nil)
-                        (company-lsp-enable-snippet nil))
-                    (funcall f args)))))
-    (if (boundp mode)
-        (lambda (f &rest args) (if (eq major-mode mode) (funcall around-f f args) (funcall f args)))
-      around-f)))
-
-(defun company-lsp-complete-selection-no-snippet ()
-  (interactive)
-  (funcall (my-disable-snippet-around-curry) #'company-complete-selection))
-
 (defun my-toml-mode-hook ()
   (setq c-basic-offset 2)
   (setq tab-width 2))
 
-(defun my-ruby-mode-hook ()
-  (with-eval-after-load 'lsp-mode
-    (add-hook 'before-save-hook 'lsp-format-buffer)))
-
-(defun my-company-mode-hook ())
-
-;; https://github.com/emacs-lsp/lsp-mode/issues/713#issuecomment-985653873
-(defun ++git-ignore-p (path)
-  (let* (; trailing / breaks git check-ignore if path is a symlink:
-         (path (directory-file-name path))
-         (default-directory (file-name-directory path))
-         (relpath (file-name-nondirectory path))
-         (cmd (format "git check-ignore '%s'" relpath))
-         (status (call-process-shell-command cmd)))
-    (eq status 0)))
-
-(defun ++lsp--path-is-watchable-directory-a
-    (fn path dir ignored-directories)
-  (and (not (++git-ignore-p (f-join dir path)))
-       (funcall fn path dir ignored-directories)))

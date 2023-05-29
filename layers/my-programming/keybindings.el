@@ -22,14 +22,11 @@
   (evil-make-overriding-map gdb-breakpoints-mode-map 'normal)
   (evil-set-initial-state 'gdb-breakpoints-mode 'normal))
 
-(with-eval-after-load 'company-lsp
-    (define-key company-active-map (kbd "<S-return>") 'company-lsp-complete-selection-no-snippet))
-
 ;; python
 (spacemacs/set-leader-keys-for-major-mode 'python-mode "gD" 'xref-find-definitions-other-window)
 (spacemacs/set-leader-keys-for-major-mode 'python-mode "ir" 'my-python-remove-unused-imports)
 (spacemacs/set-leader-keys-for-major-mode 'python-mode "==" 'apheleia-format-buffer)
 
-;; Lsp
-(with-eval-after-load 'lsp-mode
-  (spacemacs/lsp-define-key lsp-command-map "to" #'lsp-treemacs-symbols))
+;; C++
+(spacemacs/set-leader-keys-for-major-mode 'c++-mode "gr" 'xref-find-references)
+(spacemacs/set-leader-keys-for-major-mode 'c++-mode "rr" 'eglot-rename)

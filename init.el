@@ -71,33 +71,26 @@ values."
                       ;; auto-completion-use-company-box t
                       )
      emacs-lisp
-     lsp
      dap
      scheme
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
-            c-c++-backend 'lsp-ccls)
+            c-c++-backend nil)
      rust
      (go :variables
-         go-backend 'lsp
          go-use-golangci-lint t)
      (python :variables
-             python-backend 'lsp
-             python-lsp-server 'pyright
              python-sort-imports-on-save nil)
-     (java :variables
-           java-backend nil)
+     java
      (ruby :variables
            ruby-enable-enh-ruby-mode t
-           ruby-backend 'lsp
+           ruby-backend nil
            ruby-version-manager 'rbenv)
      (javascript :variables
-                 javascript-backend 'lsp
                  javascript-fmt-on-save t
                  javascript-fmt-tool 'prettier)
      (typescript :variables
                  node-add-modules-path t
-                 typescript-backend 'lsp
                  typescript-linter 'eslint
                  typescript-fmt-on-save t
                  typescript-fmt-tool 'prettier)
@@ -253,10 +246,6 @@ you should place your code here."
       (setq auto-mode-alist (append auto-mode-alist patched-auto-mode-alist-tmpl patched-auto-mode-alist-jinja))))
 
   (advice-add 'semantic-idle-scheduler-function :around #'ignore)
-
-  ;; https://github.com/yyoncho/lsp-mode/tree/perf-docs#performance
-  (setq gc-cons-threshold 200000000)
-  (setq read-process-output-max (* 1024 1024)) ;; 1mb
 
   (global-evil-mc-mode 1) ;; Always enable evil multiple cursor
   (global-company-mode)

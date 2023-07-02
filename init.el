@@ -79,8 +79,6 @@ values."
      rust
      (go :variables
          go-use-golangci-lint t)
-     (python :variables
-             python-sort-imports-on-save nil)
      java
      (ruby :variables
            ruby-enable-enh-ruby-mode nil

@@ -83,7 +83,7 @@ values."
              python-sort-imports-on-save nil)
      java
      (ruby :variables
-           ruby-enable-enh-ruby-mode t
+           ruby-enable-enh-ruby-mode nil
            ruby-backend nil
            ruby-version-manager 'rbenv)
      (javascript :variables

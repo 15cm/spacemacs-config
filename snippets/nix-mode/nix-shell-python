@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: nix shell python
+# key: nix-shell-python
+# --
+{ pkgs ? import <nixpkgs> { } }:
+let myPythonPackages = ps: with ps; [ $0 ];
+in pkgs.mkShell {
+  packages = with pkgs; [ (python3.withPackages myPythonPackages) ];
+}

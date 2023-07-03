@@ -49,13 +49,6 @@ values."
                treemacs-use-scope-type 'Perspectives)
 
      ;; tools
-      (ranger :variables
-              ranger-show-preview t
-              ranger-show-literal nil
-              ranger-ignored-extensions '("mkv" "iso" "mp4" "zip" "tar")
-              ranger-max-preview-size 10
-              ranger-parent-depth 2
-              )
       systemd
       restclient
 

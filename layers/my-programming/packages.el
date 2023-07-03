@@ -19,7 +19,7 @@
     cc-mode
     go-mode
     sh-script
-    python
+    (python :location built-in)
     enh-ruby-mode
     emacs-lisp
     moonscript
@@ -72,8 +72,11 @@
 (defun my-programming/post-init-sh-script()
   (add-hook 'sh-mode-hook 'my-sh-mode-hook))
 
-(defun my-programming/post-init-python()
-  (add-hook 'python-mode-hook 'my-python-mode-hook))
+(defun my-programming/init-python()
+  (use-package python
+    :defer t
+    :config
+    (add-hook 'python-mode-hook 'my-python-mode-hook)))
 
 (defun my-programming/post-init-enh-ruby-mode()
     (spacemacs|add-company-backends :backends (company-robe company-dabbrev-code)

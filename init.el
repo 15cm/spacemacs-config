@@ -144,7 +144,8 @@ values."
                                        :location
                                        (recipe
                                         :fetcher github
-                                        :repo "kmonad/kbd-mode")))
+                                        :repo "kmonad/kbd-mode"))
+                                      editorconfig)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-escape

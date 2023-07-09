@@ -26,6 +26,7 @@
 (spacemacs/set-leader-keys-for-major-mode 'python-mode "gD" 'xref-find-definitions-other-window)
 (spacemacs/set-leader-keys-for-major-mode 'python-mode "ir" 'my-python-remove-unused-imports)
 (spacemacs/set-leader-keys-for-major-mode 'python-mode "==" 'apheleia-format-buffer)
+(spacemacs/set-leader-keys-for-major-mode 'python-mode "rr" 'eglot-rename)
 
 ;; C++
 (spacemacs/set-leader-keys-for-major-mode 'c++-mode "gr" 'xref-find-references)

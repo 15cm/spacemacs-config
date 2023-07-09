@@ -248,6 +248,7 @@ you should place your code here."
   (simpleclip-mode 1)
 
   (spacemacs/toggle-indent-guide-globally-on)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
   ;; beacon
   (beacon-mode 1)

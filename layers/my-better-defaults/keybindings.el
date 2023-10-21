@@ -14,7 +14,6 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-/") 'company-files)
-(global-set-key (kbd "M-,") 'helm-company)
 
 ;; evil
 (with-eval-after-load 'evil-surround
@@ -55,11 +54,6 @@
 (define-key evil-normal-state-map (kbd "C-y") 'copy-kill-ring-to-clipboard)
 (global-set-key (kbd my-paste-key) 'paste-from-clipboard)
 
-(with-eval-after-load 'helm
-    (define-key helm-map (kbd my-paste-key) 'paste-from-clipboard))
-
-(global-set-key (kbd "M-c") 'helm-show-kill-ring)
-
 ;; avy
 (define-key evil-normal-state-map "t" 'evil-avy-goto-char-in-line)
 (define-key evil-visual-state-map "t" 'evil-avy-goto-char-in-line)
@@ -78,7 +72,3 @@
 ;; yas
 (global-unset-key (kbd "C-\\"))
 (global-set-key (kbd "C-\\") 'yas-expand)
-
-;; search
-(evil-leader/set-key "ss" 'spacemacs/helm-file-smart-do-search)
-(evil-leader/set-key "sS" 'spacemacs/helm-file-smart-do-search-region-or-symbol)

@@ -149,3 +149,7 @@ autoflake. "
   (setq c-basic-offset 2)
   (setq tab-width 2))
 
+(defun my-caddyfile-mode-hook ()
+  (setq-local tab-width 4)
+  (setq-local indent-tabs-mode nil))
+

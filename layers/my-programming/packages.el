@@ -28,6 +28,7 @@
     sml-mode
     applescript-mode
     dockerfile-mode
+    caddyfile-mode
     toml-mode
     company-fuzzy
     apheleia
@@ -112,6 +113,12 @@
 (defun my-programming/init-dockerfile-mode()
   (use-package dockerfile-mode
     :defer t))
+
+(defun my-programming/init-caddyfile-mode()
+  (use-package caddyfile-mode
+    :defer t
+    :config
+    (add-hook 'caddyfile-mode-hook 'my-caddyfile-mode-hook)))
 
 (defun my-programming/post-init-toml-mode ()
   (add-hook 'toml-mode-hook 'my-toml-mode-hook))

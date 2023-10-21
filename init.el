@@ -48,6 +48,8 @@ values."
      (treemacs :variables
                treemacs-use-scope-type 'Perspectives)
 
+     compleseus
+
      ;; tools
       systemd
       restclient
@@ -149,11 +151,9 @@ values."
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-escape
-                                    helm-swoop
                                     ace-pinyin
                                     importmagic
                                     org-brain
-                                    helm-gitignore
                                     gitattributes-mode
                                     gitignore-mode
                                     gitconfig-mode
@@ -252,10 +252,6 @@ you should place your code here."
 
   ;; beacon
   (beacon-mode 1)
-
-  ;; helm-ag
-  (setq-default helm-ag-fuzzy-match t)
-  (setq-default helm-ag-use-agignore t)
 
   (global-anzu-mode 1)
   (cnfonts-mode 1)

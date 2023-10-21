@@ -8,6 +8,7 @@
 
 ;; dockerfile-mode
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode ))
+(add-to-list 'auto-mode-alist '("Caddyfile\\'" . caddyfile-mode ))
 (add-to-list 'auto-mode-alist '("\\.lex\\'" . sml-lex-mode))
 (add-to-list 'auto-mode-alist '("\\.prisma\\'" . prisma-mode))
 (add-to-list 'auto-mode-alist '("\\..*rc\\(.[a-z]+\\)+$" . shell-script-mode))

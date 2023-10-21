@@ -72,3 +72,9 @@
 ;; yas
 (global-unset-key (kbd "C-\\"))
 (global-set-key (kbd "C-\\") 'yas-expand)
+
+;; search
+(evil-leader/set-key "ss" 'my-compleseus-search-buffer-file)
+(evil-leader/set-key "sS" 'my-compleseus-search-buffer-file-with-input)
+(evil-leader/set-key "sd" 'my-compleseus-search-dir)
+(evil-leader/set-key "sD" 'my-compleseus-search-dir-with-input)

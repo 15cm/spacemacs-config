@@ -92,3 +92,20 @@ in any way you like."
   (let ((bounds (bounds-of-thing-at-point 'symbol)))
     (goto-char (cdr bounds))
     (completion-at-point)))
+
+(defun my-compleseus-search-dir (&optional with-input)
+  (interactive)
+  (spacemacs/compleseus-search with-input default-directory))
+
+(defun my-compleseus-search-dir-with-input ()
+  (interactive)
+  (my-compleseus-search-dir t default-directory))
+
+(defun my-compleseus-search-buffer-file (&optional with-input)
+  (interactive)
+  (let ((consult-ripgrep-args (concat consult-ripgrep-args " -g " (file-name-nondirectory (buffer-file-name)))))
+    (spacemacs/compleseus-search with-input default-directory)))
+
+(defun my-compleseus-search-buffer-file-with-input ()
+  (interactive)
+  (my-compleseus-search-buffer-file t))

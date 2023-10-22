@@ -74,7 +74,14 @@
 (global-set-key (kbd "C-\\") 'yas-expand)
 
 ;; search
-(evil-leader/set-key "ss" 'my-compleseus-search-buffer-file)
-(evil-leader/set-key "sS" 'my-compleseus-search-buffer-file-with-input)
 (evil-leader/set-key "sd" 'my-compleseus-search-dir)
 (evil-leader/set-key "sD" 'my-compleseus-search-dir-with-input)
+(define-key minibuffer-mode-map (kbd "<next>") 'vertico-scroll-up)
+(define-key minibuffer-mode-map (kbd "<prior>") 'vertico-scroll-down)
+(define-key minibuffer-mode-map (kbd "C-p") 'previous-history-element)
+(define-key minibuffer-mode-map (kbd "C-n") 'next-history-element)
+(with-eval-after-load 'vertico-mode
+  (define-key vertico-map (kbd "<next>") 'vertico-scroll-up)
+  (define-key vertico-map (kbd "<prior>") 'vertico-scroll-down)
+  (define-key vertico-map (kbd "C-p") 'previous-history-element)
+  (define-key vertico-map (kbd "C-n") 'next-history-element))

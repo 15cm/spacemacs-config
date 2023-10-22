@@ -99,13 +99,5 @@ in any way you like."
 
 (defun my-compleseus-search-dir-with-input ()
   (interactive)
-  (my-compleseus-search-dir t default-directory))
+  (my-compleseus-search-dir t))
 
-(defun my-compleseus-search-buffer-file (&optional with-input)
-  (interactive)
-  (let ((consult-ripgrep-args (concat consult-ripgrep-args " -g " (file-name-nondirectory (buffer-file-name)))))
-    (spacemacs/compleseus-search with-input default-directory)))
-
-(defun my-compleseus-search-buffer-file-with-input ()
-  (interactive)
-  (my-compleseus-search-buffer-file t))

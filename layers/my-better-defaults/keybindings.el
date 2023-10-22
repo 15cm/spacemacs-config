@@ -53,6 +53,7 @@
 (define-key evil-visual-state-map (kbd "C-y") 'copy-selection-to-clipboard)
 (define-key evil-normal-state-map (kbd "C-y") 'copy-kill-ring-to-clipboard)
 (global-set-key (kbd my-paste-key) 'paste-from-clipboard)
+(global-set-key (kbd "M-c") 'consult-yank-from-kill-ring)
 
 ;; avy
 (define-key evil-normal-state-map "t" 'evil-avy-goto-char-in-line)

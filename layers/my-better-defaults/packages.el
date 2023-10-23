@@ -17,7 +17,6 @@
     beacon
     fzf
     yasnippet
-    cnfonts
     edit-indirect
     ))
 
@@ -39,10 +38,6 @@
 
 (defun my-better-defaults/init-fzf()
   (use-package fzf
-    :defer t))
-
-(defun my-better-defaults/init-cnfonts()
-  (use-package cnfonts
     :defer t))
 
 (defun my-better-defaults/post-init-yasnippet()

@@ -102,8 +102,8 @@ values."
      csv
      (nixos :variables
             nixos-format-on-save t)
-
      syntax-checking
+     nginx
 
      ;writing
      (org :variables
@@ -113,7 +113,6 @@ values."
      markdown
      (latex :variables
             latex-build-command "XeLaTeX")
-     nginx
 
      ;; services
      git
@@ -208,6 +207,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; simpleclip content provider
   (when (and (not (my-system-typep-darwin)) (executable-find "copyq"))
     (setq-default simpleclip-custom-content-provider "copyq clipboard"))
+
+  ;; Set fonts for non-ascii characters.
+  (set-fontset-font t 'emoji "Noto Color Emoji")
+  (set-fontset-font t 'han "Sarasa Mono SC")
+  (set-fontset-font t 'han "Sarasa Mono J" nil 'append)
+  (set-fontset-font t 'kana "Sarasa Mono J")
 )
 
 (defun dotspacemacs/user-config ()
@@ -254,7 +259,6 @@ you should place your code here."
   (beacon-mode 1)
 
   (global-anzu-mode 1)
-  (cnfonts-mode 1)
   (setq-default org-roam-directory "~/org")
 
   ;; Load the theme config

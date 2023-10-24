@@ -77,6 +77,8 @@
 ;; search
 (evil-leader/set-key "sd" 'my-compleseus-search-dir)
 (evil-leader/set-key "sD" 'my-compleseus-search-dir-with-input)
+(evil-leader/set-key "ss" 'my-compleseus-search-file)
+(evil-leader/set-key "sS" 'my-compleseus-search-file-with-input)
 (define-key minibuffer-mode-map (kbd "<next>") 'vertico-scroll-up)
 (define-key minibuffer-mode-map (kbd "<prior>") 'vertico-scroll-down)
 (define-key minibuffer-mode-map (kbd "C-p") 'previous-history-element)

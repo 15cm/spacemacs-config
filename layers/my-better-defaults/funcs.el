@@ -101,3 +101,20 @@ in any way you like."
   (interactive)
   (my-compleseus-search-dir t))
 
+(defun my-compleseus-search-file (&optional with-input)
+  (interactive)
+  (let* ((fname (file-name-nondirectory (buffer-file-name)))
+         ;; Pass fname as an expression to avoid it being split by spaces.
+        (consult-ripgrep-args `(,consult-ripgrep-args "-g" fname))
+        (initial-input (if with-input
+                           (rxt-quote-pcre
+                            (if (region-active-p)
+                                (buffer-substring-no-properties
+                                 (region-beginning) (region-end))
+                              (or (thing-at-point 'symbol t) "")))
+                         "")))
+    (consult-ripgrep default-directory initial-input)))
+
+(defun my-compleseus-search-file-with-input ()
+  (interactive)
+  (my-compleseus-search-file t))

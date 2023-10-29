@@ -40,9 +40,7 @@
     ;; Default agenda files
     ;; Library for searching org files under a certain directory
     (unless (boundp 'find-lisp-find-files) (load-library "find-lisp"))
-    (let ((todo-dir "~/sync/my-data/todo"))
-      (if (file-exists-p todo-dir)
-          (progn (setq org-agenda-files (find-lisp-find-files todo-dir "\.org$")))))
+    (setq org-agenda-files `(,org-roam-directory))
 
     ;; Disable underscore to subscript
     (setq org-export-with-sub-superscripts nil)

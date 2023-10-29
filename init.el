@@ -259,7 +259,6 @@ you should place your code here."
   (beacon-mode 1)
 
   (global-anzu-mode 1)
-  (setq-default org-roam-directory "~/org")
 
   ;; Load the theme config
   (let ((theme-conf-file "~/.config/emacs/scripts/load-theme.el"))

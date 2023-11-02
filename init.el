@@ -128,6 +128,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      esup
                                       exec-path-from-shell
                                       (company-auctex :location
                                                       (recipe :fetcher github
@@ -213,6 +214,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (set-fontset-font t 'han "Sarasa Mono SC")
   (set-fontset-font t 'han "Sarasa Mono J" nil 'append)
   (set-fontset-font t 'kana "Sarasa Mono J")
+
+  (defun my-load-theme (&optional msg)
+    (interactive)
+    (message msg)
+    (let ((theme-conf-file "~/.config/emacs/scripts/load-theme.el"))
+      (when (file-exists-p theme-conf-file)
+        (load-file theme-conf-file))))
 )
 
 (defun dotspacemacs/user-config ()
@@ -260,10 +268,7 @@ you should place your code here."
 
   (global-anzu-mode 1)
 
-  ;; Load the theme config
-  (let ((theme-conf-file "~/.config/emacs/scripts/load-theme.el"))
-    (when (file-exists-p theme-conf-file)
-      (load-file theme-conf-file)))
+  (my-load-theme "config")
 
   ;; General key bindings.
   (global-set-key (kbd "M-.") 'hippie-expand)

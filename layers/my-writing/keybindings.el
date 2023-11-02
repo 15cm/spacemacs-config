@@ -11,4 +11,4 @@
 ;; (spacemacs/set-leader-keys-for-major-mode 'org-mode "rd" 'org-download-delete)
 
 ;; org-attach
-(spacemacs/set-leader-keys-for-major-mode 'org-mode "a" 'org-attach)
+(spacemacs/set-leader-keys-for-major-mode 'org-mode "a" 'org-agenda)

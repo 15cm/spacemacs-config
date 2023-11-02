@@ -40,7 +40,7 @@
     ;; Default agenda files
     ;; Library for searching org files under a certain directory
     (unless (boundp 'find-lisp-find-files) (load-library "find-lisp"))
-    (setq org-agenda-files `(,org-roam-directory))
+    ;;(setq org-agenda-files `(,org-roam-directory))
 
     ;; Disable underscore to subscript
     (setq org-export-with-sub-superscripts nil)
